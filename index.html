@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مدیریت باشگاه فوتبال</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Tahoma, sans-serif; background: #1a1a2e; color: #eee; min-height: 100vh; }
+.container { max-width: 600px; margin: 0 auto; padding: 20px; }
+.card { background: #16213e; border-radius: 15px; padding: 20px; margin: 10px 0; border: 1px solid #0f3460; }
+h1 { text-align: center; color: #e94560; margin: 20px 0; font-size: 24px; }
+h2 { color: #e94560; margin-bottom: 15px; }
+button { background: #e94560; color: white; border: none; padding: 12px 20px; border-radius: 10px; cursor: pointer; width: 100%; margin: 5px 0; font-size: 16px; font-family: Tahoma; }
+button:hover { background: #c73652; }
+button.green { background: #27ae60; }
+button.green:hover { background: #219a52; }
+button.gray { background: #555; }
+input, select { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #0f3460; background: #0f3460; color: #eee; font-size: 16px; font-family: Tahoma; margin: 5px 0; }
+.msg { text-align: center; padding: 10px; border-radius: 8px; margin: 10px 0; }
+.msg.error { background: #c0392b; }
+.msg.success { background: #27ae60; }
+.hidden { display: none; }
+.team-btn { background: #0f3460; margin: 3px 0; text-align: right; }
+.team-btn:hover { background: #1a4a80; }
+.info-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #0f3460; }
+</style>
+</head>
+<body>
+<div class="container">
+<h1>⚽ مدیریت باشگاه فوتبال</h1>
+<div id="msg" class="msg hidden"></div>
+<div id="page-leagues" class="card">
+<h2>🏆 انتخاب لیگ</h2>
+<div id="leagues-list"></div>
+</div>
+
+<div id="page-teams" class="card hidden">
+<h2 id="league-title"></h2>
+<button class="gray" onclick="showLeagues()">🔙 برگشت</button>
+<div id="teams-list"></div>
+</div>
+
+<div id="page-password" class="card hidden">
+<h2 id="team-title-pass"></h2>
+<p>برای ورود به این تیم پسورد وارد کنید:</p>
+<input type="password" id="input-password" placeholder="پسورد تیم">
+<button onclick="enterTeam()">✅ ورود</button>
+<button class="gray" onclick="showTeams()">🔙 برگشت</button>
+</div>
+
+<div id="page-signature" class="card hidden">
+<h2>✍️ ساخت امضا</h2>
+<p>۳ یا ۴ ایموجی وارد کنید:</p>
+<input type="text" id="input-signature" placeholder="مثال: 🔥⚽🦅">
+<button onclick="saveSignature()">✅ ثبت امضا</button>
+</div>
+
+<div id="page-main" class="card hidden">
+<h2 id="main-team-name"></h2>
+<button onclick="showAssets()">💰 مشاهده دارایی</button>
+<button onclick="showBuyCompany()">🏢 خرید شرکت</button>
+<button onclick="showBuySponsor()">👕 خرید اسپانسر</button>
+<button onclick="showMyPlayers()">⚽ بازیکنان من</button>
+<button onclick="showSalePlayers()">🛒 بازیکنان در لیست فروش</button>
+<button onclick="showSellPlayer()">💸 فروش بازیکن</button>
+<button onclick="showBuyPlayer()">🤝 خرید بازیکن</button>
+<button onclick="showRequests()">📬 درخواست‌ها</button>
+<button class="gray" onclick="exitGame()">🚪 خروج از بازی</button>
+</div>
+
+<div id="page-assets" class="card hidden">
+<h2>💰 دارایی تیم</h2>
+<div id="assets-content"></div>
+<button class="gray" onclick="showMain()">🔙 برگشت</button>
+</div>
+
+<div id="page-buy-company" class="card hidden">
+<h2>🏢 خرید شرکت</h2>
+<div id="companies-list"></div>
+<button class="gray" onclick="showMain()">🔙 برگشت</button>
+</div>
+
+<div id="page-buy-sponsor" class="card hidden">
+<h2>👕 خرید اسپانسر</h2>
+<div id="sponsors-list"></div>
+<button class="gray" onclick="showMain()">🔙 برگشت</button>
+</div>
+
+<div id="page-my-players" class="card hidden">
+<h2>⚽ بازیکنان من</h2>
+<div id="my-players-list"></div>
+<button class="gray" onclick="showMain()">🔙 برگشت</button>
+</div>
+
+<div id="page-sale-players" class="card hidden">
+<h2>🛒 بازیکنان در فروش</h2>
+<div id="sale-players-list"></div>
+<button class="gray" onclick="showMain()">🔙 برگشت</button>
+</div>
+
+<div id="page-sell-player" class="card hidden">
+<h2>💸 فروش بازیکن</h2>
+<div id="sell-players-list"></div>
+<button class="gray" onclick="showMain()">🔙 برگشت</button>
+</div>
+
+<div id="page-requests" class="card hidden">
+<h2>📬 درخواست‌ها</h2>
+<div id="requests-list"></div>
+<button class="gray" onclick="showMain()">🔙 برگشت</button>
+</div>
+
+<div id="page-admin" class="card hidden">
+<h2>🔐 پنل ادمین</h2>
+<div id="admin-content"></div>
+<button class="gray" onclick="showLeagues()">🔙 خروج از پنل</button>
+</div>
+<script>
+const SUPABASE_URL = 'https://weitirvqfpzlgtnohsqd.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_qM6Nv5l27v6fFWfZd21UIQ_PXIXBqhp';
+const ADMIN_PASSWORD = 'admin1234';
+const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+const LEAGUES = {
+'🇪🇸 لالیگا': ['رئال مادرید','بارسلونا','اتلتیکو مادرید','سویا','والنسیا','ویارئال','رئال بتیس','اوساسونا'],
+'🏴 لیگ برتر': ['منچستر سیتی','آرسنال','لیورپول','چلسی','منچستر یونایتد','تاتنهام','نیوکاسل','وست هم'],
+'🇮🇹 سری آ': ['یوونتوس','اینتر','میلان','ناپولی','رم','لاتزیو','فیورنتینا','آتالانتا'],
+'🇩🇪 بوندسلیگا': ['بایرن مونیخ','دورتموند','لایپزیش','لورکوزن','فرانکفورت','وولفسبورگ'],
+'🇫🇷 لیگ ۱': ['پاری سن ژرمن','مارسی','لیون','موناکو','لیل','نیس','رن'],
+'🇳🇱 اردیویسه': ['آژاکس','فیینورد','پی‌اس‌وی','آی‌اف‌سی آیندهوون'],
+'🇵🇹 لیگ پرتغال': ['بنفیکا','پورتو','اسپورتینگ'],
+'🇹🇷 سوپر لیگ': ['گالاتاسارای','فنرباغچه','بشیکتاش','تراپزون']
+};
+
+const COMPANIES = [
+{name:'🥤 نوشابه‌سازی',price:100000,income:50000},
+{name:'📱 گوشی‌سازی',price:150000,income:70000},
+{name:'💻 لپتاپ‌سازی',price:200000,income:100000},
+{name:'🚗 خودروسازی ضعیف',price:250000,income:150000},
+{name:'🛻 خودروسازی خوب',price:300000,income:200000},
+{name:'🏎️ خودروسازی خفن',price:350000,income:250000},
+{name:'🚛 کامیون‌سازی',price:700000,income:500000},
+{name:'🚁 هلیکوپترسازی',price:2000000,income:800000},
+{name:'✈️ هواپیماسازی',price:5000000,income:1000000}
+];
+
+const SPONSORS = [
+{name:'آدیداس',price:200000,income:100000},
+{name:'پوما',price:300000,income:200000},
+{name:'نایکی',price:400000,income:300000},
+{name:'ریباک',price:500000,income:400000}
+];
+
+let currentTeam = null;
+let selectedLeague = null;
+let selectedTeamName = null;
+
+function showMsg(text, type='error') {
+const m = document.getElementById('msg');
+m.textContent = text;
+m.className = 'msg ' + type;
+setTimeout(() => m.className = 'msg hidden', 3000);
+}
+
+function hideAll() {
+document.querySelectorAll('.card').forEach(c => c.classList.add('hidden'));
+}
+
+function showLeagues() {
+hideAll();
+const list = document.getElementById('leagues-list');
+list.innerHTML = '';
+Object.keys(LEAGUES).forEach(l => {
+const btn = document.createElement('button');
+btn.className = 'team-btn';
+btn.textContent = l;
+btn.onclick = () => { selectedLeague = l; showTeams(); };
+list.appendChild(btn);
+});
+const adminBtn = document.createElement('button');
+adminBtn.className = 'gray';
+adminBtn.textContent = '🔐 ورود ادمین';
+adminBtn.onclick = showAdminLogin;
+list.appendChild(adminBtn);
+document.getElementById('page-leagues').classList.remove('hidden');
+}
+
+async function showTeams() {
+hideAll();
+document.getElementById('league-title').textContent = selectedLeague;
+const list = document.getElementById('teams-list');
+list.innerHTML = '<p>در حال بارگذاری...</p>';
+document.getElementById('page-teams').classList.remove('hidden');
+const {data} = await client.from('teams').select('team_name,is_active').eq('league', selectedLeague);
+const taken = {};
+if(data) data.forEach(t => taken[t.team_name] = t.is_active);
+list.innerHTML = '';
+LEAGUES[selectedLeague].forEach(team => {
+const btn = document.createElement('button');
+btn.className = 'team-btn';
+if(taken[team] !== undefined) {
+btn.textContent = taken[team] ? '🔒 ' + team : '▶️ ادامه... ' + team;
+} else {
+btn.textContent = team;
+}
+btn.onclick = () => { selectedTeamName = team; showPasswordPage(taken[team] !== undefined); };
+list.appendChild(btn);
+});
+}
+
+function showPasswordPage(exists) {
+hideAll();
+document.getElementById('team-title-pass').textContent = selectedTeamName;
+document.getElementById('input-password').value = '';
+document.getElementById('page-password').classList.remove('hidden');
+}
+
+async function enterTeam() {
+const pass = document.getElementById('input-password').value;
+if(!pass) return showMsg('پسورد را وارد کنید');
+const {data} = await client.from('teams').select('*').eq('team_name', selectedTeamName).single();
+if(data) {
+if(data.password !== pass) return showMsg('پسورد اشتباه است');
+currentTeam = data;
+showMain();
+} else {
+showMsg('این تیم هنوز فعال نشده. با ادمین تماس بگیرید');
+}
+}
+
+function showMain() {
+hideAll();
+document.getElementById('main-team-name').textContent = '⚽ ' + currentTeam.team_name;
+document.getElementById('page-main').classList.remove('hidden');
+}
+
+async function showAssets() {
+hideAll();
+const {data: comp} = await client.from('companies').select('*').eq('team_id', currentTeam.id);
+const {data: spon} = await client.from('sponsors').select('*').eq('team_id', currentTeam.id);
+const {data: team} = await client.from('teams').select('*').eq('id', currentTeam.id).single();
+currentTeam = team;
+let html = `
+<div class="info-row"><span>🏟️ تیم:</span><span>${team.team_name}</span></div>
+<div class="info-row"><span>💰 پول:</span><span>${team.money.toLocaleString()}</span></div>
+<div class="info-row"><span>📈 درآمد روزانه:</span><span>${team.daily_income.toLocaleString()}</span></div>
+<div class="info-row"><span>✍️ امضا:</span><span>${team.signature||'-'}</span></div>
+<div class="info-row"><span>🏢 شرکت‌ها:</span><span>${comp ? comp.map(c=>c.company_name+'('+c.quantity+')').join(', ') : '-'}</span></div>
+<div class="info-row"><span>👕 اسپانسر:</span><span>${spon ? spon.map(s=>s.sponsor_name).join(', ') : '-'}</span></div>
+`;
+document.getElementById('assets-content').innerHTML = html;
+document.getElementById('page-assets').classList.remove('hidden');
+}
+
+async function showBuyCompany() {
+hideAll();
+const {data: existing} = await client.from('companies').select('*').eq('team_id', currentTeam.id);
+const list = document.getElementById('companies-list');
+list.innerHTML = '';
+COMPANIES.forEach(c => {
+const owned = existing ? existing.find(e => e.company_name === c.name) : null;
+const qty = owned ? owned.quantity : 0;
+const div = document.createElement('div');
+div.className = 'card';
+div.innerHTML = `<b>${c.name}</b><br>قیمت: ${c.price.toLocaleString()}<br>درآمد: ${c.income.toLocaleString()}<br>دارید: ${qty}/10<br>
+<input type="number" id="qty_${c.name}" placeholder="تعداد" min="1" max="${10-qty}">
+<button class="green" onclick="buyCompany('${c.name}',${c.price},${c.income})">خرید</button>`;
+list.appendChild(div);
+});
+document.getElementById('page-buy-company').classList.remove('hidden');
+}
+
+async function buyCompany(name, price, income) {
+const qtyEl = document.getElementById('qty_' + name);
+const qty = parseInt(qtyEl.value);
+if(!qty || qty < 1) return showMsg('تعداد را وارد کنید');
+const total = price * qty;
+const {data: team} = await client.from('teams').select('*').eq('id', currentTeam.id).single();
+if(team.money < total) return showMsg('پول کافی ندارید');
+const {data: existing} = await client.from('companies').select('*').eq('team_id', currentTeam.id).eq('company_name', name).single();
+if(existing) {
+if(existing.quantity + qty > 10) return showMsg('حداکثر ۱۰ عدد');
+await client.from('companies').update({quantity: existing.quantity + qty}).eq('id', existing.id);
+} else {
+await client.from('companies').insert({team_id: currentTeam.id, company_name: name, quantity: qty, daily_income: income});
+}
+await client.from('teams').update({money: team.money - total, daily_income: team.daily_income + (income * qty)}).eq('id', currentTeam.id);
+currentTeam.money = team.money - total;
+showMsg('خرید موفق!', 'success');
+showBuyCompany();
+}
+
+async function showBuySponsor() {
+hideAll();
+const {data: existing} = await client.from('sponsors').select('*').eq('team_id', currentTeam.id);
+const list = document.getElementById('sponsors-list');
+list.innerHTML = '';
+SPONSORS.forEach(s => {
+const owned = existing ? existing.find(e => e.sponsor_name === s.name) : null;
+const div = document.createElement('div');
+div.className = 'card';
+div.innerHTML = `<b>${s.name}</b><br>قیمت: ${s.price.toLocaleString()}<br>درآمد: ${s.income.toLocaleString()}<br>
+${owned ? '<b style="color:#27ae60">✅ خریداری شده</b>' : `<button class="green" onclick="buySponsor('${s.name}',${s.price},${s.income})">خرید</button>`}`;
+list.appendChild(div);
+});
+document.getElementById('page-buy-sponsor').classList.remove('hidden');
+}
+
+async function buySponsor(name, price, income) {
+const {data: team} = await client.from('teams').select('*').eq('id', currentTeam.id).single();
+if(team.money < price) return showMsg('پول کافی ندارید');
+await client.from('sponsors').insert({team_id: currentTeam.id, sponsor_name: name, daily_income: income});
+await client.from('teams').update({money: team.money - price, daily_income: team.daily_income + income}).eq('id', currentTeam.id);
+showMsg('اسپانسر خریداری شد!', 'success');
+showBuySponsor();
+}
+
+async function showMyPlayers() {
+hideAll();
+const {data} = await client.from('players').select('*').eq('team_id', currentTeam.id);
+const list = document.getElementById('my-players-list');
+list.innerHTML = data && data.length ? data.map(p => `<div class="info-row"><span>${p.player_name}</span><span>${p.is_for_sale ? '🔴 در فروش' : '🟢 در تیم'}</span></div>`).join('') : '<p>بازیکنی ندارید</p>';
+document.getElementById('page-my-players').classList.remove('hidden');
+}
+
+async function showSalePlayers() {
+hideAll();
+const {data} = await client.from('players').select('*,teams(team_name)').eq('is_for_sale', true);
+const list = document.getElementById('sale-players-list');
+list.innerHTML = data && data.length ? data.map(p => `<div class="card"><b>${p.player_name}</b><br>تیم: ${p.teams.team_name}<br>قیمت: ${p.sale_price.toLocaleString()}</div>`).join('') : '<p>بازیکنی در لیست فروش نیست</p>';
+document.getElementById('page-sale-players').classList.remove('hidden');
+}
+
+async function showSellPlayer() {
+hideAll();
+const {data} = await client.from('players').select('*').eq('team_id', currentTeam.id).eq('is_for_sale', false);
+const list = document.getElementById('sell-players-list');
+list.innerHTML = '';
+if(!data || !data.length) { list.innerHTML = '<p>بازیکنی برای فروش ندارید</p>'; }
+else data.forEach(p => {
+const div = document.createElement('div');
+div.className = 'card';
+div.innerHTML = `<b>${p.player_name}</b><br><input type="number" id="sell_${p.id}" placeholder="قیمت فروش"><button class="green" onclick="sellPlayer(${p.id},'${p.player_name}')">قرار دادن برای فروش</button>`;
+list.appendChild(div);
+});
+document.getElementById('page-sell-player').classList.remove('hidden');
+}
+
+async function sellPlayer(id, name) {
+const price = parseInt(document.getElementById('sell_' + id).value);
+if(!price) return showMsg('قیمت را وارد کنید');
+await client.from('players').update({is_for_sale: true, sale_price: price}).eq('id', id);
+showMsg(name + ' برای فروش قرار گرفت', 'success');
+showSellPlayer();
+}
+
+async function showRequests() {
+hideAll();
+const {data} = await client.from('transfer_requests').select('*,players(player_name),teams!transfer_requests_from_team_id_fkey(team_name)').eq('to_team_id', currentTeam.id).eq('status', 'pending');
+const list = document.getElementById('requests-list');
+list.innerHTML = '';
+if(!data || !data.length) { list.innerHTML = '<p>درخواستی ندارید</p>'; }
+else data.forEach(r => {
+const div = document.createElement('div');
+div.className = 'card';
+div.innerHTML = `<b>${r.players.player_name}</b><br>از تیم: ${r.teams.team_name}<br>قیمت: ${r.offered_price.toLocaleString()}<br>تعداد بازی: ${r.contract_games}<br>
+<button class="green" onclick="acceptRequest(${r.id},${r.from_team_id},${r.player_id},${r.offered_price})">✅ قبول</button>
+<button onclick="rejectRequest(${r.id})">❌ رد</button>`;
+list.appendChild(div);
+});
+document.getElementById('page-requests').classList.remove('hidden');
+}
+
+async function acceptRequest(id, fromId, playerId, price) {
+const {data: buyer} = await client.from('teams').select('money').eq('id', fromId).single();
+const {data: seller} = await client.from('teams').select('money').eq('id', currentTeam.id).single();
+await client.from('teams').update({money: buyer.money - price}).eq('id', fromId);
+await client.from('teams').update({money: seller.money + price}).eq('id', currentTeam.id);
+await client.from('players').update({team_id: fromId, is_for_sale: false, sale_price: 0}).eq('id', playerId);
+await client.from('transfer_requests').update({status: 'accepted'}).eq('id', id);
+showMsg('انتقال انجام شد!', 'success');
+showRequests();
+}
+
+async function rejectRequest(id) {
+await client.from('transfer_requests').update({status: 'rejected'}).eq('id', id);
+showMsg('درخواست رد شد', 'success');
+showRequests();
+}
+
+async function exitGame() {
+if(!confirm('آیا مطمئنید؟ تیم برای دیگران قابل انتخاب میشود')) return;
+await client.from('teams').update({is_active: true, owner: null}).eq('id', currentTeam.id);
+currentTeam = null;
+showLeagues();
+}
+
+function showAdminLogin() {
+const pass = prompt('پسورد ادمین:');
+if(pass === ADMIN_PASSWORD) showAdminPanel();
+else showMsg('پسورد اشتباه');
+}
+
+async function showAdminPanel() {
+hideAll();
+const {data: teams} = await client.from('teams').select('*');
+const content = document.getElementById('admin-content');
+content.innerHTML = '<h3>تیم‌های فعال:</h3>';
+if(!teams || !teams.length) { content.innerHTML += '<p>تیمی وجود ندارد</p>'; }
+else teams.forEach(t => {
+const div = document.createElement('div');
+div.className = 'card';
+div.innerHTML = `<b>${t.team_name}</b> - ${t.league}<br>💰 ${t.money.toLocaleString()}<br>
+<button class="green" onclick="adminAddPlayer(${t.id},'${t.team_name}')">➕ افزودن بازیکن</button>
+<button onclick="adminEditMoney(${t.id},${t.money})">✏️ ویرایش پول</button>
+<button onclick="adminSetPassword(${t.id},'${t.team_name}')">🔑 تنظیم پسورد</button>`;
+content.appendChild(div);
+});
+
+const addTeamDiv = document.createElement('div');
+addTeamDiv.className = 'card';
+addTeamDiv.innerHTML = `<h3>➕ فعال کردن تیم جدید</h3>
+<select id="admin-league">${Object.keys(LEAGUES).map(l=>`<option>${l}</option>`).join('')}</select>
+<select id="admin-team"></select>
+<input type="password" id="admin-team-pass" placeholder="پسورد تیم">
+<button class="green" onclick="adminActivateTeam()">فعال کردن</button>`;
+content.appendChild(addTeamDiv);
+
+document.getElementById('admin-league').onchange = function() {
+const sel = document.getElementById('admin-team');
+sel.innerHTML = LEAGUES[this.value].map(t=>`<option>${t}</option>`).join('');
+};
+document.getElementById('admin-league').onchange();
+document.getElementById('page-admin').classList.remove('hidden');
+}
+
+async function adminSetPassword(id, name) {
+const pass = prompt('پسورد جدید برای ' + name + ':');
+if(!pass) return;
+await client.from('teams').update({password: pass}).eq('id', id);
+showMsg('پسورد تنظیم شد', 'success');
+}
+
+async function adminActivateTeam() {
+const league = document.getElementById('admin-league').value;
+const team = document.getElementById('admin-team').value;
+const pass = document.getElementById('admin-team-pass').value;
+if(!pass) return showMsg('پسورد را وارد کنید');
+const {data: existing} = await client.from('teams').select('id').eq('team_name', team).single();
+if(existing) {
+await client.from('teams').update({password: pass, is_active: true}).eq('id', existing.id);
+} else {
+await client.from('teams').insert({league, team_name: team, password: pass, is_active: true, money: 500000, daily_income: 0});
+}
+showMsg(team + ' فعال شد', 'success');
+showAdminPanel();
+}
+
+async function adminAddPlayer(teamId, teamName) {
+const name = prompt('نام بازیکن برای ' + teamName + ':');
+if(!name) return;
+await client.from('players').insert({team_id: teamId, player_name: name});
+showMsg('بازیکن اضافه شد', 'success');
+}
+
+async function adminEditMoney(id, current) {
+const amount = prompt('پول جدید (فعلی: ' + current + '):');
+if(!amount) return;
+await client.from('teams').update({money: parseInt(amount)}).eq('id', id);
+showMsg('پول ویرایش شد', 'success');
+showAdminPanel();
+}
+
+async function saveSignature() {
+const sig = document.getElementById('input-signature').value;
+if(!sig) return showMsg('امضا را وارد کنید');
+await client.from('teams').update({signature: sig}).eq('id', currentTeam.id);
+currentTeam.signature = sig;
+showMain();
+}
+
+window.onload = showLeagues;
+</script>
+</div>
+</body>
+</html>
