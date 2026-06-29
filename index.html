@@ -19,227 +19,138 @@
 --border: #252550;
 }
 * { margin:0; padding:0; box-sizing:border-box; }
-body {
-font-family: Tahoma, sans-serif;
-background: var(--dark);
-color: var(--text);
-min-height: 100vh;
-}
+body { font-family: Tahoma, sans-serif; background: var(--dark); color: var(--text); min-height: 100vh; }
 
-/* LANDING PAGE */
-.landing {
-min-height: 100vh;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-padding: 20px;
-position: relative;
-overflow: hidden;
-}
-.landing-bg {
-position: absolute;
-inset: 0;
-background-image: url('https://images.unsplash.com/photo-1540747913346-19212a4cf528?w=1200&q=80');
-background-size: cover;
-background-position: center;
-filter: brightness(0.25);
-z-index: 0;
-}
-.landing-content {
-position: relative;
-z-index: 1;
-text-align: center;
-width: 100%;
-max-width: 400px;
-}
-.landing-logo { font-size: 80px; margin-bottom: 15px; }
-.landing-title {
-font-size: 34px;
-font-weight: bold;
-background: linear-gradient(90deg, #6c63ff, #f50057);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-margin-bottom: 8px;
-}
-.landing-sub { color: #aaa; font-size: 14px; margin-bottom: 40px; }
+/* LANDING */
+.landing { min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:20px; position:relative; overflow:hidden; }
+.landing-bg { position:absolute; inset:0; background-image:url('https://images.unsplash.com/photo-1522778526097-ce0a22ceb253?w=1400&q=80'); background-size:cover; background-position:center; filter:brightness(0.2); z-index:0; }
+.landing-overlay { position:absolute; inset:0; background:linear-gradient(to bottom, #08081800, #080818); z-index:1; }
+.landing-content { position:relative; z-index:2; text-align:center; width:100%; max-width:400px; }
+.landing-logo { font-size:90px; margin-bottom:10px; filter:drop-shadow(0 0 30px #6c63ff88); animation:float 3s ease-in-out infinite; }
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+.landing-title { font-size:36px; font-weight:bold; background:linear-gradient(90deg,#6c63ff,#f50057); -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-bottom:6px; }
+.landing-sub { color:#888; font-size:14px; margin-bottom:40px; }
+.landing-btns { width:100%; }
 
 /* BUTTONS */
-.btn {
-width: 100%;
-padding: 15px 20px;
-border-radius: 14px;
-border: none;
-cursor: pointer;
-font-size: 16px;
-font-family: Tahoma;
-font-weight: bold;
-margin: 7px 0;
-transition: all 0.2s;
-display: flex;
-align-items: center;
-justify-content: center;
-gap: 10px;
-}
-.btn:active { transform: scale(0.97); opacity: 0.9; }
-.btn-primary { background: linear-gradient(135deg, #6c63ff, #9c27b0); color: white; box-shadow: 0 4px 20px #6c63ff44; }
-.btn-secondary { background: linear-gradient(135deg, #f50057, #ff6d00); color: white; box-shadow: 0 4px 20px #f5005744; }
-.btn-green { background: linear-gradient(135deg, #00c853, #00e676); color: #000; }
-.btn-red { background: linear-gradient(135deg, #ff1744, #d50000); color: white; }
-.btn-gray { background: #1e1e3e; color: var(--text); border: 1px solid var(--border); }
-.btn-gold { background: linear-gradient(135deg, #f9a825, #ffd700); color: #000; }
-.btn-dark { background: #141430; color: var(--text); border: 1px solid var(--border); text-align: right; justify-content: flex-start; padding-right: 18px; }
-.btn-dark:hover { background: #1e1e45; border-color: #6c63ff; }
-.btn-outline { background: transparent; border: 2px solid #6c63ff; color: #6c63ff; }
+.btn { width:100%; padding:14px 20px; border-radius:14px; border:none; cursor:pointer; font-size:15px; font-family:Tahoma; font-weight:bold; margin:6px 0; transition:all 0.2s; display:flex; align-items:center; justify-content:center; gap:10px; }
+.btn:active { transform:scale(0.97); }
+.btn-primary { background:linear-gradient(135deg,#6c63ff,#9c27b0); color:white; box-shadow:0 4px 20px #6c63ff44; }
+.btn-secondary { background:linear-gradient(135deg,#f50057,#ff6d00); color:white; box-shadow:0 4px 20px #f5005744; }
+.btn-green { background:linear-gradient(135deg,#00c853,#00e676); color:#000; }
+.btn-red { background:linear-gradient(135deg,#ff1744,#d50000); color:white; }
+.btn-gray { background:#1e1e3e; color:var(--text); border:1px solid var(--border); }
+.btn-gold { background:linear-gradient(135deg,#f9a825,#ffd700); color:#000; }
+.btn-dark { background:#141430; color:var(--text); border:1px solid var(--border); text-align:right; justify-content:flex-start; padding-right:18px; }
+.btn-dark:hover { background:#1e1e45; border-color:#6c63ff; }
+.btn-outline { background:transparent; border:2px solid #6c63ff; color:#6c63ff; }
 
 /* CONTAINER */
-.container { max-width: 680px; margin: 0 auto; padding: 15px; }
+.container { max-width:680px; margin:0 auto; padding:15px; }
 
-/* HEADER */
-.page-header {
-background: linear-gradient(135deg, #10102a, #181832);
-border-bottom: 1px solid var(--border);
-padding: 15px 20px;
-display: flex;
-align-items: center;
-gap: 12px;
-position: sticky;
-top: 0;
-z-index: 100;
-}
-.page-header h2 { font-size: 18px; flex: 1; }
-.back-btn {
-background: none;
-border: none;
-color: #6c63ff;
-font-size: 20px;
-cursor: pointer;
-padding: 5px;
-}
+/* PAGE HEADER */
+.page-header { background:linear-gradient(135deg,#10102a,#181832); border-bottom:1px solid var(--border); padding:15px 20px; display:flex; align-items:center; gap:12px; position:sticky; top:0; z-index:100; }
+.page-header h2 { font-size:18px; flex:1; }
+.back-btn { background:none; border:none; color:#6c63ff; font-size:22px; cursor:pointer; padding:5px 8px; border-radius:8px; transition:background 0.2s; }
+.back-btn:hover { background:#6c63ff22; }
+
+/* STADIUM HEADER */
+.stadium-header { position:relative; padding:50px 20px 25px; text-align:center; overflow:hidden; }
+.stadium-header-bg { position:absolute; inset:0; background-image:url('https://images.unsplash.com/photo-1489944440615-453fc2b6a9a9?w=800&q=80'); background-size:cover; background-position:center; filter:brightness(0.2); }
+.stadium-header-overlay { position:absolute; inset:0; background:linear-gradient(to bottom,#08081800,#080818); }
+.stadium-header-content { position:relative; z-index:1; }
 
 /* CARDS */
-.card {
-background: var(--card);
-border-radius: 16px;
-padding: 20px;
-margin: 10px 0;
-border: 1px solid var(--border);
-box-shadow: 0 4px 20px #0006;
-}
+.card { background:var(--card); border-radius:16px; padding:20px; margin:10px 0; border:1px solid var(--border); box-shadow:0 4px 20px #0006; }
 
 /* INPUTS */
-input, select, textarea {
-width: 100%;
-padding: 13px 15px;
-border-radius: 10px;
-border: 1px solid var(--border);
-background: #0a0a20;
-color: var(--text);
-font-size: 15px;
-font-family: Tahoma;
-margin: 6px 0;
-outline: none;
-transition: border 0.2s;
-}
-input:focus, select:focus, textarea:focus { border-color: #6c63ff; box-shadow: 0 0 0 3px #6c63ff22; }
-textarea { resize: vertical; min-height: 80px; }
+input, select, textarea { width:100%; padding:13px 15px; border-radius:10px; border:1px solid var(--border); background:#0a0a20; color:var(--text); font-size:15px; font-family:Tahoma; margin:6px 0; outline:none; transition:border 0.2s; }
+input:focus, select:focus, textarea:focus { border-color:#6c63ff; box-shadow:0 0 0 3px #6c63ff22; }
+textarea { resize:vertical; min-height:80px; }
 
 /* MSG */
-.msg { padding: 12px 18px; border-radius: 10px; margin: 10px 0; text-align: center; font-weight: bold; display: none; }
-.msg.show { display: block; }
-.msg.error { background: #ff174422; border: 1px solid #ff1744; color: #ff1744; }
-.msg.success { background: #00e67622; border: 1px solid #00e676; color: #00e676; }
-
-.hidden { display: none !important; }
+.msg { padding:12px 18px; border-radius:10px; margin:10px 0; text-align:center; font-weight:bold; display:none; }
+.msg.show { display:block; }
+.msg.error { background:#ff174422; border:1px solid #ff1744; color:#ff1744; }
+.msg.success { background:#00e67622; border:1px solid #00e676; color:#00e676; }
+.hidden { display:none !important; }
 
 /* INFO ROW */
-.info-row { display: flex; justify-content: space-between; align-items: center; padding: 11px 0; border-bottom: 1px solid var(--border); }
-.info-row:last-child { border-bottom: none; }
-.info-label { color: #888; font-size: 14px; }
-.info-value { font-weight: bold; font-size: 14px; }
+.info-row { display:flex; justify-content:space-between; align-items:center; padding:11px 0; border-bottom:1px solid var(--border); }
+.info-row:last-child { border-bottom:none; }
+.info-label { color:#888; font-size:14px; }
+.info-value { font-weight:bold; font-size:14px; }
 
 /* SECTION TITLE */
-.sec-title { font-size: 18px; font-weight: bold; margin-bottom: 15px; color: #6c63ff; }
+.sec-title { font-size:18px; font-weight:bold; margin-bottom:15px; color:#6c63ff; }
 
 /* BADGE */
-.badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 12px; font-weight: bold; }
-.badge-green { background: #00e67622; color: #00e676; border: 1px solid #00e676; }
-.badge-red { background: #ff174422; color: #ff1744; border: 1px solid #ff1744; }
-.badge-gold { background: #ffd70022; color: #ffd700; border: 1px solid #ffd700; }
+.badge { display:inline-block; padding:3px 10px; border-radius:20px; font-size:12px; font-weight:bold; }
+.badge-green { background:#00e67622; color:#00e676; border:1px solid #00e676; }
+.badge-red { background:#ff174422; color:#ff1744; border:1px solid #ff1744; }
+.badge-gold { background:#ffd70022; color:#ffd700; border:1px solid #ffd700; }
 
 /* CHAT */
-.chat-box {
-height: 380px;
-overflow-y: auto;
-background: #0a0a20;
-border-radius: 12px;
-padding: 15px;
-margin: 10px 0;
-border: 1px solid var(--border);
-display: flex;
-flex-direction: column;
-gap: 8px;
-}
-.chat-msg { max-width: 78%; padding: 10px 14px; border-radius: 14px; font-size: 14px; line-height: 1.5; word-break: break-word; position: relative; }
-.chat-msg.mine { background: linear-gradient(135deg, #6c63ff, #9c27b0); color: white; align-self: flex-start; border-bottom-right-radius: 4px; }
-.chat-msg.theirs { background: var(--card2); border: 1px solid var(--border); align-self: flex-end; border-bottom-left-radius: 4px; }
-.chat-msg .sender { font-size: 11px; opacity: 0.7; margin-bottom: 4px; font-weight: bold; }
-.chat-msg .time { font-size: 11px; opacity: 0.6; margin-top: 5px; }
-.chat-msg.pinned { border: 2px solid #ffd700 !important; }
-.pinned-badge { font-size: 11px; color: #ffd700; margin-bottom: 4px; }
-.chat-input-row { display: flex; gap: 8px; align-items: center; margin-top: 10px; }
-.chat-input-row input { flex: 1; margin: 0; }
-.icon-btn { width: 46px; height: 46px; border-radius: 10px; border: 1px solid var(--border); background: var(--card2); color: var(--text); font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.2s; }
-.icon-btn:hover { border-color: #6c63ff; background: #1e1e45; }
-.icon-btn.recording { background: #ff174422; border-color: #ff1744; animation: blink 1s infinite; }
+.chat-box { height:380px; overflow-y:auto; background:#0a0a20; border-radius:12px; padding:15px; margin:10px 0; border:1px solid var(--border); display:flex; flex-direction:column; gap:8px; }
+.chat-msg { max-width:78%; padding:10px 14px; border-radius:14px; font-size:14px; line-height:1.5; word-break:break-word; position:relative; }
+.chat-msg.mine { background:linear-gradient(135deg,#6c63ff,#9c27b0); color:white; align-self:flex-start; border-bottom-right-radius:4px; }
+.chat-msg.theirs { background:var(--card2); border:1px solid var(--border); align-self:flex-end; border-bottom-left-radius:4px; }
+.chat-msg .sender { font-size:11px; opacity:0.7; margin-bottom:4px; font-weight:bold; }
+.chat-msg .time { font-size:11px; opacity:0.6; margin-top:5px; }
+.chat-msg.pinned { border:2px solid #ffd700 !important; }
+.pinned-badge { font-size:11px; color:#ffd700; margin-bottom:4px; }
+.chat-input-row { display:flex; gap:8px; align-items:center; margin-top:10px; }
+.chat-input-row input { flex:1; margin:0; }
+.icon-btn { width:46px; height:46px; border-radius:10px; border:1px solid var(--border); background:var(--card2); color:var(--text); font-size:18px; cursor:pointer; display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:all 0.2s; }
+.icon-btn:hover { border-color:#6c63ff; }
+.icon-btn.recording { background:#ff174422; border-color:#ff1744; animation:blink 1s infinite; }
 @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.5} }
 
 /* CHANNEL */
-.channel-post { background: var(--card2); border: 1px solid var(--border); border-radius: 14px; padding: 15px; margin: 8px 0; }
-.channel-post-header { font-size: 12px; color: #888; margin-bottom: 8px; display: flex; justify-content: space-between; }
-.channel-post img, .channel-post video, .channel-post audio { width: 100%; border-radius: 8px; margin-top: 8px; max-height: 300px; object-fit: cover; }
+.channel-post { background:var(--card2); border:1px solid var(--border); border-radius:14px; padding:15px; margin:8px 0; }
+.channel-post-header { font-size:12px; color:#888; margin-bottom:8px; display:flex; justify-content:space-between; align-items:center; }
+.channel-post img { width:100%; border-radius:8px; margin-top:8px; max-height:300px; object-fit:cover; }
+.channel-post video, .channel-post audio { width:100%; border-radius:8px; margin-top:8px; }
+.delete-btn { background:none; border:none; color:#ff1744; cursor:pointer; font-size:16px; padding:4px; }
+
+/* ADMIN CHANNEL CHAT */
+.admin-channel-box { height:350px; overflow-y:auto; background:#0a0a20; border-radius:12px; padding:15px; border:1px solid var(--border); display:flex; flex-direction:column; gap:10px; }
+.admin-channel-input-row { display:flex; gap:8px; align-items:center; margin-top:10px; }
+.admin-channel-input-row input { flex:1; margin:0; }
+.file-preview { margin:8px 0; }
+.file-preview img { width:100%; border-radius:8px; max-height:200px; object-fit:cover; }
+.file-preview audio, .file-preview video { width:100%; border-radius:8px; }
 
 /* PLAYER */
-.player-item { display: flex; justify-content: space-between; align-items: center; padding: 12px 15px; background: var(--card2); border-radius: 10px; margin: 6px 0; border: 1px solid var(--border); }
+.player-item { display:flex; justify-content:space-between; align-items:center; padding:12px 15px; background:var(--card2); border-radius:10px; margin:6px 0; border:1px solid var(--border); }
 
 /* SCROLLBAR */
-::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-track { background: var(--dark); }
-::-webkit-scrollbar-thumb { background: #6c63ff; border-radius: 3px; }
+::-webkit-scrollbar { width:5px; }
+::-webkit-scrollbar-track { background:var(--dark); }
+::-webkit-scrollbar-thumb { background:#6c63ff; border-radius:3px; }
 
-/* STADIUM BG FOR PAGES */
-.stadium-header {
-background-image: url('https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800&q=80');
-background-size: cover;
-background-position: center;
-padding: 40px 20px 20px;
-text-align: center;
-position: relative;
-}
-.stadium-header::before {
-content: '';
-position: absolute;
-inset: 0;
-background: linear-gradient(to bottom, #080818aa, #080818);
-}
-.stadium-header-content { position: relative; z-index: 1; }
+/* GLOBAL MSG */
+#global-msg { position:fixed; top:20px; left:50%; transform:translateX(-50%); z-index:9999; min-width:280px; max-width:90%; }
 
-@media (max-width: 600px) {
-.landing-title { font-size: 26px; }
-.chat-box { height: 320px; }
+@media (max-width:600px) {
+.landing-title { font-size:26px; }
+.chat-box { height:300px; }
+.admin-channel-box { height:280px; }
 }
 </style>
 </head>
 <body>
 <div id="app">
-  <!-- LANDING PAGE -->
+
+<!-- LANDING -->
 <div id="page-landing" class="landing">
 <div class="landing-bg"></div>
+<div class="landing-overlay"></div>
 <div class="landing-content">
 <div class="landing-logo">⚽</div>
 <div class="landing-title">لیگ قهرمانان</div>
 <div class="landing-sub">مدیریت حرفه‌ای باشگاه فوتبال</div>
-<div class="landing-btns" style="width:100%">
+<div class="landing-btns">
 <button class="btn btn-primary" onclick="showLeagues()">🏆 ورود به عنوان بازیکن</button>
 <button class="btn btn-secondary" onclick="showAdminLogin()">🔐 ورود به عنوان ادمین</button>
 <button class="btn btn-outline" onclick="showChannel()">📢 کانال خبری</button>
@@ -247,31 +158,34 @@ background: linear-gradient(to bottom, #080818aa, #080818);
 </div>
 </div>
 
-<!-- LEAGUES PAGE -->
+<!-- LEAGUES -->
 <div id="page-leagues" class="hidden">
 <div class="stadium-header">
+<div class="stadium-header-bg"></div>
+<div class="stadium-header-overlay"></div>
 <div class="stadium-header-content">
 <div style="font-size:40px">🏆</div>
 <h2 style="font-size:22px;margin-top:8px">انتخاب لیگ</h2>
 </div>
+</div>
+<div style="padding:10px 15px 5px;display:flex;align-items:center;gap:10px">
+<button class="btn btn-gray" style="width:auto;padding:10px 16px" onclick="showLanding()">→ برگشت</button>
 </div>
 <div class="container">
 <div id="leagues-list"></div>
 </div>
 </div>
 
-<!-- TEAMS PAGE -->
+<!-- TEAMS -->
 <div id="page-teams" class="hidden">
 <div class="page-header">
 <button class="back-btn" onclick="showLeagues()">→</button>
 <h2 id="league-title"></h2>
 </div>
-<div class="container">
-<div id="teams-list"></div>
-</div>
+<div class="container"><div id="teams-list"></div></div>
 </div>
 
-<!-- PASSWORD PAGE -->
+<!-- PASSWORD -->
 <div id="page-password" class="hidden">
 <div class="page-header">
 <button class="back-btn" onclick="showTeams()">→</button>
@@ -288,11 +202,9 @@ background: linear-gradient(to bottom, #080818aa, #080818);
 </div>
 </div>
 
-<!-- SIGNATURE PAGE -->
+<!-- SIGNATURE -->
 <div id="page-signature" class="hidden">
-<div class="page-header">
-<h2>✍️ ساخت امضا</h2>
-</div>
+<div class="page-header"><h2>✍️ ساخت امضا</h2></div>
 <div class="container">
 <div class="card">
 <div class="sec-title">امضای تیم خود را بسازید</div>
@@ -307,8 +219,10 @@ background: linear-gradient(to bottom, #080818aa, #080818);
 <!-- MAIN MENU -->
 <div id="page-main" class="hidden">
 <div class="stadium-header">
+<div class="stadium-header-bg"></div>
+<div class="stadium-header-overlay"></div>
 <div class="stadium-header-content">
-<div id="main-signature" style="font-size:30px"></div>
+<div id="main-signature" style="font-size:32px"></div>
 <h2 id="main-team-name" style="font-size:22px;margin-top:5px"></h2>
 <div id="main-money" style="color:#ffd700;font-size:14px;margin-top:5px"></div>
 </div>
@@ -322,7 +236,7 @@ background: linear-gradient(to bottom, #080818aa, #080818);
 <button class="btn btn-dark" onclick="showSalePlayers()">🛒 بازیکنان در لیست فروش</button>
 <button class="btn btn-dark" onclick="showSellPlayer()">💸 فروش بازیکن</button>
 <button class="btn btn-dark" onclick="showBuyPlayer()">🤝 خرید بازیکن</button>
-<button class="btn btn-dark" onclick="showRequests()">📬 درخواست‌ها</button>
+<button class="btn btn-dark" onclick="showRequests()">📬 درخواست‌های انتقال</button>
 <button class="btn btn-dark" onclick="showNegotiationSend()">🤜 ارسال درخواست مذاکره</button>
 <button class="btn btn-dark" onclick="showNegotiationRequests()">💬 درخواست‌های مذاکره</button>
 <button class="btn btn-dark" onclick="showMyChats()">💭 چت‌های مذاکره</button>
@@ -333,179 +247,126 @@ background: linear-gradient(to bottom, #080818aa, #080818);
 </div>
 </div>
 
-<!-- ASSETS PAGE -->
+<!-- ASSETS -->
 <div id="page-assets" class="hidden">
-<div class="page-header">
-<button class="back-btn" onclick="showMain()">→</button>
-<h2>💰 دارایی تیم</h2>
-</div>
-<div class="container">
-<div class="card" id="assets-content"></div>
-</div>
+<div class="page-header"><button class="back-btn" onclick="showMain()">→</button><h2>💰 دارایی تیم</h2></div>
+<div class="container"><div class="card" id="assets-content"></div></div>
 </div>
 
 <!-- BUY COMPANY -->
 <div id="page-buy-company" class="hidden">
-<div class="page-header">
-<button class="back-btn" onclick="showMain()">→</button>
-<h2>🏢 خرید شرکت</h2>
-</div>
+<div class="page-header"><button class="back-btn" onclick="showMain()">→</button><h2>🏢 خرید شرکت</h2></div>
 <div class="container" id="companies-list"></div>
 </div>
 
 <!-- BUY SPONSOR -->
 <div id="page-buy-sponsor" class="hidden">
-<div class="page-header">
-<button class="back-btn" onclick="showMain()">→</button>
-<h2>👕 خرید اسپانسر</h2>
-</div>
+<div class="page-header"><button class="back-btn" onclick="showMain()">→</button><h2>👕 خرید اسپانسر</h2></div>
 <div class="container" id="sponsors-list"></div>
 </div>
 
 <!-- MY PLAYERS -->
 <div id="page-my-players" class="hidden">
-<div class="page-header">
-<button class="back-btn" onclick="showMain()">→</button>
-<h2>⚽ بازیکنان من</h2>
-</div>
+<div class="page-header"><button class="back-btn" onclick="showMain()">→</button><h2>⚽ بازیکنان من</h2></div>
 <div class="container" id="my-players-list"></div>
 </div>
 
 <!-- SALE PLAYERS -->
 <div id="page-sale-players" class="hidden">
-<div class="page-header">
-<button class="back-btn" onclick="showMain()">→</button>
-<h2>🛒 لیست فروش</h2>
-</div>
+<div class="page-header"><button class="back-btn" onclick="showMain()">→</button><h2>🛒 لیست فروش</h2></div>
 <div class="container" id="sale-players-list"></div>
 </div>
 
 <!-- SELL PLAYER -->
 <div id="page-sell-player" class="hidden">
-<div class="page-header">
-<button class="back-btn" onclick="showMain()">→</button>
-<h2>💸 فروش بازیکن</h2>
-</div>
+<div class="page-header"><button class="back-btn" onclick="showMain()">→</button><h2>💸 فروش بازیکن</h2></div>
 <div class="container" id="sell-players-list"></div>
 </div>
 
 <!-- BUY PLAYER -->
 <div id="page-buy-player" class="hidden">
-<div class="page-header">
-<button class="back-btn" onclick="showMain()">→</button>
-<h2>🤝 خرید بازیکن</h2>
-</div>
+<div class="page-header"><button class="back-btn" onclick="showMain()">→</button><h2>🤝 خرید بازیکن</h2></div>
 <div class="container">
-<div class="card">
-<div class="sec-title">انتخاب تیم</div>
-<div id="buy-player-teams"></div>
-</div>
+<div class="card"><div class="sec-title">انتخاب تیم</div><div id="buy-player-teams"></div></div>
 <div id="buy-player-players" class="hidden">
-<div class="card">
-<div class="sec-title" id="buy-player-team-title"></div>
-<div id="buy-player-list"></div>
-</div>
+<div class="card"><div class="sec-title" id="buy-player-team-title"></div><div id="buy-player-list"></div></div>
 </div>
 </div>
 </div>
 
 <!-- REQUESTS -->
 <div id="page-requests" class="hidden">
-<div class="page-header">
-<button class="back-btn" onclick="showMain()">→</button>
-<h2>📬 درخواست‌ها</h2>
-</div>
+<div class="page-header"><button class="back-btn" onclick="showMain()">→</button><h2>📬 درخواست‌های انتقال</h2></div>
 <div class="container" id="requests-list"></div>
 </div>
 
-<!-- NEGOTIATION SEND -->
+<!-- NEG SEND -->
 <div id="page-neg-send" class="hidden">
-<div class="page-header">
-<button class="back-btn" onclick="showMain()">→</button>
-<h2>🤜 درخواست مذاکره</h2>
-</div>
-<div class="container">
-<div class="card">
-<div class="sec-title">تیم مقابل را انتخاب کنید</div>
-<div id="neg-teams-list"></div>
-</div>
-</div>
+<div class="page-header"><button class="back-btn" onclick="showMain()">→</button><h2>🤜 درخواست مذاکره</h2></div>
+<div class="container"><div class="card"><div class="sec-title">تیم مقابل را انتخاب کنید</div><div id="neg-teams-list"></div></div></div>
 </div>
 
-<!-- NEGOTIATION REQUESTS -->
+<!-- NEG REQUESTS -->
 <div id="page-neg-requests" class="hidden">
-<div class="page-header">
-<button class="back-btn" onclick="showMain()">→</button>
-<h2>💬 درخواست‌های مذاکره</h2>
-</div>
+<div class="page-header"><button class="back-btn" onclick="showMain()">→</button><h2>💬 درخواست‌های مذاکره</h2></div>
 <div class="container" id="neg-requests-list"></div>
 </div>
 
 <!-- MY CHATS -->
 <div id="page-my-chats" class="hidden">
-<div class="page-header">
-<button class="back-btn" onclick="showMain()">→</button>
-<h2>💭 چت‌های من</h2>
-</div>
+<div class="page-header"><button class="back-btn" onclick="showMain()">→</button><h2>💭 چت‌های من</h2></div>
 <div class="container" id="my-chats-list"></div>
 </div>
 
-<!-- CHAT PAGE -->
+<!-- CHAT -->
 <div id="page-chat" class="hidden">
 <div class="page-header">
 <button class="back-btn" onclick="showMyChats()">→</button>
 <h2 id="chat-title"></h2>
-<button class="icon-btn" onclick="refreshChat()" style="width:36px;height:36px;font-size:16px">🔄</button>
+<button class="icon-btn" onclick="refreshChat()" style="width:36px;height:36px;font-size:14px;flex-shrink:0">🔄</button>
 </div>
 <div class="container">
 <div class="chat-box" id="chat-messages"></div>
+<div id="chat-file-preview" class="file-preview"></div>
 <div class="chat-input-row">
-<input type="text" id="chat-input" placeholder="پیام بنویسید...">
-<button class="icon-btn" onclick="sendChatFile('image')">📷</button>
-<button class="icon-btn" id="voice-btn" onclick="toggleVoice()">🎤</button>
-<button class="btn btn-primary chat-send-btn" style="width:auto;padding:12px 16px" onclick="sendChatMsg()">ارسال</button>
+<input type="text" id="chat-input" placeholder="پیام بنویسید..." onkeydown="if(event.key==='Enter')sendChatMsg()">
+<button class="icon-btn" onclick="document.getElementById('chat-file-input').click()" title="ارسال فایل">📎</button>
+<button class="icon-btn" id="voice-btn" onclick="toggleVoice()" title="ضبط صدا">🎤</button>
+<button class="btn btn-primary" style="width:auto;padding:12px 16px;margin:0" onclick="sendChatMsg()">ارسال</button>
 </div>
-<input type="file" id="chat-file-input" style="display:none" onchange="uploadChatFile()">
+<input type="file" id="chat-file-input" style="display:none" accept="image/*,audio/*,video/*" onchange="previewChatFile()">
 <div id="msg-chat" class="msg"></div>
 </div>
 </div>
 
 <!-- TACTICS -->
 <div id="page-tactics" class="hidden">
-<div class="page-header">
-<button class="back-btn" onclick="showMain()">→</button>
-<h2>📋 ترکیب و تاکتیک</h2>
-</div>
+<div class="page-header"><button class="back-btn" onclick="showMain()">→</button><h2>📋 ترکیب و تاکتیک</h2></div>
 <div class="container">
 <div class="card">
-<textarea id="tactics-input" placeholder="ترکیب و تاکتیک تیم خود را اینجا بنویسید..." style="min-height:200px"></textarea>
+<textarea id="tactics-input" placeholder="ترکیب و تاکتیک تیم خود را اینجا بنویسید..." style="min-height:250px"></textarea>
 <button class="btn btn-green" onclick="saveTactics()">💾 ذخیره</button>
 </div>
 <div id="msg-tactics" class="msg"></div>
 </div>
 </div>
 
-<!-- CHANNEL PAGE -->
+<!-- CHANNEL -->
 <div id="page-channel" class="hidden">
 <div class="page-header">
 <button class="back-btn" onclick="goBack()">→</button>
 <h2>📢 کانال خبری</h2>
-<button class="icon-btn" onclick="refreshChannel()" style="width:36px;height:36px;font-size:16px">🔄</button>
+<button class="icon-btn" onclick="refreshChannel()" style="width:36px;height:36px;font-size:14px;flex-shrink:0">🔄</button>
 </div>
-<div class="container">
-<div id="channel-posts"></div>
-</div>
+<div class="container" id="channel-posts"></div>
 </div>
 
 <!-- ADMIN LOGIN -->
 <div id="page-admin-login" class="hidden">
-<div class="page-header">
-<button class="back-btn" onclick="showLanding()">→</button>
-<h2>🔐 ورود ادمین</h2>
-</div>
+<div class="page-header"><button class="back-btn" onclick="showLanding()">→</button><h2>🔐 ورود ادمین</h2></div>
 <div class="container">
 <div class="card">
-<input type="password" id="admin-pass-input" placeholder="پسورد ادمین">
+<input type="password" id="admin-pass-input" placeholder="پسورد ادمین" onkeydown="if(event.key==='Enter')loginAdmin()">
 <button class="btn btn-secondary" style="margin-top:10px" onclick="loginAdmin()">ورود</button>
 </div>
 <div id="msg-admin-login" class="msg"></div>
@@ -514,83 +375,65 @@ background: linear-gradient(to bottom, #080818aa, #080818);
 
 <!-- ADMIN PANEL -->
 <div id="page-admin" class="hidden">
-<div class="page-header">
-<button class="back-btn" onclick="showLanding()">→</button>
-<h2>🛠️ پنل ادمین</h2>
+<div class="stadium-header">
+<div class="stadium-header-bg"></div>
+<div class="stadium-header-overlay"></div>
+<div class="stadium-header-content">
+<div style="font-size:40px">🛠️</div>
+<h2 style="font-size:22px;margin-top:5px">پنل مدیریت</h2>
+</div>
 </div>
 <div class="container">
 <div class="card" style="padding:10px">
 <button class="btn btn-dark" onclick="adminShowTeams()">👥 مدیریت تیم‌ها</button>
-<button class="btn btn-dark" onclick="adminShowChannel()">📢 ارسال به کانال</button>
+<button class="btn btn-dark" onclick="adminShowChannel()">📢 کانال خبری</button>
 <button class="btn btn-dark" onclick="adminChangePass()">🔑 تغییر پسورد ادمین</button>
 <button class="btn btn-dark" onclick="adminShowReset()">🔄 شروع مجدد بازی</button>
+<button class="btn btn-gray" style="margin-top:5px" onclick="showLanding()">→ خروج</button>
 </div>
 </div>
 </div>
 
 <!-- ADMIN TEAMS -->
 <div id="page-admin-teams" class="hidden">
-<div class="page-header">
-<button class="back-btn" onclick="showAdmin()">→</button>
-<h2>👥 مدیریت تیم‌ها</h2>
-</div>
+<div class="page-header"><button class="back-btn" onclick="showAdmin()">→</button><h2>👥 مدیریت تیم‌ها</h2></div>
 <div class="container" id="admin-teams-list"></div>
 </div>
 
-<!-- ADMIN CHANNEL -->
+<!-- ADMIN CHANNEL (مثل تلگرام) -->
 <div id="page-admin-channel" class="hidden">
-<div class="page-header">
-<button class="back-btn" onclick="showAdmin()">→</button>
-<h2>📢 ارسال به کانال</h2>
-</div>
+<div class="page-header"><button class="back-btn" onclick="showAdmin()">→</button><h2>📢 کانال خبری</h2></div>
 <div class="container">
-<div class="card">
-<div class="sec-title">پیام متنی</div>
-<textarea id="admin-channel-text" placeholder="متن پیام را بنویسید..."></textarea>
-<button class="btn btn-primary" onclick="adminSendChannelText()">📤 ارسال پیام</button>
+<div class="admin-channel-box" id="admin-channel-posts"></div>
+<div id="admin-file-preview" class="file-preview"></div>
+<div class="admin-channel-input-row">
+<input type="text" id="admin-channel-text" placeholder="پیام بنویسید..." onkeydown="if(event.key==='Enter')adminSendChannelMsg()">
+<button class="icon-btn" onclick="document.getElementById('admin-channel-file').click()" title="ارسال فایل">📎</button>
+<button class="btn btn-primary" style="width:auto;padding:12px 16px;margin:0" onclick="adminSendChannelMsg()">ارسال</button>
 </div>
-<div class="card">
-<div class="sec-title">ارسال فایل</div>
-<button class="btn btn-gray" onclick="document.getElementById('admin-channel-file').click()">📎 انتخاب فایل (عکس/ویدیو/صوت)</button>
-<input type="file" id="admin-channel-file" style="display:none" onchange="adminSendChannelFile()">
-<div id="admin-file-preview" style="margin-top:10px"></div>
-</div>
+<input type="file" id="admin-channel-file" style="display:none" accept="image/*,audio/*,video/*" onchange="previewAdminFile()">
 <div id="msg-admin-channel" class="msg"></div>
 </div>
 </div>
 
 <!-- ADMIN RESET -->
 <div id="page-admin-reset" class="hidden">
-<div class="page-header">
-<button class="back-btn" onclick="showAdmin()">→</button>
-<h2>🔄 شروع مجدد</h2>
-</div>
+<div class="page-header"><button class="back-btn" onclick="showAdmin()">→</button><h2>🔄 شروع مجدد</h2></div>
 <div class="container">
 <div class="card">
 <div class="sec-title" style="color:#ff1744">⚠️ هشدار</div>
-<p style="color:#aaa;margin-bottom:20px;line-height:1.8">این عملیات تمام اطلاعات بازی را پاک می‌کند و از اول شروع می‌شود. این کار برگشت‌پذیر نیست!</p>
+<p style="color:#aaa;margin-bottom:20px;line-height:1.8">این عملیات تمام اطلاعات بازی را پاک می‌کند!</p>
 <button class="btn btn-red" id="reset-btn-1" onclick="resetStep1()">🔄 شروع مجدد بازی</button>
-<div id="reset-step-2" class="hidden">
-<p style="color:#ff1744;margin:15px 0">مطمئنی؟</p>
-<button class="btn btn-red" onclick="resetStep2()">بله، مطمئنم</button>
-<button class="btn btn-gray" onclick="cancelReset()">انصراف</button>
-</div>
-<div id="reset-step-3" class="hidden">
-<p style="color:#ff1744;margin:15px 0">واقعاً مطمئنی؟ همه چیز پاک میشه!</p>
-<button class="btn btn-red" onclick="resetStep3()">بله، همه چیز پاک شود</button>
-<button class="btn btn-gray" onclick="cancelReset()">انصراف</button>
-</div>
-<div id="reset-step-4" class="hidden">
-<p style="color:#ff1744;margin:15px 0">آخرین تأیید - این کار غیرقابل برگشت است!</p>
-<button class="btn btn-red" onclick="doReset()">✅ بله، شروع مجدد</button>
-<button class="btn btn-gray" onclick="cancelReset()">انصراف</button>
-</div>
+<div id="reset-step-2" class="hidden"><p style="color:#ff1744;margin:15px 0">مطمئنی؟</p><button class="btn btn-red" onclick="resetStep2()">بله، مطمئنم</button><button class="btn btn-gray" onclick="cancelReset()">انصراف</button></div>
+<div id="reset-step-3" class="hidden"><p style="color:#ff1744;margin:15px 0">واقعاً مطمئنی؟</p><button class="btn btn-red" onclick="resetStep3()">بله، ادامه بده</button><button class="btn btn-gray" onclick="cancelReset()">انصراف</button></div>
+<div id="reset-step-4" class="hidden"><p style="color:#ff1744;margin:15px 0">آخرین تأیید!</p><button class="btn btn-red" onclick="doReset()">✅ بله، همه چیز پاک شود</button><button class="btn btn-gray" onclick="cancelReset()">انصراف</button></div>
 </div>
 <div id="msg-reset" class="msg"></div>
 </div>
 </div>
 
-<div id="global-msg" class="msg" style="position:fixed;top:20px;left:50%;transform:translateX(-50%);z-index:9999;min-width:280px;max-width:90%"></div>
+<div id="global-msg" class="msg"></div>
+
 <script>
 const SUPABASE_URL = 'https://weitirvqfpzlgtnohsqd.supabase.co';
 const SUPABASE_KEY = 'sb_publishable_qM6Nv5l27v6fFWfZd21UIQ_PXIXBqhp';
@@ -601,21 +444,22 @@ let currentTeam = null;
 let selectedLeague = null;
 let selectedTeamName = null;
 let currentChatId = null;
-let currentChatTitle = null;
 let mediaRecorder = null;
 let audioChunks = [];
 let isRecording = false;
 let channelFrom = 'landing';
+let pendingChatFile = null;
+let pendingAdminFile = null;
 
 const LEAGUES = {
-'🇪🇸 لالیگا': ['رئال مادرید','بارسلونا','اتلتیکو مادرید','سویا','والنسیا','ویارئال','رئال بتیس','اوساسونا'],
-'🏴 لیگ برتر': ['منچستر سیتی','آرسنال','لیورپول','چلسی','منچستر یونایتد','تاتنهام','نیوکاسل','وست هم'],
-'🇮🇹 سری آ': ['یوونتوس','اینتر','میلان','ناپولی','رم','لاتزیو','فیورنتینا','آتالانتا'],
-'🇩🇪 بوندسلیگا': ['بایرن مونیخ','دورتموند','لایپزیش','لورکوزن','فرانکفورت','وولفسبورگ'],
-'🇫🇷 لیگ ۱': ['پاری سن ژرمن','مارسی','لیون','موناکو','لیل','نیس','رن'],
-'🇳🇱 اردیویسه': ['آژاکس','فیینورد','پی‌اس‌وی'],
-'🇵🇹 لیگ پرتغال': ['بنفیکا','پورتو','اسپورتینگ'],
-'🇹🇷 سوپر لیگ': ['گالاتاسارای','فنرباغچه','بشیکتاش','تراپزون']
+'🇪🇸 لالیگا':['رئال مادرید','بارسلونا','اتلتیکو مادرید','سویا','والنسیا','ویارئال','رئال بتیس','اوساسونا'],
+'🏴 لیگ برتر':['منچستر سیتی','آرسنال','لیورپول','چلسی','منچستر یونایتد','تاتنهام','نیوکاسل','وست هم'],
+'🇮🇹 سری آ':['یوونتوس','اینتر','میلان','ناپولی','رم','لاتزیو','فیورنتینا','آتالانتا'],
+'🇩🇪 بوندسلیگا':['بایرن مونیخ','دورتموند','لایپزیش','لورکوزن','فرانکفورت','وولفسبورگ'],
+'🇫🇷 لیگ ۱':['پاری سن ژرمن','مارسی','لیون','موناکو','لیل','نیس','رن'],
+'🇳🇱 اردیویسه':['آژاکس','فیینورد','پی‌اس‌وی'],
+'🇵🇹 لیگ پرتغال':['بنفیکا','پورتو','اسپورتینگ'],
+'🇹🇷 سوپر لیگ':['گالاتاسارای','فنرباغچه','بشیکتاش','تراپزون']
 };
 
 const COMPANIES = [
@@ -649,10 +493,7 @@ function hideAll() {
 document.querySelectorAll('#app > div').forEach(d => d.classList.add('hidden'));
 }
 
-function showLanding() {
-hideAll();
-document.getElementById('page-landing').classList.remove('hidden');
-}
+function showLanding() { hideAll(); document.getElementById('page-landing').classList.remove('hidden'); }
 
 function showLeagues() {
 hideAll();
@@ -674,7 +515,7 @@ hideAll();
 document.getElementById('league-title').textContent = selectedLeague;
 document.getElementById('teams-list').innerHTML = '<p style="color:#888;text-align:center;padding:20px">در حال بارگذاری...</p>';
 document.getElementById('page-teams').classList.remove('hidden');
-const {data} = await client.from('teams').select('team_name,is_active,owner').eq('league', selectedLeague);
+const {data} = await client.from('teams').select('team_name,is_active').eq('league', selectedLeague);
 const taken = {};
 if(data) data.forEach(t => taken[t.team_name] = t);
 const list = document.getElementById('teams-list');
@@ -709,17 +550,10 @@ if(!data) return showMsg('این تیم هنوز فعال نشده. با ادم�
 if(data.password !== pass) return showMsg('پسورد اشتباه است','error','msg-pass');
 currentTeam = data;
 await client.from('teams').update({is_active: true}).eq('id', data.id);
-if(!data.signature) {
-showSignature();
-} else {
-showMain();
-}
+if(!data.signature) { showSignature(); } else { showMain(); }
 }
 
-function showSignature() {
-hideAll();
-document.getElementById('page-signature').classList.remove('hidden');
-}
+function showSignature() { hideAll(); document.getElementById('page-signature').classList.remove('hidden'); }
 
 async function saveSignature() {
 const sig = document.getElementById('input-signature').value.trim();
@@ -741,8 +575,7 @@ document.getElementById('main-signature').textContent = data.signature || '⚽';
 document.getElementById('main-money').textContent = '💰 ' + data.money.toLocaleString() + ' | 📈 ' + data.daily_income.toLocaleString();
 document.getElementById('page-main').classList.remove('hidden');
 }
-</script>
-<script>
+
 async function showAssets() {
 hideAll();
 const {data: comp} = await client.from('companies').select('*').eq('team_id', currentTeam.id);
@@ -756,15 +589,13 @@ document.getElementById('assets-content').innerHTML = `
 <div class="info-row"><span class="info-label">📈 درآمد روزانه</span><span class="info-value" style="color:#00e676">${team.daily_income.toLocaleString()}</span></div>
 <div class="info-row"><span class="info-label">✍️ امضا</span><span class="info-value">${team.signature||'-'}</span></div>
 <div class="info-row"><span class="info-label">🏢 شرکت‌ها</span><span class="info-value">${comp&&comp.length?comp.map(c=>`${c.company_name}(${c.quantity})`).join('، '):'-'}</span></div>
-<div class="info-row"><span class="info-label">👕 اسپانسر</span><span class="info-value">${spon&&spon.length?spon.map(s=>s.sponsor_name).join('، '):'-'}</span></div>
-`;
+<div class="info-row"><span class="info-label">👕 اسپانسر</span><span class="info-value">${spon&&spon.length?spon.map(s=>s.sponsor_name).join('، '):'-'}</span></div>`;
 document.getElementById('page-assets').classList.remove('hidden');
 }
 
 async function showBuyCompany() {
 hideAll();
 const {data: existing} = await client.from('companies').select('*').eq('team_id', currentTeam.id);
-const {data: team} = await client.from('teams').select('money').eq('id', currentTeam.id).single();
 const list = document.getElementById('companies-list');
 list.innerHTML = '';
 COMPANIES.forEach(c => {
@@ -772,37 +603,31 @@ const owned = existing ? existing.find(e => e.company_name === c.name) : null;
 const qty = owned ? owned.quantity : 0;
 const div = document.createElement('div');
 div.className = 'card';
-div.innerHTML = `
-<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
-<span style="font-size:16px;font-weight:bold">${c.name}</span>
-<span class="badge badge-gold">${qty}/10</span>
-</div>
+div.innerHTML = `<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px"><span style="font-size:16px;font-weight:bold">${c.name}</span><span class="badge badge-gold">${qty}/10</span></div>
 <div class="info-row"><span class="info-label">💰 قیمت</span><span class="info-value">${c.price.toLocaleString()}</span></div>
-<div class="info-row"><span class="info-label">📈 درآمد روزانه</span><span class="info-value" style="color:#00e676">${c.income.toLocaleString()}</span></div>
-${qty < 10 ? `<input type="number" id="qty_${c.name.replace(/\s/g,'_')}" placeholder="تعداد (حداکثر ${10-qty})" min="1" max="${10-qty}" style="margin-top:10px">
-<button class="btn btn-green" style="margin-top:8px" onclick="buyCompany('${c.name}',${c.price},${c.income})">🛒 خرید</button>` : `<p style="color:#ff1744;margin-top:10px;text-align:center">حداکثر خریداری شده</p>`}
-`;
+<div class="info-row"><span class="info-label">📈 درآمد</span><span class="info-value" style="color:#00e676">${c.income.toLocaleString()}</span></div>
+${qty<10?`<input type="number" id="qty_${c.name.replace(/\W/g,'_')}" placeholder="تعداد (حداکثر ${10-qty})" min="1" max="${10-qty}" style="margin-top:10px"><button class="btn btn-green" style="margin-top:8px" onclick="buyCompany('${c.name}',${c.price},${c.income})">🛒 خرید</button>`:`<p style="color:#ff1744;margin-top:10px;text-align:center">حداکثر خریداری شده</p>`}`;
 list.appendChild(div);
 });
 document.getElementById('page-buy-company').classList.remove('hidden');
 }
 
 async function buyCompany(name, price, income) {
-const safeId = name.replace(/\s/g,'_');
+const safeId = name.replace(/\W/g,'_');
 const qtyEl = document.getElementById('qty_' + safeId);
 const qty = parseInt(qtyEl.value);
-if(!qty || qty < 1) return showMsg('تعداد را وارد کنید');
+if(!qty||qty<1) return showMsg('تعداد را وارد کنید');
 const total = price * qty;
 const {data: team} = await client.from('teams').select('*').eq('id', currentTeam.id).single();
 if(team.money < total) return showMsg('پول کافی ندارید');
 const {data: existing} = await client.from('companies').select('*').eq('team_id', currentTeam.id).eq('company_name', name).single();
 if(existing) {
-if(existing.quantity + qty > 10) return showMsg('حداکثر ۱۰ عدد مجاز است');
-await client.from('companies').update({quantity: existing.quantity + qty}).eq('id', existing.id);
+if(existing.quantity+qty>10) return showMsg('حداکثر ۱۰ عدد مجاز است');
+await client.from('companies').update({quantity: existing.quantity+qty}).eq('id', existing.id);
 } else {
 await client.from('companies').insert({team_id: currentTeam.id, company_name: name, quantity: qty, daily_income: income});
 }
-await client.from('teams').update({money: team.money - total, daily_income: team.daily_income + (income * qty)}).eq('id', currentTeam.id);
+await client.from('teams').update({money: team.money-total, daily_income: team.daily_income+(income*qty)}).eq('id', currentTeam.id);
 showMsg(`✅ ${qty} عدد ${name} خریداری شد!`, 'success');
 showBuyCompany();
 }
@@ -816,15 +641,10 @@ SPONSORS.forEach(s => {
 const owned = existing ? existing.find(e => e.sponsor_name === s.name) : null;
 const div = document.createElement('div');
 div.className = 'card';
-div.innerHTML = `
-<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
-<span style="font-size:16px;font-weight:bold">${s.name}</span>
-${owned ? '<span class="badge badge-green">✅ خریداری شده</span>' : ''}
-</div>
+div.innerHTML = `<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px"><span style="font-size:16px;font-weight:bold">${s.name}</span>${owned?'<span class="badge badge-green">✅ خریداری شده</span>':''}</div>
 <div class="info-row"><span class="info-label">💰 قیمت</span><span class="info-value">${s.price.toLocaleString()}</span></div>
-<div class="info-row"><span class="info-label">📈 درآمد روزانه</span><span class="info-value" style="color:#00e676">${s.income.toLocaleString()}</span></div>
-${!owned ? `<button class="btn btn-green" style="margin-top:10px" onclick="buySponsor('${s.name}',${s.price},${s.income})">🛒 خرید</button>` : ''}
-`;
+<div class="info-row"><span class="info-label">📈 درآمد</span><span class="info-value" style="color:#00e676">${s.income.toLocaleString()}</span></div>
+${!owned?`<button class="btn btn-green" style="margin-top:10px" onclick="buySponsor('${s.name}',${s.price},${s.income})">🛒 خرید</button>`:''}`;
 list.appendChild(div);
 });
 document.getElementById('page-buy-sponsor').classList.remove('hidden');
@@ -834,7 +654,7 @@ async function buySponsor(name, price, income) {
 const {data: team} = await client.from('teams').select('*').eq('id', currentTeam.id).single();
 if(team.money < price) return showMsg('پول کافی ندارید');
 await client.from('sponsors').insert({team_id: currentTeam.id, sponsor_name: name, daily_income: income});
-await client.from('teams').update({money: team.money - price, daily_income: team.daily_income + income}).eq('id', currentTeam.id);
+await client.from('teams').update({money: team.money-price, daily_income: team.daily_income+income}).eq('id', currentTeam.id);
 showMsg('✅ اسپانسر خریداری شد!', 'success');
 showBuySponsor();
 }
@@ -844,17 +664,11 @@ hideAll();
 const {data} = await client.from('players').select('*').eq('team_id', currentTeam.id);
 const list = document.getElementById('my-players-list');
 list.innerHTML = '';
-if(!data || !data.length) {
-list.innerHTML = '<div class="card"><p style="text-align:center;color:#888">بازیکنی ندارید</p></div>';
-} else {
+if(!data||!data.length) { list.innerHTML='<div class="card"><p style="text-align:center;color:#888">بازیکنی ندارید</p></div>'; }
+else {
 const div = document.createElement('div');
 div.className = 'card';
-data.forEach(p => {
-div.innerHTML += `<div class="player-item">
-<span>⚽ ${p.player_name}</span>
-${p.is_for_sale ? '<span class="badge badge-red">🔴 در فروش</span>' : '<span class="badge badge-green">🟢 در تیم</span>'}
-</div>`;
-});
+data.forEach(p => { div.innerHTML += `<div class="player-item"><span>⚽ ${p.player_name}</span>${p.is_for_sale?'<span class="badge badge-red">🔴 در فروش</span>':'<span class="badge badge-green">🟢 در تیم</span>'}</div>`; });
 list.appendChild(div);
 }
 document.getElementById('page-my-players').classList.remove('hidden');
@@ -865,22 +679,13 @@ hideAll();
 const {data} = await client.from('players').select('*,teams(team_name)').eq('is_for_sale', true);
 const list = document.getElementById('sale-players-list');
 list.innerHTML = '';
-if(!data || !data.length) {
-list.innerHTML = '<div class="card"><p style="text-align:center;color:#888">بازیکنی در لیست فروش نیست</p></div>';
-} else {
-data.forEach(p => {
+if(!data||!data.length) { list.innerHTML='<div class="card"><p style="text-align:center;color:#888">بازیکنی در لیست فروش نیست</p></div>'; }
+else data.forEach(p => {
 const div = document.createElement('div');
 div.className = 'card';
-div.innerHTML = `
-<div style="display:flex;justify-content:space-between;align-items:center">
-<span style="font-weight:bold">⚽ ${p.player_name}</span>
-<span class="badge badge-gold">💰 ${p.sale_price.toLocaleString()}</span>
-</div>
-<div class="info-row" style="margin-top:8px"><span class="info-label">تیم فروشنده</span><span class="info-value">${p.teams.team_name}</span></div>
-`;
+div.innerHTML = `<div style="display:flex;justify-content:space-between;align-items:center"><span style="font-weight:bold">⚽ ${p.player_name}</span><span class="badge badge-gold">💰 ${p.sale_price.toLocaleString()}</span></div><div class="info-row" style="margin-top:8px"><span class="info-label">تیم</span><span class="info-value">${p.teams.team_name}</span></div>`;
 list.appendChild(div);
 });
-}
 document.getElementById('page-sale-players').classList.remove('hidden');
 }
 
@@ -889,28 +694,21 @@ hideAll();
 const {data} = await client.from('players').select('*').eq('team_id', currentTeam.id).eq('is_for_sale', false);
 const list = document.getElementById('sell-players-list');
 list.innerHTML = '';
-if(!data || !data.length) {
-list.innerHTML = '<div class="card"><p style="text-align:center;color:#888">بازیکنی برای فروش ندارید</p></div>';
-} else {
-data.forEach(p => {
+if(!data||!data.length) { list.innerHTML='<div class="card"><p style="text-align:center;color:#888">بازیکنی برای فروش ندارید</p></div>'; }
+else data.forEach(p => {
 const div = document.createElement('div');
 div.className = 'card';
-div.innerHTML = `
-<div style="font-weight:bold;margin-bottom:10px">⚽ ${p.player_name}</div>
-<input type="number" id="sell_${p.id}" placeholder="قیمت فروش را وارد کنید">
-<button class="btn btn-secondary" style="margin-top:8px" onclick="sellPlayer(${p.id},'${p.player_name}')">💸 قرار دادن برای فروش</button>
-`;
+div.innerHTML = `<div style="font-weight:bold;margin-bottom:10px">⚽ ${p.player_name}</div><input type="number" id="sell_${p.id}" placeholder="قیمت فروش"><button class="btn btn-secondary" style="margin-top:8px" onclick="sellPlayer(${p.id},'${p.player_name}')">💸 قرار دادن برای فروش</button>`;
 list.appendChild(div);
 });
-}
 document.getElementById('page-sell-player').classList.remove('hidden');
 }
 
 async function sellPlayer(id, name) {
-const price = parseInt(document.getElementById('sell_' + id).value);
-if(!price || price < 1) return showMsg('قیمت را وارد کنید');
+const price = parseInt(document.getElementById('sell_'+id).value);
+if(!price||price<1) return showMsg('قیمت را وارد کنید');
 await client.from('players').update({is_for_sale: true, sale_price: price}).eq('id', id);
-await addChannelPost(`🔴 اعلام فروش بازیکن\n\n⚽ بازیکن: ${name}\n🏟️ تیم: ${currentTeam.team_name}\n💰 قیمت: ${price.toLocaleString()}\n\n#لیست_فروش`, 'system');
+await addChannelPost(`🔴 اعلام فروش بازیکن\n\n⚽ بازیکن: ${name}\n🏟️ تیم: ${currentTeam.team_name}\n💰 قیمت: ${price.toLocaleString()}\n\n#لیست_فروش`);
 showMsg('✅ بازیکن برای فروش قرار گرفت', 'success');
 showSellPlayer();
 }
@@ -937,67 +735,43 @@ document.getElementById('buy-player-team-title').textContent = '⚽ بازیکن
 const {data} = await client.from('players').select('*').eq('team_id', team.id);
 const list = document.getElementById('buy-player-list');
 list.innerHTML = '';
-if(!data || !data.length) {
-list.innerHTML = '<p style="color:#888;text-align:center">بازیکنی ندارد</p>';
-} else {
-data.forEach(p => {
+if(!data||!data.length) { list.innerHTML='<p style="color:#888;text-align:center">بازیکنی ندارد</p>'; }
+else data.forEach(p => {
 const div = document.createElement('div');
-div.innerHTML = `
-<div class="player-item" style="flex-direction:column;align-items:flex-start;gap:8px">
-<span style="font-weight:bold">⚽ ${p.player_name}</span>
-<input type="number" id="offer_${p.id}" placeholder="قیمت پیشنهادی">
-<input type="number" id="games_${p.id}" placeholder="تعداد بازی (۱۵ تا ۵۰)" min="15" max="50">
-<button class="btn btn-primary" style="width:100%" onclick="sendBuyRequest(${p.id},'${p.player_name}',${team.id},'${team.team_name}')">📤 ارسال درخواست</button>
-</div>
-`;
+div.innerHTML = `<div class="player-item" style="flex-direction:column;align-items:flex-start;gap:8px"><span style="font-weight:bold">⚽ ${p.player_name}</span><input type="number" id="offer_${p.id}" placeholder="قیمت پیشنهادی"><input type="number" id="games_${p.id}" placeholder="تعداد بازی (۱۵-۵۰)" min="15" max="50"><button class="btn btn-primary" style="width:100%" onclick="sendBuyRequest(${p.id},'${p.player_name}',${team.id},'${team.team_name}')">📤 ارسال درخواست</button></div>`;
 list.appendChild(div);
 });
-}
 document.getElementById('buy-player-players').classList.remove('hidden');
 }
 
 async function sendBuyRequest(playerId, playerName, toTeamId, toTeamName) {
-const price = parseInt(document.getElementById('offer_' + playerId).value);
-const games = parseInt(document.getElementById('games_' + playerId).value);
+const price = parseInt(document.getElementById('offer_'+playerId).value);
+const games = parseInt(document.getElementById('games_'+playerId).value);
 if(!price) return showMsg('قیمت پیشنهادی را وارد کنید');
-if(!games || games < 15 || games > 50) return showMsg('تعداد بازی باید بین ۱۵ تا ۵۰ باشد');
-await client.from('transfer_requests').insert({
-from_team_id: currentTeam.id,
-to_team_id: toTeamId,
-player_id: playerId,
-offered_price: price,
-contract_games: games,
-status: 'pending'
-});
+if(!games||games<15||games>50) return showMsg('تعداد بازی باید بین ۱۵ تا ۵۰ باشد');
+await client.from('transfer_requests').insert({from_team_id: currentTeam.id, to_team_id: toTeamId, player_id: playerId, offered_price: price, contract_games: games, status:'pending'});
 showMsg('✅ درخواست ارسال شد', 'success');
 }
 
 async function showRequests() {
 hideAll();
-const {data} = await client.from('transfer_requests')
-.select('*,players(player_name),teams!transfer_requests_from_team_id_fkey(team_name)')
-.eq('to_team_id', currentTeam.id).eq('status', 'pending');
+const {data} = await client.from('transfer_requests').select('*,players(player_name),teams!transfer_requests_from_team_id_fkey(team_name)').eq('to_team_id', currentTeam.id).eq('status','pending');
 const list = document.getElementById('requests-list');
 list.innerHTML = '';
-if(!data || !data.length) {
-list.innerHTML = '<div class="card"><p style="text-align:center;color:#888">درخواستی ندارید</p></div>';
-} else {
-data.forEach(r => {
+if(!data||!data.length) { list.innerHTML='<div class="card"><p style="text-align:center;color:#888">درخواستی ندارید</p></div>'; }
+else data.forEach(r => {
 const div = document.createElement('div');
 div.className = 'card';
-div.innerHTML = `
-<div style="font-weight:bold;font-size:16px;margin-bottom:12px">⚽ ${r.players.player_name}</div>
+div.innerHTML = `<div style="font-weight:bold;font-size:16px;margin-bottom:12px">⚽ ${r.players.player_name}</div>
 <div class="info-row"><span class="info-label">از تیم</span><span class="info-value">${r.teams.team_name}</span></div>
 <div class="info-row"><span class="info-label">💰 قیمت</span><span class="info-value" style="color:#ffd700">${r.offered_price.toLocaleString()}</span></div>
 <div class="info-row"><span class="info-label">🎮 تعداد بازی</span><span class="info-value">${r.contract_games}</span></div>
 <div style="display:flex;gap:8px;margin-top:12px">
 <button class="btn btn-green" onclick="acceptRequest(${r.id},${r.from_team_id},${r.player_id},${r.offered_price},'${r.players.player_name}','${r.teams.team_name}')">✅ قبول</button>
-<button class="btn btn-red" onclick="rejectRequest(${r.id},'${r.players.player_name}','${r.teams.team_name}')">❌ رد</button>
-</div>
-`;
+<button class="btn btn-red" onclick="rejectRequest(${r.id})">❌ رد</button>
+</div>`;
 list.appendChild(div);
 });
-}
 document.getElementById('page-requests').classList.remove('hidden');
 }
 
@@ -1005,17 +779,17 @@ async function acceptRequest(id, fromId, playerId, price, playerName, fromTeamNa
 const {data: buyer} = await client.from('teams').select('money').eq('id', fromId).single();
 const {data: seller} = await client.from('teams').select('money').eq('id', currentTeam.id).single();
 if(buyer.money < price) return showMsg('تیم خریدار پول کافی ندارد');
-await client.from('teams').update({money: buyer.money - price}).eq('id', fromId);
-await client.from('teams').update({money: seller.money + price}).eq('id', currentTeam.id);
+await client.from('teams').update({money: buyer.money-price}).eq('id', fromId);
+await client.from('teams').update({money: seller.money+price}).eq('id', currentTeam.id);
 await client.from('players').update({team_id: fromId, is_for_sale: false, sale_price: 0}).eq('id', playerId);
-await client.from('transfer_requests').update({status: 'accepted'}).eq('id', id);
-await addChannelPost(`✅ انتقال بازیکن\n\n⚽ ${playerName}\n🔴 از: ${currentTeam.team_name}\n🟢 به: ${fromTeamName}\n💰 مبلغ: ${price.toLocaleString()}\n\n#انتقال_بازیکن`, 'system');
+await client.from('transfer_requests').update({status:'accepted'}).eq('id', id);
+await addChannelPost(`✅ انتقال بازیکن\n\n⚽ ${playerName}\n🔴 از: ${currentTeam.team_name}\n🟢 به: ${fromTeamName}\n💰 مبلغ: ${price.toLocaleString()}\n\n#انتقال_بازیکن`);
 showMsg('✅ انتقال انجام شد!', 'success');
 showRequests();
 }
 
-async function rejectRequest(id, playerName, fromTeamName) {
-await client.from('transfer_requests').update({status: 'rejected'}).eq('id', id);
+async function rejectRequest(id) {
+await client.from('transfer_requests').update({status:'rejected'}).eq('id', id);
 showMsg('درخواست رد شد', 'success');
 showRequests();
 }
@@ -1023,21 +797,18 @@ showRequests();
 async function exitGame() {
 if(!confirm('آیا مطمئنید؟')) return;
 await client.from('teams').update({is_active: false, owner: null}).eq('id', currentTeam.id);
-await addChannelPost(`🚪 تیم ${currentTeam.team_name} از بازی خارج شد.\n\n#خروج_از_بازی`, 'system');
+await addChannelPost(`🚪 تیم ${currentTeam.team_name} از بازی خارج شد.\n\n#خروج_از_بازی`);
 currentTeam = null;
 showLanding();
 }
-</script>
-<script>
+
 async function showNegotiationSend() {
 hideAll();
 const {data} = await client.from('teams').select('*').neq('id', currentTeam.id);
 const list = document.getElementById('neg-teams-list');
 list.innerHTML = '';
-if(!data || !data.length) {
-list.innerHTML = '<p style="color:#888;text-align:center">تیم فعالی وجود ندارد</p>';
-} else {
-data.forEach(t => {
+if(!data||!data.length) { list.innerHTML='<p style="color:#888;text-align:center">تیم فعالی وجود ندارد</p>'; }
+else data.forEach(t => {
 const btn = document.createElement('button');
 btn.className = 'btn btn-dark';
 btn.style.marginBottom = '8px';
@@ -1045,16 +816,11 @@ btn.innerHTML = `⚽ ${t.team_name} <span style="color:#888;font-size:12px;margi
 btn.onclick = () => sendNegRequest(t.id, t.team_name);
 list.appendChild(btn);
 });
-}
 document.getElementById('page-neg-send').classList.remove('hidden');
 }
 
 async function sendNegRequest(toTeamId, toTeamName) {
-const {data: existing} = await client.from('negotiations').select('id').or(`and(team1_id.eq.${currentTeam.id},team2_id.eq.${toTeamId}),and(team1_id.eq.${toTeamId},team2_id.eq.${currentTeam.id})`).single();
-if(existing) return showMsg('قبلاً چت مذاکره با این تیم دارید');
-const {data: req} = await client.from('neg_requests').select('id').eq('from_team_id', currentTeam.id).eq('to_team_id', toTeamId).eq('status','pending').single();
-if(req) return showMsg('درخواست قبلاً ارسال شده');
-await client.from('neg_requests').insert({from_team_id: currentTeam.id, to_team_id: toTeamId, status: 'pending'});
+await client.from('neg_requests').insert({from_team_id: currentTeam.id, to_team_id: toTeamId, status:'pending'});
 showMsg(`✅ درخواست مذاکره به ${toTeamName} ارسال شد`, 'success');
 }
 
@@ -1063,27 +829,23 @@ hideAll();
 const {data} = await client.from('neg_requests').select('*,teams!neg_requests_from_team_id_fkey(team_name)').eq('to_team_id', currentTeam.id).eq('status','pending');
 const list = document.getElementById('neg-requests-list');
 list.innerHTML = '';
-if(!data || !data.length) {
-list.innerHTML = '<div class="card"><p style="text-align:center;color:#888">درخواست مذاکره‌ای ندارید</p></div>';
-} else {
-data.forEach(r => {
+if(!data||!data.length) { list.innerHTML='<div class="card"><p style="text-align:center;color:#888">درخواست مذاکره‌ای ندارید</p></div>'; }
+else data.forEach(r => {
 const div = document.createElement('div');
 div.className = 'card';
-div.innerHTML = `
-<div style="font-weight:bold;margin-bottom:12px">💬 ${r.teams.team_name} درخواست مذاکره داده</div>
+div.innerHTML = `<div style="font-weight:bold;margin-bottom:12px">💬 ${r.teams.team_name} درخواست مذاکره داده</div>
 <div style="display:flex;gap:8px">
 <button class="btn btn-green" onclick="acceptNegRequest(${r.id},${r.from_team_id},'${r.teams.team_name}')">✅ قبول</button>
 <button class="btn btn-red" onclick="rejectNegRequest(${r.id})">❌ رد</button>
 </div>`;
 list.appendChild(div);
 });
-}
 document.getElementById('page-neg-requests').classList.remove('hidden');
 }
 
 async function acceptNegRequest(reqId, fromTeamId, fromTeamName) {
 await client.from('neg_requests').update({status:'accepted'}).eq('id', reqId);
-await client.from('negotiations').insert({team1_id: fromTeamId, team2_id: currentTeam.id, created_at: new Date().toISOString()});
+await client.from('negotiations').insert({team1_id: fromTeamId, team2_id: currentTeam.id});
 showMsg(`✅ مذاکره با ${fromTeamName} شروع شد`, 'success');
 showNegotiationRequests();
 }
@@ -1099,29 +861,24 @@ hideAll();
 const {data} = await client.from('negotiations').select('*,teams!negotiations_team1_id_fkey(team_name),t2:teams!negotiations_team2_id_fkey(team_name)').or(`team1_id.eq.${currentTeam.id},team2_id.eq.${currentTeam.id}`);
 const list = document.getElementById('my-chats-list');
 list.innerHTML = '';
-if(!data || !data.length) {
-list.innerHTML = '<div class="card"><p style="text-align:center;color:#888">چت مذاکره‌ای ندارید</p></div>';
-} else {
-data.forEach(n => {
+if(!data||!data.length) { list.innerHTML='<div class="card"><p style="text-align:center;color:#888">چت مذاکره‌ای ندارید</p></div>'; }
+else data.forEach(n => {
 const otherTeam = n.team1_id === currentTeam.id ? n.t2.team_name : n.teams.team_name;
 const div = document.createElement('div');
 div.className = 'card';
 div.style.cursor = 'pointer';
-div.innerHTML = `<div style="display:flex;justify-content:space-between;align-items:center">
-<span style="font-weight:bold">💬 ${otherTeam}</span>
-<span style="color:#888;font-size:12px">مذاکره</span>
-</div>`;
+div.innerHTML = `<div style="display:flex;justify-content:space-between;align-items:center"><span style="font-weight:bold">💬 ${otherTeam}</span><span style="color:#6c63ff;font-size:13px">باز کردن ←</span></div>`;
 div.onclick = () => openChat(n.id, otherTeam);
 list.appendChild(div);
 });
-}
 document.getElementById('page-my-chats').classList.remove('hidden');
 }
 
 async function openChat(negId, title) {
 currentChatId = negId;
-currentChatTitle = title;
 document.getElementById('chat-title').textContent = '💬 ' + title;
+pendingChatFile = null;
+document.getElementById('chat-file-preview').innerHTML = '';
 hideAll();
 document.getElementById('page-chat').classList.remove('hidden');
 await loadChatMessages();
@@ -1131,10 +888,7 @@ async function loadChatMessages() {
 const {data} = await client.from('neg_messages').select('*').eq('negotiation_id', currentChatId).order('created_at', {ascending: true});
 const box = document.getElementById('chat-messages');
 box.innerHTML = '';
-if(!data || !data.length) {
-box.innerHTML = '<p style="color:#888;text-align:center;margin-top:50px">شروع مذاکره کنید...</p>';
-return;
-}
+if(!data||!data.length) { box.innerHTML='<p style="color:#888;text-align:center;margin-top:80px">شروع مذاکره کنید...</p>'; return; }
 data.forEach(m => {
 const isMine = m.team_id === currentTeam.id;
 const div = document.createElement('div');
@@ -1143,12 +897,13 @@ if(m.is_pinned) div.classList.add('pinned');
 let content = '';
 if(m.is_pinned) content += '<div class="pinned-badge">📌 پین شده</div>';
 content += `<div class="sender">${m.sender_name}</div>`;
-if(m.type === 'text') content += `<div>${m.content}</div>`;
-else if(m.type === 'image') content += `<img src="${m.content}" style="width:100%;border-radius:8px;margin-top:5px">`;
-else if(m.type === 'audio') content += `<audio controls src="${m.content}" style="width:100%;margin-top:5px"></audio>`;
-else if(m.type === 'video') content += `<video controls src="${m.content}" style="width:100%;border-radius:8px;margin-top:5px"></video>`;
-content += `<div class="time">${new Date(m.created_at).toLocaleTimeString('fa-IR')}</div>`;
-if(isMine) content += `<div style="margin-top:5px"><button onclick="pinMessage(${m.id})" style="background:none;border:none;color:#ffd700;cursor:pointer;font-size:12px">${m.is_pinned?'📌 پین شده':'📌 پین'}</button></div>`;
+if(m.message_text) content += `<div>${m.message_text}</div>`;
+if(m.type==='image'&&m.content) content += `<img src="${m.content}" style="width:100%;border-radius:8px;margin-top:5px">`;
+else if(m.type==='audio'&&m.content) content += `<audio controls src="${m.content}" style="width:100%;margin-top:5px"></audio>`;
+else if(m.type==='video'&&m.content) content += `<video controls src="${m.content}" style="width:100%;border-radius:8px;margin-top:5px"></video>`;
+const t = new Date(m.created_at);
+content += `<div class="time">${t.getHours()}:${String(t.getMinutes()).padStart(2,'0')}</div>`;
+if(isMine) content += `<div style="margin-top:4px"><button onclick="pinMessage(${m.id})" style="background:none;border:none;color:#ffd700;cursor:pointer;font-size:12px">${m.is_pinned?'📌 برداشتن پین':'📌 پین'}</button></div>`;
 div.innerHTML = content;
 box.appendChild(div);
 });
@@ -1166,51 +921,48 @@ await loadChatMessages();
 showMsg('✅ بروزرسانی شد', 'success');
 }
 
-async function sendChatMsg() {
-const input = document.getElementById('chat-input');
-const text = input.value.trim();
-if(!text) return;
-await client.from('neg_messages').insert({
-negotiation_id: currentChatId,
-team_id: currentTeam.id,
-sender_name: currentTeam.team_name,
-type: 'text',
-content: text,
-is_pinned: false,
-created_at: new Date().toISOString()
-});
-input.value = '';
-await loadChatMessages();
-}
-
-function sendChatFile(type) {
-const input = document.getElementById('chat-file-input');
-input.accept = type === 'image' ? 'image/*' : '*/*';
-input.click();
-}
-
-async function uploadChatFile() {
+function previewChatFile() {
 const file = document.getElementById('chat-file-input').files[0];
 if(!file) return;
+pendingChatFile = file;
 const reader = new FileReader();
-reader.onload = async (e) => {
-const base64 = e.target.result;
-let type = 'text';
-if(file.type.startsWith('image')) type = 'image';
-else if(file.type.startsWith('audio')) type = 'audio';
-else if(file.type.startsWith('video')) type = 'video';
-await client.from('neg_messages').insert({
-negotiation_id: currentChatId,
-team_id: currentTeam.id,
-sender_name: currentTeam.team_name,
-type,
-content: base64,
-is_pinned: false,
-created_at: new Date().toISOString()
-});
-await loadChatMessages();
+reader.onload = e => {
+const preview = document.getElementById('chat-file-preview');
+if(file.type.startsWith('image')) preview.innerHTML = `<img src="${e.target.result}" style="max-height:150px;border-radius:8px"><button onclick="clearChatFile()" style="background:#ff1744;border:none;color:white;padding:4px 10px;border-radius:6px;cursor:pointer;margin-right:8px">× حذف</button>`;
+else if(file.type.startsWith('audio')) preview.innerHTML = `<audio controls src="${e.target.result}" style="width:100%"></audio><button onclick="clearChatFile()" style="background:#ff1744;border:none;color:white;padding:4px 10px;border-radius:6px;cursor:pointer;margin-top:5px">× حذف</button>`;
+else if(file.type.startsWith('video')) preview.innerHTML = `<video controls src="${e.target.result}" style="width:100%;border-radius:8px"></video><button onclick="clearChatFile()" style="background:#ff1744;border:none;color:white;padding:4px 10px;border-radius:6px;cursor:pointer;margin-top:5px">× حذف</button>`;
 };
 reader.readAsDataURL(file);
+}
+
+function clearChatFile() {
+pendingChatFile = null;
+document.getElementById('chat-file-preview').innerHTML = '';
+document.getElementById('chat-file-input').value = '';
+}
+
+async function sendChatMsg() {
+const text = document.getElementById('chat-input').value.trim();
+if(!text && !pendingChatFile) return;
+let type = 'text', content = null;
+if(pendingChatFile) {
+const reader = new FileReader();
+reader.onload = async e => {
+content = e.target.result;
+if(pendingChatFile.type.startsWith('image')) type = 'image';
+else if(pendingChatFile.type.startsWith('audio')) type = 'audio';
+else if(pendingChatFile.type.startsWith('video')) type = 'video';
+await client.from('neg_messages').insert({negotiation_id: currentChatId, team_id: currentTeam.id, sender_name: currentTeam.team_name, type, content, message_text: text||null, is_pinned: false, created_at: new Date().toISOString()});
+document.getElementById('chat-input').value = '';
+clearChatFile();
+await loadChatMessages();
+};
+reader.readAsDataURL(pendingChatFile);
+} else {
+await client.from('neg_messages').insert({negotiation_id: currentChatId, team_id: currentTeam.id, sender_name: currentTeam.team_name, type: 'text', content: null, message_text: text, is_pinned: false, created_at: new Date().toISOString()});
+document.getElementById('chat-input').value = '';
+await loadChatMessages();
+}
 }
 
 async function toggleVoice() {
@@ -1223,16 +975,8 @@ mediaRecorder.ondataavailable = e => audioChunks.push(e.data);
 mediaRecorder.onstop = async () => {
 const blob = new Blob(audioChunks, {type:'audio/webm'});
 const reader = new FileReader();
-reader.onload = async (e) => {
-await client.from('neg_messages').insert({
-negotiation_id: currentChatId,
-team_id: currentTeam.id,
-sender_name: currentTeam.team_name,
-type: 'audio',
-content: e.target.result,
-is_pinned: false,
-created_at: new Date().toISOString()
-});
+reader.onload = async e => {
+await client.from('neg_messages').insert({negotiation_id: currentChatId, team_id: currentTeam.id, sender_name: currentTeam.team_name, type: 'audio', content: e.target.result, message_text: null, is_pinned: false, created_at: new Date().toISOString()});
 await loadChatMessages();
 };
 reader.readAsDataURL(blob);
@@ -1244,6 +988,7 @@ document.getElementById('voice-btn').innerHTML = '⏹️';
 } catch(e) { showMsg('دسترسی به میکروفون ممکن نیست'); }
 } else {
 mediaRecorder.stop();
+mediaRecorder.stream.getTracks().forEach(t => t.stop());
 isRecording = false;
 document.getElementById('voice-btn').classList.remove('recording');
 document.getElementById('voice-btn').innerHTML = '🎤';
@@ -1262,58 +1007,42 @@ const text = document.getElementById('tactics-input').value;
 await client.from('teams').update({tactics: text}).eq('id', currentTeam.id);
 showMsg('✅ ترکیب و تاکتیک ذخیره شد', 'success', 'msg-tactics');
 }
-</script>
-<script>
-async function addChannelPost(text, type='system', mediaUrl=null, mediaType=null) {
-await client.from('channel_posts').insert({
-content: text,
-type,
-media_url: mediaUrl,
-media_type: mediaType,
-created_at: new Date().toISOString()
-});
+
+async function addChannelPost(text, mediaUrl=null, mediaType=null) {
+await client.from('channel_posts').insert({content: text, type:'system', media_url: mediaUrl, media_type: mediaType, created_at: new Date().toISOString()});
 }
 
 async function showChannel() {
 channelFrom = currentTeam ? 'main' : 'landing';
 hideAll();
-await refreshChannel();
 document.getElementById('page-channel').classList.remove('hidden');
+await refreshChannel();
 }
 
 async function refreshChannel() {
 const {data} = await client.from('channel_posts').select('*').order('created_at', {ascending: false}).limit(50);
 const list = document.getElementById('channel-posts');
 list.innerHTML = '';
-if(!data || !data.length) {
-list.innerHTML = '<div class="card"><p style="text-align:center;color:#888">هنوز پیامی نیست</p></div>';
-return;
-}
+if(!data||!data.length) { list.innerHTML='<div class="card"><p style="text-align:center;color:#888">هنوز پیامی نیست</p></div>'; return; }
 data.forEach(p => {
 const div = document.createElement('div');
 div.className = 'channel-post';
-const time = new Date(p.created_at).toLocaleString('fa-IR');
+const t = new Date(p.created_at);
+const timeStr = `${t.getHours()}:${String(t.getMinutes()).padStart(2,'0')} - ${t.toLocaleDateString('fa-IR')}`;
 let content = '';
 if(p.content) content += `<p style="line-height:1.8;white-space:pre-wrap">${p.content}</p>`;
 if(p.media_url) {
-if(p.media_type === 'image') content += `<img src="${p.media_url}" style="width:100%;border-radius:8px;margin-top:8px;max-height:300px;object-fit:cover">`;
-else if(p.media_type === 'audio') content += `<audio controls src="${p.media_url}" style="width:100%;margin-top:8px"></audio>`;
-else if(p.media_type === 'video') content += `<video controls src="${p.media_url}" style="width:100%;border-radius:8px;margin-top:8px"></video>`;
+if(p.media_type==='image') content += `<img src="${p.media_url}">`;
+else if(p.media_type==='audio') content += `<audio controls src="${p.media_url}"></audio>`;
+else if(p.media_type==='video') content += `<video controls src="${p.media_url}"></video>`;
 }
-div.innerHTML = `
-<div class="channel-post-header">
-<span>📢 کانال خبری</span>
-<span>${time}</span>
-</div>
-${content}
-`;
+div.innerHTML = `<div class="channel-post-header"><span>📢 کانال خبری</span><span>${timeStr}</span></div>${content}`;
 list.appendChild(div);
 });
 }
 
 function goBack() {
-if(channelFrom === 'main') showMain();
-else showLanding();
+if(channelFrom==='main') showMain(); else showLanding();
 }
 
 function showAdminLogin() {
@@ -1324,71 +1053,45 @@ document.getElementById('page-admin-login').classList.remove('hidden');
 
 async function loginAdmin() {
 const pass = document.getElementById('admin-pass-input').value;
-if(pass === ADMIN_PASSWORD) {
-showAdmin();
-} else {
-showMsg('پسورد اشتباه است', 'error', 'msg-admin-login');
-}
+if(pass === ADMIN_PASSWORD) { showAdmin(); }
+else { showMsg('پسورد اشتباه است', 'error', 'msg-admin-login'); }
 }
 
-function showAdmin() {
-hideAll();
-document.getElementById('page-admin').classList.remove('hidden');
-}
+function showAdmin() { hideAll(); document.getElementById('page-admin').classList.remove('hidden'); }
 
 async function adminShowTeams() {
 hideAll();
 const {data: teams} = await client.from('teams').select('*');
 const list = document.getElementById('admin-teams-list');
 list.innerHTML = '';
-
 const activateDiv = document.createElement('div');
 activateDiv.className = 'card';
-activateDiv.innerHTML = `
-<div class="sec-title">➕ فعال کردن تیم جدید</div>
+activateDiv.innerHTML = `<div class="sec-title">➕ فعال کردن تیم جدید</div>
 <select id="admin-league-sel">${Object.keys(LEAGUES).map(l=>`<option>${l}</option>`).join('')}</select>
 <select id="admin-team-sel"></select>
 <input type="password" id="admin-team-pass" placeholder="پسورد تیم">
-<button class="btn btn-green" style="margin-top:8px" onclick="adminActivateTeam()">✅ فعال کردن</button>
-`;
+<button class="btn btn-green" style="margin-top:8px" onclick="adminActivateTeam()">✅ فعال کردن</button>`;
 list.appendChild(activateDiv);
-
 document.getElementById('admin-league-sel').onchange = function() {
 const sel = document.getElementById('admin-team-sel');
 sel.innerHTML = LEAGUES[this.value].map(t=>`<option>${t}</option>`).join('');
 };
 document.getElementById('admin-league-sel').onchange();
-
-if(teams && teams.length) {
+if(teams&&teams.length) {
 teams.forEach(t => {
 const div = document.createElement('div');
 div.className = 'card';
-div.innerHTML = `
-<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
-<span style="font-weight:bold">⚽ ${t.team_name}</span>
-<span class="badge ${t.is_active?'badge-green':'badge-red'}">${t.is_active?'فعال':'خارج'}</span>
-</div>
+div.innerHTML = `<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px"><span style="font-weight:bold">⚽ ${t.team_name}</span><span class="badge ${t.is_active?'badge-green':'badge-red'}">${t.is_active?'فعال':'خارج'}</span></div>
 <div class="info-row"><span class="info-label">لیگ</span><span class="info-value">${t.league}</span></div>
 <div class="info-row"><span class="info-label">💰 پول</span><span class="info-value">${t.money.toLocaleString()}</span></div>
-<div class="info-row"><span class="info-label">📈 درآمد</span><span class="info-value">${t.daily_income.toLocaleString()}</span></div>
-
-<div style="margin-top:12px">
-<div class="sec-title" style="font-size:14px">➕ افزودن بازیکنان</div>
-<div id="players-inputs-${t.id}">
-<div style="display:flex;gap:8px;margin-bottom:6px">
-<input type="text" class="player-input-${t.id}" placeholder="نام بازیکن">
-<button onclick="addPlayerInput(${t.id})" style="background:#6c63ff;border:none;color:white;padding:8px 12px;border-radius:8px;cursor:pointer;white-space:nowrap">+</button>
-</div>
-</div>
+<div class="sec-title" style="font-size:14px;margin-top:12px">➕ افزودن بازیکنان</div>
+<div id="players-inputs-${t.id}"><div style="display:flex;gap:8px;margin-bottom:6px"><input type="text" class="player-input-${t.id}" placeholder="نام بازیکن"><button onclick="addPlayerInput(${t.id})" style="background:#6c63ff;border:none;color:white;padding:8px 14px;border-radius:8px;cursor:pointer;flex-shrink:0">+</button></div></div>
 <button class="btn btn-green" style="margin-top:5px" onclick="adminSavePlayers(${t.id})">💾 ذخیره بازیکنان</button>
-</div>
-
-<div style="margin-top:12px;display:flex;flex-wrap:wrap;gap:6px">
-<button class="btn btn-gray" style="flex:1" onclick="adminEditMoney(${t.id},${t.money})">✏️ ویرایش پول</button>
+<div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:10px">
+<button class="btn btn-gray" style="flex:1" onclick="adminEditMoney(${t.id},${t.money})">✏️ پول</button>
 <button class="btn btn-gray" style="flex:1" onclick="adminSetPassword(${t.id},'${t.team_name}')">🔑 پسورد</button>
 <button class="btn btn-gray" style="flex:1" onclick="adminViewTactics(${t.id},'${t.team_name}')">📋 تاکتیک</button>
-</div>
-`;
+</div>`;
 list.appendChild(div);
 });
 }
@@ -1396,24 +1099,19 @@ document.getElementById('page-admin-teams').classList.remove('hidden');
 }
 
 function addPlayerInput(teamId) {
-const container = document.getElementById('players-inputs-' + teamId);
+const container = document.getElementById('players-inputs-'+teamId);
 const div = document.createElement('div');
 div.style.cssText = 'display:flex;gap:8px;margin-bottom:6px';
-div.innerHTML = `
-<input type="text" class="player-input-${teamId}" placeholder="نام بازیکن">
-<button onclick="this.parentElement.remove()" style="background:#ff1744;border:none;color:white;padding:8px 12px;border-radius:8px;cursor:pointer">×</button>
-`;
+div.innerHTML = `<input type="text" class="player-input-${teamId}" placeholder="نام بازیکن"><button onclick="this.parentElement.remove()" style="background:#ff1744;border:none;color:white;padding:8px 14px;border-radius:8px;cursor:pointer;flex-shrink:0">×</button>`;
 container.appendChild(div);
 }
 
 async function adminSavePlayers(teamId) {
-const inputs = document.querySelectorAll('.player-input-' + teamId);
+const inputs = document.querySelectorAll('.player-input-'+teamId);
 const names = [];
 inputs.forEach(i => { if(i.value.trim()) names.push(i.value.trim()); });
 if(!names.length) return showMsg('نام بازیکنی وارد نشده');
-for(const name of names) {
-await client.from('players').insert({team_id: teamId, player_name: name, is_for_sale: false, sale_price: 0});
-}
+for(const name of names) { await client.from('players').insert({team_id: teamId, player_name: name, is_for_sale: false, sale_price: 0}); }
 showMsg(`✅ ${names.length} بازیکن اضافه شد`, 'success');
 }
 
@@ -1423,11 +1121,8 @@ const team = document.getElementById('admin-team-sel').value;
 const pass = document.getElementById('admin-team-pass').value;
 if(!pass) return showMsg('پسورد را وارد کنید');
 const {data: existing} = await client.from('teams').select('id').eq('team_name', team).single();
-if(existing) {
-await client.from('teams').update({password: pass, is_active: false, league}).eq('id', existing.id);
-} else {
-await client.from('teams').insert({league, team_name: team, password: pass, is_active: false, money: 500000, daily_income: 0});
-}
+if(existing) { await client.from('teams').update({password: pass, is_active: false, league}).eq('id', existing.id); }
+else { await client.from('teams').insert({league, team_name: team, password: pass, is_active: false, money: 500000, daily_income: 0}); }
 showMsg(`✅ تیم ${team} فعال شد`, 'success');
 adminShowTeams();
 }
@@ -1449,40 +1144,91 @@ adminShowTeams();
 
 async function adminViewTactics(id, name) {
 const {data} = await client.from('teams').select('tactics').eq('id', id).single();
-alert(`تاکتیک ${name}:\n\n${data.tactics || 'ثبت نشده'}`);
+alert(`تاکتیک ${name}:\n\n${data.tactics||'ثبت نشده'}`);
 }
 
-function adminShowChannel() {
+async function adminShowChannel() {
 hideAll();
-document.getElementById('page-admin-channel').classList.remove('hidden');
-}
-
-async function adminSendChannelText() {
-const text = document.getElementById('admin-channel-text').value.trim();
-if(!text) return showMsg('متن را وارد کنید', 'error', 'msg-admin-channel');
-await addChannelPost(text, 'admin');
 document.getElementById('admin-channel-text').value = '';
-showMsg('✅ پیام ارسال شد', 'success', 'msg-admin-channel');
+document.getElementById('admin-file-preview').innerHTML = '';
+pendingAdminFile = null;
+document.getElementById('page-admin-channel').classList.remove('hidden');
+await loadAdminChannelPosts();
 }
 
-async function adminSendChannelFile() {
+async function loadAdminChannelPosts() {
+const {data} = await client.from('channel_posts').select('*').order('created_at', {ascending: true}).limit(50);
+const box = document.getElementById('admin-channel-posts');
+box.innerHTML = '';
+if(!data||!data.length) { box.innerHTML='<p style="color:#888;text-align:center;margin-top:80px">هنوز پیامی نیست</p>'; return; }
+data.forEach(p => {
+const div = document.createElement('div');
+div.style.cssText = 'background:#181832;border:1px solid #252550;border-radius:12px;padding:12px;position:relative;';
+const t = new Date(p.created_at);
+const timeStr = `${t.getHours()}:${String(t.getMinutes()).padStart(2,'0')}`;
+let content = `<div style="font-size:11px;color:#888;margin-bottom:6px;display:flex;justify-content:space-between;align-items:center"><span>📢 ${timeStr}</span><button onclick="adminDeletePost(${p.id})" style="background:none;border:none;color:#ff1744;cursor:pointer;font-size:14px">🗑️</button></div>`;
+if(p.content) content += `<p style="line-height:1.8;white-space:pre-wrap;font-size:14px">${p.content}</p>`;
+if(p.media_url) {
+if(p.media_type==='image') content += `<img src="${p.media_url}" style="width:100%;border-radius:8px;margin-top:6px;max-height:200px;object-fit:cover">`;
+else if(p.media_type==='audio') content += `<audio controls src="${p.media_url}" style="width:100%;margin-top:6px"></audio>`;
+else if(p.media_type==='video') content += `<video controls src="${p.media_url}" style="width:100%;border-radius:8px;margin-top:6px"></video>`;
+}
+div.innerHTML = content;
+box.appendChild(div);
+});
+box.scrollTop = box.scrollHeight;
+}
+
+async function adminDeletePost(id) {
+if(!confirm('این پیام برای همه حذف شود؟')) return;
+await client.from('channel_posts').delete().eq('id', id);
+showMsg('✅ پیام حذف شد', 'success', 'msg-admin-channel');
+await loadAdminChannelPosts();
+}
+
+function previewAdminFile() {
 const file = document.getElementById('admin-channel-file').files[0];
 if(!file) return;
-const preview = document.getElementById('admin-file-preview');
+pendingAdminFile = file;
 const reader = new FileReader();
-reader.onload = async (e) => {
-const base64 = e.target.result;
-let mediaType = 'file';
-if(file.type.startsWith('image')) mediaType = 'image';
-else if(file.type.startsWith('audio')) mediaType = 'audio';
-else if(file.type.startsWith('video')) mediaType = 'video';
-await addChannelPost('', 'admin', base64, mediaType);
-showMsg('✅ فایل ارسال شد', 'success', 'msg-admin-channel');
-if(mediaType === 'image') preview.innerHTML = `<img src="${base64}" style="width:100%;border-radius:8px">`;
-else if(mediaType === 'audio') preview.innerHTML = `<audio controls src="${base64}" style="width:100%"></audio>`;
-else if(mediaType === 'video') preview.innerHTML = `<video controls src="${base64}" style="width:100%;border-radius:8px"></video>`;
+reader.onload = e => {
+const preview = document.getElementById('admin-file-preview');
+if(file.type.startsWith('image')) preview.innerHTML = `<img src="${e.target.result}" style="max-height:150px;border-radius:8px;width:100%"><button onclick="clearAdminFile()" style="background:#ff1744;border:none;color:white;padding:4px 10px;border-radius:6px;cursor:pointer;margin-top:5px">× حذف</button>`;
+else if(file.type.startsWith('audio')) preview.innerHTML = `<audio controls src="${e.target.result}" style="width:100%"></audio><button onclick="clearAdminFile()" style="background:#ff1744;border:none;color:white;padding:4px 10px;border-radius:6px;cursor:pointer;margin-top:5px">× حذف</button>`;
+else if(file.type.startsWith('video')) preview.innerHTML = `<video controls src="${e.target.result}" style="width:100%;border-radius:8px"></video><button onclick="clearAdminFile()" style="background:#ff1744;border:none;color:white;padding:4px 10px;border-radius:6px;cursor:pointer;margin-top:5px">× حذف</button>`;
 };
 reader.readAsDataURL(file);
+}
+
+function clearAdminFile() {
+pendingAdminFile = null;
+document.getElementById('admin-file-preview').innerHTML = '';
+document.getElementById('admin-channel-file').value = '';
+}
+
+async function adminSendChannelMsg() {
+const text = document.getElementById('admin-channel-text').value.trim();
+if(!text && !pendingAdminFile) return showMsg('پیام یا فایل را وارد کنید', 'error', 'msg-admin-channel');
+if(pendingAdminFile) {
+const reader = new FileReader();
+reader.onload = async e => {
+let mediaType = 'file';
+if(pendingAdminFile.type.startsWith('image')) mediaType = 'image';
+else if(pendingAdminFile.type.startsWith('audio')) mediaType = 'audio';
+else if(pendingAdminFile.type.startsWith('video')) mediaType = 'video';
+await client.from('channel_posts').insert({content: text||null, type:'admin', media_url: e.target.result, media_type: mediaType, created_at: new Date().toISOString()});
+document.getElementById('admin-channel-text').value = '';
+clearAdminFile();
+showMsg('✅ ارسال شد', 'success', 'msg-admin-channel');
+await loadAdminChannelPosts();
+};
+reader.readAsDataURL(pendingAdminFile);
+} else {
+await client.from('channel_posts').insert({content: text, type:'admin', media_url: null, media_type: null, created_at: new Date().toISOString()});
+document.getElementById('admin-channel-text').value = '';
+showMsg('✅ پیام ارسال شد', 'success', 'msg-admin-channel');
+await loadAdminChannelPosts();
+}
 }
 
 function adminChangePass() {
@@ -1503,20 +1249,13 @@ document.getElementById('reset-btn-1').classList.remove('hidden');
 document.getElementById('page-admin-reset').classList.remove('hidden');
 }
 
-function resetStep1() {
-document.getElementById('reset-btn-1').classList.add('hidden');
-document.getElementById('reset-step-2').classList.remove('hidden');
-}
-function resetStep2() {
-document.getElementById('reset-step-2').classList.add('hidden');
-document.getElementById('reset-step-3').classList.remove('hidden');
-}
-function resetStep3() {
-document.getElementById('reset-step-3').classList.add('hidden');
-document.getElementById('reset-step-4').classList.remove('hidden');
-}
+function resetStep1() { document.getElementById('reset-btn-1').classList.add('hidden'); document.getElementById('reset-step-2').classList.remove('hidden'); }
+function resetStep2() { document.getElementById('reset-step-2').classList.add('hidden'); document.getElementById('reset-step-3').classList.remove('hidden'); }
+function resetStep3() { document.getElementById('reset-step-3').classList.add('hidden'); document.getElementById('reset-step-4').classList.remove('hidden'); }
+
 async function doReset() {
 showMsg('در حال ریست...', 'success', 'msg-reset');
+try {
 await client.from('neg_messages').delete().neq('id', 0);
 await client.from('negotiations').delete().neq('id', 0);
 await client.from('neg_requests').delete().neq('id', 0);
@@ -1528,10 +1267,10 @@ await client.from('channel_posts').delete().neq('id', 0);
 await client.from('teams').delete().neq('id', 0);
 showMsg('✅ بازی ریست شد!', 'success', 'msg-reset');
 setTimeout(() => showLanding(), 2000);
+} catch(e) { showMsg('خطا در ریست: ' + e.message, 'error', 'msg-reset'); }
 }
-function cancelReset() {
-adminShowReset();
-}
+
+function cancelReset() { adminShowReset(); }
 
 window.onload = showLanding;
 </script>
