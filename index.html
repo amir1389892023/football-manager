@@ -9,10 +9,6 @@
 :root {
 --primary: #2563eb;
 --secondary: #dc2626;
---accent: #16a34a;
---dark: #0f172a;
---card: #ffffff;
---card2: #f8fafc;
 --text: #1e293b;
 --text2: #64748b;
 --green: #16a34a;
@@ -22,50 +18,51 @@
 --shadow: 0 4px 24px rgba(0,0,0,0.08);
 }
 * { margin:0; padding:0; box-sizing:border-box; }
-body { font-family: Tahoma, sans-serif; background: #f1f5f9; color: var(--text); min-height: 100vh; }
+body { font-family: Tahoma, sans-serif; background: #f1f5f9; color: var(--text); min-height: 100vh; overscroll-behavior-y: contain; }
+html { overscroll-behavior-y: contain; }
 .landing { min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:20px; position:relative; overflow:hidden; }
-.landing-bg { position:absolute; inset:0; background-image:url('https://images.pexels.com/photos/114296/pexels-photo-114296.jpeg?w=1920&q=90'); background-size:cover; background-position:center; z-index:0; }
-.landing-overlay { position:absolute; inset:0; background:linear-gradient(135deg, rgba(15,23,42,0.85) 0%, rgba(37,99,235,0.75) 100%); z-index:1; }
+.landing-bg { position:absolute; inset:0; background-image:url('A_breathtaking_modern_football_stadium_202606301251.jpeg'); background-size:cover; background-position:center; z-index:0; }
+.landing-overlay { position:absolute; inset:0; background:linear-gradient(135deg, rgba(15,23,42,0.82) 0%, rgba(37,99,235,0.72) 100%); z-index:1; }
 .landing-content { position:relative; z-index:2; text-align:center; width:100%; max-width:420px; }
-.landing-logo { font-size:90px; margin-bottom:10px; filter:drop-shadow(0 0 30px rgba(255,255,255,0.3)); animation:float 3s ease-in-out infinite; }
+.landing-logo { font-size:80px; margin-bottom:10px; filter:drop-shadow(0 0 30px rgba(255,255,255,0.3)); animation:float 3s ease-in-out infinite; }
 @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
-.landing-title { font-size:38px; font-weight:bold; color:#ffffff; margin-bottom:6px; text-shadow:0 2px 20px rgba(0,0,0,0.5); }
+.landing-title { font-size:36px; font-weight:bold; color:#ffffff; margin-bottom:6px; text-shadow:0 2px 20px rgba(0,0,0,0.5); }
 .landing-title span { color:#fbbf24; }
-.landing-sub { color:rgba(255,255,255,0.75); font-size:14px; margin-bottom:40px; }
+.landing-sub { color:rgba(255,255,255,0.75); font-size:14px; margin-bottom:35px; }
 .landing-btns { width:100%; }
-.btn { width:100%; padding:15px 20px; border-radius:14px; border:none; cursor:pointer; font-size:15px; font-family:Tahoma; font-weight:bold; margin:6px 0; transition:all 0.2s; display:flex; align-items:center; justify-content:center; gap:10px; }
+.btn { width:100%; padding:15px 22px; border-radius:50px; border:none; cursor:pointer; font-size:15px; font-family:Tahoma; font-weight:bold; margin:6px 0; transition:all 0.2s; display:flex; align-items:center; justify-content:center; gap:10px; }
 .btn:active { transform:scale(0.97); }
+.btn:disabled { opacity:0.6; cursor:not-allowed; }
 .btn-primary { background:linear-gradient(135deg,#2563eb,#1d4ed8); color:white; box-shadow:0 4px 15px rgba(37,99,235,0.4); }
 .btn-secondary { background:linear-gradient(135deg,#dc2626,#b91c1c); color:white; box-shadow:0 4px 15px rgba(220,38,38,0.4); }
 .btn-green { background:linear-gradient(135deg,#16a34a,#15803d); color:white; box-shadow:0 4px 15px rgba(22,163,74,0.4); }
 .btn-red { background:linear-gradient(135deg,#dc2626,#b91c1c); color:white; }
 .btn-gray { background:#f1f5f9; color:var(--text); border:1px solid var(--border); }
-.btn-gold { background:linear-gradient(135deg,#d97706,#b45309); color:white; }
-.btn-dark-menu { background:white; color:var(--text); border:1px solid var(--border); text-align:right; justify-content:flex-start; padding-right:18px; box-shadow:var(--shadow); margin:5px 0; border-radius:12px; }
+.btn-dark-menu { background:white; color:var(--text); border:1px solid var(--border); text-align:right; justify-content:flex-start; padding-right:20px; box-shadow:var(--shadow); margin:5px 0; border-radius:50px; }
 .btn-dark-menu:hover { background:#f8fafc; border-color:var(--primary); color:var(--primary); }
 .btn-outline-white { background:transparent; border:2px solid rgba(255,255,255,0.8); color:white; }
-.btn-outline-white:hover { background:rgba(255,255,255,0.1); }
 .container { max-width:680px; margin:0 auto; padding:15px; }
 .page-header { background:white; border-bottom:1px solid var(--border); padding:15px 20px; display:flex; align-items:center; gap:12px; position:sticky; top:0; z-index:100; box-shadow:0 2px 10px rgba(0,0,0,0.06); }
 .page-header h2 { font-size:18px; flex:1; color:var(--text); }
-.back-btn { background:none; border:none; color:var(--primary); font-size:22px; cursor:pointer; padding:5px 8px; border-radius:8px; transition:background 0.2s; }
+.back-btn { background:none; border:none; color:var(--primary); font-size:22px; cursor:pointer; padding:5px 8px; border-radius:50%; }
 .back-btn:hover { background:#eff6ff; }
-.hero-header { position:relative; overflow:hidden; border-radius:0 0 24px 24px; margin-bottom:5px; }
-.hero-header-img { width:100%; height:200px; object-fit:cover; display:block; }
-.hero-header-overlay { position:absolute; inset:0; background:linear-gradient(to top, rgba(15,23,42,0.9) 0%, rgba(15,23,42,0.3) 60%, transparent 100%); }
+.hero-header { position:relative; overflow:hidden; border-radius:0 0 30px 30px; margin-bottom:5px; }
+.hero-header-img { width:100%; height:190px; object-fit:cover; display:block; filter:brightness(0.85) saturate(1.1); }
+.hero-header-overlay { position:absolute; inset:0; background:linear-gradient(to top, rgba(15,23,42,0.92) 0%, rgba(15,23,42,0.35) 60%, transparent 100%); }
 .hero-header-content { position:absolute; bottom:0; left:0; right:0; padding:20px; text-align:center; }
-.hero-header-content h2 { color:white; font-size:22px; }
+.hero-header-content h2 { color:white; font-size:21px; }
 .hero-header-content p { color:rgba(255,255,255,0.8); font-size:13px; margin-top:4px; }
-.card { background:white; border-radius:16px; padding:20px; margin:10px 0; border:1px solid var(--border); box-shadow:var(--shadow); }
+.card { background:white; border-radius:24px; padding:20px; margin:10px 0; border:1px solid var(--border); box-shadow:var(--shadow); }
 .menu-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:5px; }
-.menu-item { background:white; border:1px solid var(--border); border-radius:14px; padding:16px 12px; text-align:center; cursor:pointer; transition:all 0.2s; box-shadow:var(--shadow); }
-.menu-item:hover { border-color:var(--primary); transform:translateY(-2px); box-shadow:0 8px 24px rgba(37,99,235,0.15); }
-.menu-item .icon { font-size:28px; margin-bottom:8px; }
+.menu-item { background:white; border:1px solid var(--border); border-radius:24px; padding:16px 12px; text-align:center; cursor:pointer; transition:all 0.2s; box-shadow:var(--shadow); position:relative; }
+.menu-item:hover { border-color:var(--primary); transform:translateY(-2px); }
+.menu-item .icon { font-size:26px; margin-bottom:8px; }
 .menu-item .label { font-size:13px; font-weight:bold; color:var(--text); }
-input, select, textarea { width:100%; padding:13px 15px; border-radius:10px; border:1.5px solid var(--border); background:white; color:var(--text); font-size:15px; font-family:Tahoma; margin:6px 0; outline:none; transition:border 0.2s; }
+.menu-item .notif-dot { position:absolute; top:10px; left:10px; width:10px; height:10px; background:#dc2626; border-radius:50%; border:2px solid white; }
+input, select, textarea { width:100%; padding:13px 18px; border-radius:50px; border:1.5px solid var(--border); background:white; color:var(--text); font-size:15px; font-family:Tahoma; margin:6px 0; outline:none; }
 input:focus, select:focus, textarea:focus { border-color:var(--primary); box-shadow:0 0 0 3px rgba(37,99,235,0.1); }
-textarea { resize:vertical; min-height:80px; }
-.msg { padding:12px 18px; border-radius:10px; margin:10px 0; text-align:center; font-weight:bold; display:none; }
+textarea { resize:vertical; min-height:80px; border-radius:20px; }
+.msg { padding:12px 18px; border-radius:50px; margin:10px 0; text-align:center; font-weight:bold; display:none; }
 .msg.show { display:block; }
 .msg.error { background:#fef2f2; border:1px solid #fca5a5; color:#dc2626; }
 .msg.success { background:#f0fdf4; border:1px solid #86efac; color:#16a34a; }
@@ -75,62 +72,68 @@ textarea { resize:vertical; min-height:80px; }
 .info-label { color:var(--text2); font-size:14px; }
 .info-value { font-weight:bold; font-size:14px; color:var(--text); }
 .sec-title { font-size:17px; font-weight:bold; margin-bottom:15px; color:var(--primary); }
-.badge { display:inline-block; padding:4px 12px; border-radius:20px; font-size:12px; font-weight:bold; }
+.badge { display:inline-block; padding:4px 14px; border-radius:50px; font-size:12px; font-weight:bold; }
 .badge-green { background:#f0fdf4; color:#16a34a; border:1px solid #86efac; }
 .badge-red { background:#fef2f2; color:#dc2626; border:1px solid #fca5a5; }
 .badge-gold { background:#fffbeb; color:#d97706; border:1px solid #fcd34d; }
-.badge-blue { background:#eff6ff; color:#2563eb; border:1px solid #93c5fd; }
-.chat-box { height:380px; overflow-y:auto; background:#f8fafc; border-radius:12px; padding:15px; margin:10px 0; border:1px solid var(--border); display:flex; flex-direction:column; gap:8px; }
-.chat-msg { max-width:78%; padding:10px 14px; border-radius:14px; font-size:14px; line-height:1.5; word-break:break-word; }
-.chat-msg.mine { background:linear-gradient(135deg,#2563eb,#1d4ed8); color:white; align-self:flex-start; border-bottom-right-radius:4px; }
-.chat-msg.theirs { background:white; border:1px solid var(--border); align-self:flex-end; border-bottom-left-radius:4px; color:var(--text); box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+.chat-box { height:380px; overflow-y:auto; background:#f8fafc; border-radius:24px; padding:15px; margin:10px 0; border:1px solid var(--border); display:flex; flex-direction:column; gap:8px; }
+.chat-msg { max-width:78%; padding:10px 16px; border-radius:20px; font-size:14px; line-height:1.5; word-break:break-word; cursor:pointer; }
+.chat-msg.mine { background:linear-gradient(135deg,#2563eb,#1d4ed8); color:white; align-self:flex-start; border-bottom-right-radius:6px; }
+.chat-msg.theirs { background:white; border:1px solid var(--border); align-self:flex-end; border-bottom-left-radius:6px; color:var(--text); box-shadow:0 2px 8px rgba(0,0,0,0.06); }
 .chat-msg .sender { font-size:11px; opacity:0.75; margin-bottom:4px; font-weight:bold; }
 .chat-msg .time { font-size:11px; opacity:0.65; margin-top:5px; }
 .chat-msg.pinned { border:2px solid #d97706 !important; }
-.pinned-badge { font-size:11px; color:#d97706; margin-bottom:4px; }
+.pinned-bar { background:#fffbeb; border:1px solid #fcd34d; border-radius:16px; padding:8px 14px; margin-bottom:8px; font-size:12px; cursor:pointer; display:flex; align-items:center; gap:6px; }
 .chat-input-row { display:flex; gap:8px; align-items:center; margin-top:10px; }
 .chat-input-row input { flex:1; margin:0; }
-.icon-btn { width:46px; height:46px; border-radius:10px; border:1.5px solid var(--border); background:white; color:var(--text); font-size:18px; cursor:pointer; display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:all 0.2s; }
+.icon-btn { width:46px; height:46px; border-radius:50%; border:1.5px solid var(--border); background:white; color:var(--text); font-size:18px; cursor:pointer; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
 .icon-btn:hover { border-color:var(--primary); background:#eff6ff; }
 .icon-btn.recording { background:#fef2f2; border-color:#dc2626; animation:blink 1s infinite; }
 @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.5} }
-.channel-post { background:white; border:1px solid var(--border); border-radius:14px; padding:16px; margin:8px 0; box-shadow:var(--shadow); }
+.channel-post { background:white; border:1px solid var(--border); border-radius:24px; padding:16px; margin:8px 0; box-shadow:var(--shadow); }
 .channel-post-header { font-size:12px; color:var(--text2); margin-bottom:10px; display:flex; justify-content:space-between; align-items:center; }
-.channel-post img { width:100%; border-radius:10px; margin-top:8px; max-height:300px; object-fit:cover; }
-.channel-post video, .channel-post audio { width:100%; border-radius:10px; margin-top:8px; }
-.admin-channel-box { height:350px; overflow-y:auto; background:#f8fafc; border-radius:12px; padding:15px; border:1px solid var(--border); display:flex; flex-direction:column; gap:10px; }
+.channel-post img { width:100%; border-radius:16px; margin-top:8px; max-height:300px; object-fit:cover; }
+.channel-post video, .channel-post audio { width:100%; border-radius:16px; margin-top:8px; }
+.channel-topbar { position:relative; border-radius:50px; overflow:hidden; margin:10px 15px; height:56px; display:flex; align-items:center; justify-content:space-between; padding:0 18px; box-shadow:var(--shadow); }
+.channel-topbar-bg { position:absolute; inset:0; background-image:url('A_premium_panoramic_football_themed_202606301313.jpeg'); background-size:cover; background-position:center; filter:brightness(0.5) blur(1px); }
+.channel-topbar button { position:relative; z-index:1; background:rgba(255,255,255,0.15); border:none; color:white; font-size:18px; width:36px; height:36px; border-radius:50%; cursor:pointer; }
+.channel-topbar span { position:relative; z-index:1; color:white; font-weight:bold; font-size:15px; }
+.admin-channel-box { height:350px; overflow-y:auto; background:#f8fafc; border-radius:24px; padding:15px; border:1px solid var(--border); display:flex; flex-direction:column; gap:10px; }
 .admin-channel-input-row { display:flex; gap:8px; align-items:center; margin-top:10px; }
 .admin-channel-input-row input { flex:1; margin:0; }
 .file-preview { margin:8px 0; }
-.file-preview img { width:100%; border-radius:8px; max-height:180px; object-fit:cover; }
-.file-preview audio, .file-preview video { width:100%; border-radius:8px; }
-.player-item { display:flex; justify-content:space-between; align-items:center; padding:12px 15px; background:white; border-radius:10px; margin:6px 0; border:1px solid var(--border); box-shadow:0 2px 8px rgba(0,0,0,0.04); }
-.income-timer { background:linear-gradient(135deg,#2563eb,#7c3aed); color:white; border-radius:14px; padding:15px 20px; margin:10px 0; display:flex; justify-content:space-between; align-items:center; }
+.file-preview img { width:100%; border-radius:16px; max-height:180px; object-fit:cover; }
+.file-preview audio, .file-preview video { width:100%; border-radius:16px; }
+.player-item { display:flex; justify-content:space-between; align-items:center; padding:12px 18px; background:white; border-radius:50px; margin:6px 0; border:1px solid var(--border); box-shadow:0 2px 8px rgba(0,0,0,0.04); }
+.income-timer { background:linear-gradient(135deg,#2563eb,#7c3aed); color:white; border-radius:24px; padding:15px 22px; margin:10px 0; display:flex; justify-content:space-between; align-items:center; }
 .income-timer .timer-label { font-size:13px; opacity:0.85; }
 .income-timer .timer-value { font-size:18px; font-weight:bold; }
 ::-webkit-scrollbar { width:5px; }
 ::-webkit-scrollbar-track { background:#f1f5f9; }
 ::-webkit-scrollbar-thumb { background:#94a3b8; border-radius:3px; }
 #global-msg { position:fixed; top:20px; left:50%; transform:translateX(-50%); z-index:9999; min-width:280px; max-width:90%; }
-.toggle-switch { display:flex; align-items:center; justify-content:space-between; padding:14px; background:#f8fafc; border-radius:12px; border:1px solid var(--border); }
+.toggle-switch { display:flex; align-items:center; justify-content:space-between; padding:16px 20px; background:#f8fafc; border-radius:50px; border:1px solid var(--border); }
 .switch { position:relative; width:50px; height:28px; flex-shrink:0; }
 .switch input { opacity:0; width:0; height:0; }
 .slider { position:absolute; cursor:pointer; inset:0; background:#cbd5e1; border-radius:28px; transition:0.3s; }
 .slider:before { position:absolute; content:""; height:20px; width:20px; left:4px; bottom:4px; background:white; border-radius:50%; transition:0.3s; }
 input:checked + .slider { background:#16a34a; }
 input:checked + .slider:before { transform:translateX(-22px); }
+.thumb-img { width:100%; border-radius:20px; margin-bottom:12px; max-height:140px; object-fit:cover; filter:brightness(0.92) saturate(1.05); }
+.thumb-img-small { width:70px; height:70px; border-radius:18px; object-fit:cover; margin:0 auto 12px; display:block; filter:brightness(0.95); }
+.support-bubble { max-width:80%; padding:10px 16px; border-radius:20px; font-size:14px; margin-bottom:8px; }
+.support-bubble.team { background:#eff6ff; border:1px solid #93c5fd; align-self:flex-end; margin-right:0; }
+.support-bubble.admin { background:#f0fdf4; border:1px solid #86efac; align-self:flex-start; }
 @media (max-width:600px) {
-.landing-title { font-size:28px; }
+.landing-title { font-size:26px; }
 .chat-box { height:300px; }
 .admin-channel-box { height:280px; }
-.menu-grid { grid-template-columns:1fr 1fr; }
 }
 </style>
 </head>
 <body>
 <div id="app">
 
-<!-- LANDING -->
 <div id="page-landing" class="landing">
 <div class="landing-bg"></div>
 <div class="landing-overlay"></div>
@@ -146,70 +149,53 @@ input:checked + .slider:before { transform:translateX(-22px); }
 </div>
 </div>
 
-<!-- LEAGUES -->
 <div id="page-leagues" class="hidden">
-<div class="hero-header">
-<img src="https://images.pexels.com/photos/1540504/pexels-photo-1540504.jpeg?w=800&q=85" class="hero-header-img" alt="stadium">
-<div class="hero-header-overlay"></div>
-<div class="hero-header-content">
-<h2>🏆 انتخاب لیگ</h2>
-<p>لیگ مورد نظر خود را انتخاب کنید</p>
+<div class="page-header"><button class="back-btn" onclick="showLanding()">→</button><h2>🏆 انتخاب لیگ</h2></div>
+<div class="container">
+<img src="An_elegant_football_trophy_gallery_202606301254.jpeg" class="thumb-img" alt="trophies">
+<div id="leagues-list"></div>
 </div>
-</div>
-<div style="padding:8px 15px">
-<button class="btn btn-gray" style="width:auto;padding:10px 18px" onclick="showLanding()">→ برگشت</button>
-</div>
-<div class="container"><div id="leagues-list"></div></div>
 </div>
 
-<!-- TEAMS -->
 <div id="page-teams" class="hidden">
-<div class="page-header">
-<button class="back-btn" onclick="showLeagues()">→</button>
-<h2 id="league-title"></h2>
-</div>
+<div class="page-header"><button class="back-btn" onclick="showLeagues()">→</button><h2 id="league-title"></h2></div>
 <div class="container"><div id="teams-list"></div></div>
 </div>
 
-<!-- PASSWORD -->
 <div id="page-password" class="hidden">
-<div class="page-header">
-<button class="back-btn" onclick="showTeams()">→</button>
-<h2 id="team-title-pass"></h2>
-</div>
+<div class="page-header"><button class="back-btn" onclick="showTeams()">→</button><h2 id="team-title-pass"></h2></div>
 <div class="container">
-<div class="card">
+<div class="card" style="text-align:center">
+<img src="A_luxurious_football_club_VIP_202606301259.jpeg" class="thumb-img-small" alt="lock">
 <div class="sec-title">🔑 ورود به تیم</div>
 <p style="color:var(--text2);margin-bottom:15px;font-size:14px">پسورد تیم را از ادمین دریافت کنید</p>
 <input type="password" id="input-password" placeholder="پسورد تیم را وارد کنید" onkeydown="if(event.key==='Enter')enterTeam()">
-<button class="btn btn-primary" style="margin-top:10px" onclick="enterTeam()">✅ ورود</button>
+<button class="btn btn-primary" style="margin-top:10px" id="enter-team-btn" onclick="enterTeam()">✅ ورود</button>
 </div>
 <div id="msg-pass" class="msg"></div>
 </div>
 </div>
 
-<!-- SIGNATURE -->
 <div id="page-signature" class="hidden">
 <div class="page-header"><h2>✍️ ساخت امضا</h2></div>
 <div class="container">
 <div class="card">
 <div class="sec-title">امضای تیم خود را بسازید</div>
-<p style="color:var(--text2);margin-bottom:15px;font-size:14px">۳ یا ۴ ایموجی وارد کنید</p>
+<p style="color:var(--text2);margin-bottom:15px;font-size:14px">۳ یا ۴ ایموجی وارد کنید - باید با همه تیم‌های دیگر متفاوت باشد</p>
 <input type="text" id="input-signature" placeholder="مثال: 🔥⚽🦅👑">
-<button class="btn btn-green" style="margin-top:10px" onclick="saveSignature()">✅ ثبت امضا</button>
+<button class="btn btn-green" style="margin-top:10px" id="sig-btn" onclick="saveSignature()">✅ ثبت امضا</button>
 </div>
 <div id="msg-sig" class="msg"></div>
 </div>
 </div>
 
-<!-- MAIN MENU -->
 <div id="page-main" class="hidden">
 <div class="hero-header">
-<img src="https://images.pexels.com/photos/274422/pexels-photo-274422.jpeg?w=800&q=85" class="hero-header-img" alt="pitch">
+<img src="A_luxurious_football_manager_strategy_202606301301.jpeg" class="hero-header-img" alt="manager">
 <div class="hero-header-overlay"></div>
 <div class="hero-header-content">
-<div id="main-signature" style="font-size:30px"></div>
-<h2 id="main-team-name" style="font-size:22px;margin-top:4px"></h2>
+<div id="main-signature" style="font-size:28px"></div>
+<h2 id="main-team-name" style="font-size:21px;margin-top:4px"></h2>
 <div id="main-money" style="color:#fbbf24;font-size:13px;margin-top:4px"></div>
 </div>
 </div>
@@ -226,56 +212,50 @@ input:checked + .slider:before { transform:translateX(-22px); }
 <div class="menu-item" onclick="showSalePlayers()"><div class="icon">🛒</div><div class="label">لیست فروش</div></div>
 <div class="menu-item" onclick="showSellPlayer()"><div class="icon">💸</div><div class="label">فروش بازیکن</div></div>
 <div class="menu-item" onclick="showBuyPlayer()"><div class="icon">🤝</div><div class="label">خرید بازیکن</div></div>
-<div class="menu-item" onclick="showRequests()"><div class="icon">📬</div><div class="label">درخواست‌های انتقال</div></div>
+<div class="menu-item" onclick="showRequests()"><div class="icon">📬</div><div class="label">درخواست‌های انتقال<span id="dot-requests" class="notif-dot hidden"></span></div></div>
 <div class="menu-item" onclick="showNegotiationSend()"><div class="icon">🤜</div><div class="label">درخواست مذاکره</div></div>
-<div class="menu-item" onclick="showNegotiationRequests()"><div class="icon">💬</div><div class="label">مذاکره‌های من</div></div>
+<div class="menu-item" onclick="showNegotiationRequests()"><div class="icon">💬</div><div class="label">مذاکره‌های من<span id="dot-neg" class="notif-dot hidden"></span></div></div>
 <div class="menu-item" onclick="showMyChats()"><div class="icon">💭</div><div class="label">چت‌های من</div></div>
 <div class="menu-item" onclick="showFriendlySend()"><div class="icon">🏃</div><div class="label">درخواست بازی دوستانه</div></div>
-<div class="menu-item" onclick="showFriendlyRequests()"><div class="icon">📨</div><div class="label">دریافت درخواست دوستانه</div></div>
+<div class="menu-item" onclick="showFriendlyRequests()"><div class="icon">📨</div><div class="label">دریافت درخواست دوستانه<span id="dot-friendly" class="notif-dot hidden"></span></div></div>
 <div class="menu-item" onclick="showTactics()"><div class="icon">📋</div><div class="label">ترکیب و تاکتیک</div></div>
 <div class="menu-item" onclick="showChannel()"><div class="icon">📢</div><div class="label">کانال خبری</div></div>
+<div class="menu-item" onclick="showSupport()"><div class="icon">🆘</div><div class="label">پشتیبانی</div></div>
 <div class="menu-item" onclick="exitGame()" style="border-color:#fca5a5"><div class="icon">🚪</div><div class="label" style="color:#dc2626">خروج از بازی</div></div>
 </div>
 </div>
 </div>
 
-<!-- ASSETS -->
 <div id="page-assets" class="hidden">
 <div class="page-header"><button class="back-btn" onclick="showMain()">→</button><h2>💰 دارایی تیم</h2></div>
 <div class="container"><div class="card" id="assets-content"></div></div>
 </div>
 
-<!-- BUY COMPANY -->
 <div id="page-buy-company" class="hidden">
 <div class="page-header"><button class="back-btn" onclick="showMain()">→</button><h2>🏢 خرید شرکت</h2></div>
 <div class="container" id="companies-list"></div>
 </div>
 
-<!-- BUY SPONSOR -->
 <div id="page-buy-sponsor" class="hidden">
 <div class="page-header"><button class="back-btn" onclick="showMain()">→</button><h2>👕 خرید اسپانسر</h2></div>
 <div class="container" id="sponsors-list"></div>
 </div>
 
-<!-- MY PLAYERS -->
 <div id="page-my-players" class="hidden">
 <div class="page-header"><button class="back-btn" onclick="showMain()">→</button><h2>⚽ بازیکنان من</h2></div>
 <div class="container" id="my-players-list"></div>
 </div>
 
-<!-- SALE PLAYERS -->
 <div id="page-sale-players" class="hidden">
 <div class="page-header"><button class="back-btn" onclick="showMain()">→</button><h2>🛒 لیست فروش</h2></div>
 <div class="container" id="sale-players-list"></div>
 </div>
 
-<!-- SELL PLAYER -->
 <div id="page-sell-player" class="hidden">
 <div class="page-header"><button class="back-btn" onclick="showMain()">→</button><h2>💸 فروش بازیکن</h2></div>
 <div class="container" id="sell-players-list"></div>
 </div>
 
-<!-- BUY PLAYER -->
 <div id="page-buy-player" class="hidden">
 <div class="page-header"><button class="back-btn" onclick="showMain()">→</button><h2>🤝 خرید بازیکن</h2></div>
 <div class="container">
@@ -286,31 +266,26 @@ input:checked + .slider:before { transform:translateX(-22px); }
 </div>
 </div>
 
-<!-- REQUESTS -->
 <div id="page-requests" class="hidden">
 <div class="page-header"><button class="back-btn" onclick="showMain()">→</button><h2>📬 درخواست‌های انتقال</h2></div>
 <div class="container" id="requests-list"></div>
 </div>
 
-<!-- NEG SEND -->
 <div id="page-neg-send" class="hidden">
 <div class="page-header"><button class="back-btn" onclick="showMain()">→</button><h2>🤜 درخواست مذاکره</h2></div>
 <div class="container"><div class="card"><div class="sec-title">تیم مقابل را انتخاب کنید</div><div id="neg-teams-list"></div></div></div>
 </div>
 
-<!-- NEG REQUESTS -->
 <div id="page-neg-requests" class="hidden">
 <div class="page-header"><button class="back-btn" onclick="showMain()">→</button><h2>💬 درخواست‌های مذاکره</h2></div>
 <div class="container" id="neg-requests-list"></div>
 </div>
 
-<!-- MY CHATS -->
 <div id="page-my-chats" class="hidden">
 <div class="page-header"><button class="back-btn" onclick="showMain()">→</button><h2>💭 چت‌های من</h2></div>
 <div class="container" id="my-chats-list"></div>
 </div>
 
-<!-- CHAT -->
 <div id="page-chat" class="hidden">
 <div class="page-header">
 <button class="back-btn" onclick="showMyChats()">→</button>
@@ -319,20 +294,20 @@ input:checked + .slider:before { transform:translateX(-22px); }
 <button class="icon-btn" onclick="closeNegotiation()" style="width:36px;height:36px;font-size:14px;flex-shrink:0;color:#dc2626" title="بستن مذاکره">🔒</button>
 </div>
 <div class="container">
+<div id="pinned-bar-container"></div>
 <div class="chat-box" id="chat-messages"></div>
 <div id="chat-file-preview" class="file-preview"></div>
 <div class="chat-input-row">
 <input type="text" id="chat-input" placeholder="پیام بنویسید..." onkeydown="if(event.key==='Enter')sendChatMsg()">
 <button class="icon-btn" onclick="document.getElementById('chat-file-input').click()" title="ارسال فایل">📎</button>
 <button class="icon-btn" id="voice-btn" onclick="toggleVoice()" title="ضبط صدا">🎤</button>
-<button class="btn btn-primary" style="width:auto;padding:12px 16px;margin:0" onclick="sendChatMsg()">ارسال</button>
+<button class="btn btn-primary" style="width:auto;padding:12px 18px;margin:0" id="chat-send-btn" onclick="sendChatMsg()">ارسال</button>
 </div>
 <input type="file" id="chat-file-input" style="display:none" accept="image/*,audio/*,video/*" onchange="previewChatFile()">
 <div id="msg-chat" class="msg"></div>
 </div>
 </div>
 
-<!-- FRIENDLY SEND -->
 <div id="page-friendly-send" class="hidden">
 <div class="page-header"><button class="back-btn" onclick="showMain()">→</button><h2>🏃 درخواست بازی دوستانه</h2></div>
 <div class="container">
@@ -341,13 +316,11 @@ input:checked + .slider:before { transform:translateX(-22px); }
 </div>
 </div>
 
-<!-- FRIENDLY REQUESTS -->
 <div id="page-friendly-requests" class="hidden">
 <div class="page-header"><button class="back-btn" onclick="showMain()">→</button><h2>📨 درخواست‌های دوستانه</h2></div>
 <div class="container" id="friendly-requests-list"></div>
 </div>
 
-<!-- TACTICS -->
 <div id="page-tactics" class="hidden">
 <div class="page-header"><button class="back-btn" onclick="showMain()">→</button><h2>📋 ترکیب و تاکتیک</h2></div>
 <div class="container">
@@ -359,22 +332,24 @@ input:checked + .slider:before { transform:translateX(-22px); }
 </div>
 </div>
 
-<!-- CHANNEL -->
 <div id="page-channel" class="hidden">
-<div class="page-header">
-<button class="back-btn" onclick="goBack()">→</button>
-<h2>📢 کانال خبری</h2>
-<button class="icon-btn" onclick="refreshChannel()" style="width:36px;height:36px;font-size:14px;flex-shrink:0">🔄</button>
+<div class="container" style="padding-top:15px">
+<div class="channel-topbar">
+<div class="channel-topbar-bg"></div>
+<button onclick="goBack()">→</button>
+<span>📢 کانال خبری</span>
+<button onclick="refreshChannel()">🔄</button>
 </div>
-<div class="container" id="channel-posts"></div>
+<div id="channel-posts"></div>
+</div>
 </div>
 
-<!-- ADMIN LOGIN -->
 <div id="page-admin-login" class="hidden">
 <div class="page-header"><button class="back-btn" onclick="showLanding()">→</button><h2>🔐 ورود ادمین</h2></div>
 <div class="container">
-<div class="card">
-<div style="text-align:center;margin-bottom:20px"><div style="font-size:50px">🛠️</div><p style="color:var(--text2);margin-top:8px">پنل مدیریت اختصاصی</p></div>
+<div class="card" style="text-align:center">
+<img src="A_luxurious_football_club_VIP_202606301259.jpeg" class="thumb-img-small" alt="admin">
+<p style="color:var(--text2);margin-bottom:10px">پنل مدیریت اختصاصی</p>
 <input type="password" id="admin-pass-input" placeholder="پسورد ادمین" onkeydown="if(event.key==='Enter')loginAdmin()">
 <button class="btn btn-secondary" style="margin-top:10px" onclick="loginAdmin()">ورود به پنل</button>
 </div>
@@ -382,10 +357,9 @@ input:checked + .slider:before { transform:translateX(-22px); }
 </div>
 </div>
 
-<!-- ADMIN PANEL -->
 <div id="page-admin" class="hidden">
 <div class="hero-header">
-<img src="https://images.pexels.com/photos/46798/the-ball-stadion-football-the-pitch-46798.jpeg?w=800&q=85" class="hero-header-img" alt="admin">
+<img src="A_premium_panoramic_football_themed_202606301313.jpeg" class="hero-header-img" alt="admin">
 <div class="hero-header-overlay"></div>
 <div class="hero-header-content"><h2>🛠️ پنل مدیریت</h2><p>کنترل کامل بازی در دستان شماست</p></div>
 </div>
@@ -394,6 +368,7 @@ input:checked + .slider:before { transform:translateX(-22px); }
 <div class="menu-item" onclick="adminShowTeams()"><div class="icon">👥</div><div class="label">مدیریت تیم‌ها</div></div>
 <div class="menu-item" onclick="adminShowChannel()"><div class="icon">📢</div><div class="label">کانال خبری</div></div>
 <div class="menu-item" onclick="adminShowSettings()"><div class="icon">⚙️</div><div class="label">تنظیمات بازی</div></div>
+<div class="menu-item" onclick="adminShowSupport()"><div class="icon">🆘</div><div class="label">پشتیبانی<span id="dot-support" class="notif-dot hidden"></span></div></div>
 <div class="menu-item" onclick="adminChangePass()"><div class="icon">🔑</div><div class="label">تغییر پسورد</div></div>
 <div class="menu-item" onclick="adminShowReset()" style="border-color:#fca5a5"><div class="icon">🔄</div><div class="label" style="color:#dc2626">شروع مجدد</div></div>
 </div>
@@ -401,13 +376,11 @@ input:checked + .slider:before { transform:translateX(-22px); }
 </div>
 </div>
 
-<!-- ADMIN TEAMS -->
 <div id="page-admin-teams" class="hidden">
 <div class="page-header"><button class="back-btn" onclick="showAdmin()">→</button><h2>👥 مدیریت تیم‌ها</h2></div>
 <div class="container" id="admin-teams-list"></div>
 </div>
 
-<!-- ADMIN SETTINGS -->
 <div id="page-admin-settings" class="hidden">
 <div class="page-header"><button class="back-btn" onclick="showAdmin()">→</button><h2>⚙️ تنظیمات بازی</h2></div>
 <div class="container">
@@ -415,17 +388,13 @@ input:checked + .slider:before { transform:translateX(-22px); }
 <div class="sec-title">🏃 بازی دوستانه</div>
 <div class="toggle-switch">
 <span>فعال بودن درخواست بازی دوستانه</span>
-<label class="switch">
-<input type="checkbox" id="friendly-toggle" onchange="toggleFriendlySetting()">
-<span class="slider"></span>
-</label>
+<label class="switch"><input type="checkbox" id="friendly-toggle" onchange="toggleFriendlySetting()"><span class="slider"></span></label>
 </div>
 <p style="color:var(--text2);font-size:13px;margin-top:10px">وقتی روشن باشد همه تیم‌ها می‌توانند درخواست بازی دوستانه بفرستند</p>
 </div>
 </div>
 </div>
 
-<!-- ADMIN CHANNEL -->
 <div id="page-admin-channel" class="hidden">
 <div class="page-header"><button class="back-btn" onclick="showAdmin()">→</button><h2>📢 کانال خبری</h2></div>
 <div class="container">
@@ -435,7 +404,7 @@ input:checked + .slider:before { transform:translateX(-22px); }
 <div class="admin-channel-input-row">
 <input type="text" id="admin-channel-text" placeholder="پیام بنویسید..." onkeydown="if(event.key==='Enter')adminSendChannelMsg()">
 <button class="icon-btn" onclick="document.getElementById('admin-channel-file').click()" title="ارسال فایل">📎</button>
-<button class="btn btn-primary" style="width:auto;padding:12px 16px;margin:0" onclick="adminSendChannelMsg()">ارسال</button>
+<button class="btn btn-primary" style="width:auto;padding:12px 18px;margin:0" id="admin-send-btn" onclick="adminSendChannelMsg()">ارسال</button>
 </div>
 <input type="file" id="admin-channel-file" style="display:none" accept="image/*,audio/*,video/*" onchange="previewAdminFile()">
 </div>
@@ -443,7 +412,33 @@ input:checked + .slider:before { transform:translateX(-22px); }
 </div>
 </div>
 
-<!-- ADMIN RESET -->
+<div id="page-admin-support" class="hidden">
+<div class="page-header"><button class="back-btn" onclick="showAdmin()">→</button><h2>🆘 پشتیبانی</h2></div>
+<div class="container" id="admin-support-list"></div>
+</div>
+
+<div id="page-admin-support-chat" class="hidden">
+<div class="page-header"><button class="back-btn" onclick="adminShowSupport()">→</button><h2 id="support-chat-title"></h2></div>
+<div class="container">
+<div class="chat-box" id="support-chat-messages" style="display:flex;flex-direction:column"></div>
+<div class="chat-input-row">
+<input type="text" id="support-admin-input" placeholder="پاسخ بنویسید..." onkeydown="if(event.key==='Enter')adminSendSupport()">
+<button class="btn btn-primary" style="width:auto;padding:12px 18px;margin:0" onclick="adminSendSupport()">ارسال</button>
+</div>
+</div>
+</div>
+
+<div id="page-support" class="hidden">
+<div class="page-header"><button class="back-btn" onclick="showMain()">→</button><h2>🆘 پشتیبانی</h2></div>
+<div class="container">
+<div class="chat-box" id="support-team-messages" style="display:flex;flex-direction:column"></div>
+<div class="chat-input-row">
+<input type="text" id="support-team-input" placeholder="پیام خود را بنویسید..." onkeydown="if(event.key==='Enter')sendSupportMsg()">
+<button class="btn btn-primary" style="width:auto;padding:12px 18px;margin:0" onclick="sendSupportMsg()">ارسال</button>
+</div>
+</div>
+</div>
+
 <div id="page-admin-reset" class="hidden">
 <div class="page-header"><button class="back-btn" onclick="showAdmin()">→</button><h2>🔄 شروع مجدد</h2></div>
 <div class="container">
@@ -451,9 +446,9 @@ input:checked + .slider:before { transform:translateX(-22px); }
 <div class="sec-title" style="color:#dc2626">⚠️ هشدار مهم</div>
 <p style="color:var(--text2);margin-bottom:20px;line-height:1.8">این عملیات تمام اطلاعات بازی را پاک می‌کند و غیرقابل برگشت است!</p>
 <button class="btn btn-red" id="reset-btn-1" onclick="resetStep1()">🔄 شروع مجدد بازی</button>
-<div id="reset-step-2" class="hidden"><p style="color:#dc2626;margin:15px 0;font-weight:bold">مطمئنی؟ همه اطلاعات پاک میشه!</p><button class="btn btn-red" onclick="resetStep2()">بله، مطمئنم</button><button class="btn btn-gray" onclick="cancelReset()">انصراف</button></div>
-<div id="reset-step-3" class="hidden"><p style="color:#dc2626;margin:15px 0;font-weight:bold">واقعاً مطمئنی؟ این کار برگشت‌پذیر نیست!</p><button class="btn btn-red" onclick="resetStep3()">بله، ادامه بده</button><button class="btn btn-gray" onclick="cancelReset()">انصراف</button></div>
-<div id="reset-step-4" class="hidden"><p style="color:#dc2626;margin:15px 0;font-weight:bold">آخرین تأیید - همه چیز از دست میره!</p><button class="btn btn-red" onclick="doReset()">✅ بله، همه چیز پاک شود</button><button class="btn btn-gray" onclick="cancelReset()">انصراف</button></div>
+<div id="reset-step-2" class="hidden"><p style="color:#dc2626;margin:15px 0;font-weight:bold">مطمئنی؟</p><button class="btn btn-red" onclick="resetStep2()">بله، مطمئنم</button><button class="btn btn-gray" onclick="cancelReset()">انصراف</button></div>
+<div id="reset-step-3" class="hidden"><p style="color:#dc2626;margin:15px 0;font-weight:bold">واقعاً مطمئنی؟</p><button class="btn btn-red" onclick="resetStep3()">بله، ادامه بده</button><button class="btn btn-gray" onclick="cancelReset()">انصراف</button></div>
+<div id="reset-step-4" class="hidden"><p style="color:#dc2626;margin:15px 0;font-weight:bold">آخرین تأیید!</p><button class="btn btn-red" onclick="doReset()">✅ بله، همه چیز پاک شود</button><button class="btn btn-gray" onclick="cancelReset()">انصراف</button></div>
 </div>
 <div id="msg-reset" class="msg"></div>
 </div>
@@ -471,6 +466,7 @@ let currentTeam = null;
 let selectedLeague = null;
 let selectedTeamName = null;
 let currentChatId = null;
+let currentChatOtherTeam = null;
 let mediaRecorder = null;
 let audioChunks = [];
 let isRecording = false;
@@ -478,7 +474,9 @@ let channelFrom = 'landing';
 let pendingChatFile = null;
 let pendingAdminFile = null;
 let timerInterval = null;
-let friendlyEnabled = true;
+let notifInterval = null;
+let currentSupportTeam = null;
+let pendingClicks = {};
 
 const LEAGUES = {
 '🇪🇸 لالیگا': ['رئال مادرید','بارسلونا','اتلتیکو مادرید','سویا','والنسیا','ویارئال','رئال بتیس','اوساسونا'],
@@ -492,22 +490,22 @@ const LEAGUES = {
 };
 
 const COMPANIES = [
-{name:'🥤 نوشابه‌سازی', price:100000, income:50000},
-{name:'📱 گوشی‌سازی', price:150000, income:70000},
-{name:'💻 لپتاپ‌سازی', price:200000, income:100000},
-{name:'🚗 خودروسازی ضعیف', price:250000, income:150000},
-{name:'🛻 خودروسازی خوب', price:300000, income:200000},
-{name:'🏎️ خودروسازی خفن', price:350000, income:250000},
-{name:'🚛 کامیون‌سازی', price:700000, income:500000},
-{name:'🚁 هلیکوپترسازی', price:2000000, income:800000},
-{name:'✈️ هواپیماسازی', price:5000000, income:1000000}
+{name:'⚽ کارخانه تولید توپ', price:100000, income:50000},
+{name:'👕 پوشاک ورزشی', price:150000, income:70000},
+{name:'🥾 کفش فوتبال', price:200000, income:100000},
+{name:'🏟️ مدیریت استادیوم کوچک', price:250000, income:150000},
+{name:'🎟️ فروش بلیط', price:300000, income:200000},
+{name:'📺 حق پخش تلویزیونی', price:350000, income:250000},
+{name:'🏟️ مدیریت استادیوم بزرگ', price:700000, income:500000},
+{name:'🎓 آکادمی فوتبال', price:2000000, income:800000},
+{name:'🏆 برگزاری تورنمنت', price:5000000, income:1000000}
 ];
 
 const SPONSORS = [
-{name:'👟 آدیداس', price:200000, income:100000},
-{name:'🐆 پوما', price:300000, income:200000},
-{name:'✔️ نایکی', price:400000, income:300000},
-{name:'💪 ریباک', price:500000, income:400000}
+{name:'⚽ اسپانسر توپ رسمی', price:200000, income:100000},
+{name:'👕 اسپانسر پیراهن', price:300000, income:200000},
+{name:'🥾 اسپانسر کفش', price:400000, income:300000},
+{name:'🏟️ اسپانسر استادیوم', price:500000, income:400000}
 ];
 
 function getIranTime() {
@@ -516,14 +514,23 @@ const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
 return new Date(utc + (3.5 * 3600000));
 }
 
+function formatIranTimeFromUTC(dateStr) {
+const d = new Date(dateStr + 'Z');
+const utc = d.getTime();
+const iran = new Date(utc + (3.5 * 3600000));
+const h = iran.getUTCHours();
+const m = iran.getUTCMinutes();
+return String(h).padStart(2,'0') + ':' + String(m).padStart(2,'0');
+}
+
 function startIncomeTimer() {
 if (timerInterval) clearInterval(timerInterval);
 function update() {
 const iran = getIranTime();
 const target = new Date(iran);
-target.setHours(21, 0, 0, 0);
-if (iran >= target) target.setDate(target.getDate() + 1);
-const diff = target - iran;
+target.setUTCHours(21, 0, 0, 0);
+if (iran.getTime() >= target.getTime()) target.setUTCDate(target.getUTCDate() + 1);
+const diff = target.getTime() - iran.getTime();
 const h = Math.floor(diff / 3600000);
 const m = Math.floor((diff % 3600000) / 60000);
 const s = Math.floor((diff % 60000) / 1000);
@@ -552,12 +559,18 @@ if (max && val > max) { showMsg(fieldName + ' باید حداکثر ' + max + ' 
 return true;
 }
 
+async function guardClick(key, fn) {
+if (pendingClicks[key]) { showMsg('صبر کنید... صبر کنید... صبر کنید', 'error'); return; }
+pendingClicks[key] = true;
+try { await fn(); } finally { pendingClicks[key] = false; }
+}
+
 function hideAll() {
 const divs = document.querySelectorAll('#app > div');
 for (let i = 0; i < divs.length; i++) { divs[i].classList.add('hidden'); }
 }
 
-function showLanding() { hideAll(); document.getElementById('page-landing').classList.remove('hidden'); }
+function showLanding() { if (timerInterval) clearInterval(timerInterval); if (notifInterval) clearInterval(notifInterval); hideAll(); document.getElementById('page-landing').classList.remove('hidden'); }
 
 function showLeagues() {
 hideAll();
@@ -566,7 +579,7 @@ list.innerHTML = '';
 Object.keys(LEAGUES).forEach(function(l) {
 const btn = document.createElement('button');
 btn.className = 'btn btn-dark-menu';
-btn.style.cssText = 'margin-bottom:8px;font-size:15px;padding:16px 18px;';
+btn.style.cssText = 'margin-bottom:8px;font-size:15px;padding:16px 20px;';
 btn.innerHTML = l;
 btn.onclick = function() { selectedLeague = l; showTeams(); };
 list.appendChild(btn);
@@ -608,28 +621,34 @@ document.getElementById('page-password').classList.remove('hidden');
 }
 
 async function enterTeam() {
+guardClick('enterTeam', async function() {
 const pass = document.getElementById('input-password').value;
-if (!pass) return showMsg('پسورد را وارد کنید', 'error', 'msg-pass');
+if (!pass) { showMsg('پسورد را وارد کنید', 'error', 'msg-pass'); return; }
 const res = await client.from('teams').select('*').eq('team_name', selectedTeamName).single();
 const data = res.data;
-if (!data) return showMsg('این تیم هنوز فعال نشده. با ادمین تماس بگیرید', 'error', 'msg-pass');
-if (data.password !== pass) return showMsg('پسورد اشتباه است', 'error', 'msg-pass');
+if (!data) { showMsg('این تیم هنوز فعال نشده. با ادمین تماس بگیرید', 'error', 'msg-pass'); return; }
+if (data.password !== pass) { showMsg('پسورد اشتباه است', 'error', 'msg-pass'); return; }
 currentTeam = data;
 await client.from('teams').update({is_active: true}).eq('id', data.id);
 if (!data.signature) { showSignature(); } else { showMain(); }
+});
 }
 
-function showSignature() { hideAll(); document.getElementById('page-signature').classList.remove('hidden'); }
+function showSignature() { hideAll(); document.getElementById('input-signature').value = ''; document.getElementById('page-signature').classList.remove('hidden'); }
 
 async function saveSignature() {
+guardClick('saveSignature', async function() {
 const sig = document.getElementById('input-signature').value.trim();
-if (!sig) return showMsg('امضا را وارد کنید', 'error', 'msg-sig');
+if (!sig) { showMsg('امضا را وارد کنید', 'error', 'msg-sig'); return; }
 const emojiRegex = /\p{Emoji}/gu;
 const emojis = sig.match(emojiRegex);
-if (!emojis || emojis.length < 3 || emojis.length > 4) return showMsg('فقط ۳ یا ۴ ایموجی وارد کنید', 'error', 'msg-sig');
+if (!emojis || emojis.length < 3 || emojis.length > 4) { showMsg('فقط ۳ یا ۴ ایموجی وارد کنید', 'error', 'msg-sig'); return; }
+const dupRes = await client.from('teams').select('id').eq('signature', sig).neq('id', currentTeam.id);
+if (dupRes.data && dupRes.data.length > 0) { showMsg('این امضا قبلاً توسط تیم دیگری استفاده شده، امضای دیگری انتخاب کنید', 'error', 'msg-sig'); return; }
 await client.from('teams').update({signature: sig}).eq('id', currentTeam.id);
 currentTeam.signature = sig;
 showMain();
+});
 }
 
 async function showMain() {
@@ -642,6 +661,25 @@ document.getElementById('main-money').textContent = '💰 ' + currentTeam.money.
 document.getElementById('timer-income').textContent = '+' + currentTeam.daily_income.toLocaleString();
 document.getElementById('page-main').classList.remove('hidden');
 startIncomeTimer();
+startNotifChecker();
+}
+
+async function startNotifChecker() {
+if (notifInterval) clearInterval(notifInterval);
+async function check() {
+if (!currentTeam) return;
+const reqRes = await client.from('transfer_requests').select('id').eq('to_team_id', currentTeam.id).eq('status', 'pending');
+const negRes = await client.from('neg_requests').select('id').eq('to_team_id', currentTeam.id).eq('status', 'pending');
+const friendRes = await client.from('friendly_requests').select('id').eq('to_team_id', currentTeam.id).eq('status', 'pending');
+const dotReq = document.getElementById('dot-requests');
+const dotNeg = document.getElementById('dot-neg');
+const dotFriend = document.getElementById('dot-friendly');
+if (dotReq) dotReq.classList.toggle('hidden', !(reqRes.data && reqRes.data.length > 0));
+if (dotNeg) dotNeg.classList.toggle('hidden', !(negRes.data && negRes.data.length > 0));
+if (dotFriend) dotFriend.classList.toggle('hidden', !(friendRes.data && friendRes.data.length > 0));
+}
+check();
+notifInterval = setInterval(check, 8000);
 }
 
 async function showAssets() {
@@ -680,7 +718,7 @@ html += '<div class="info-row"><span class="info-label">💰 قیمت هر عد�
 html += '<div class="info-row"><span class="info-label">📈 درآمد روزانه هر عدد</span><span class="info-value" style="color:#16a34a">' + c.income.toLocaleString() + '</span></div>';
 if (qty < 10) {
 html += '<input type="number" id="qty_' + safeId + '" placeholder="تعداد (حداکثر ' + (10-qty) + ')" min="1" max="' + (10-qty) + '" style="margin-top:10px">';
-html += '<button class="btn btn-green" style="margin-top:8px" onclick="buyCompany(\'' + c.name + '\',' + c.price + ',' + c.income + ')">🛒 خرید</button>';
+html += '<button class="btn btn-green" style="margin-top:8px" id="buy_btn_' + safeId + '" onclick="buyCompany(\'' + c.name + '\',' + c.price + ',' + c.income + ')">🛒 خرید</button>';
 } else {
 html += '<p style="color:#dc2626;margin-top:10px;text-align:center;font-weight:bold">✓ حداکثر خریداری شده</p>';
 }
@@ -691,6 +729,7 @@ document.getElementById('page-buy-company').classList.remove('hidden');
 }
 
 async function buyCompany(name, price, income) {
+guardClick('buyCompany_' + name, async function() {
 const safeId = name.replace(/\W/g, '_');
 const qtyEl = document.getElementById('qty_' + safeId);
 const qty = parseInt(qtyEl.value);
@@ -698,18 +737,20 @@ if (!validateNumber(qty, 'تعداد', 1)) return;
 const total = price * qty;
 const teamRes = await client.from('teams').select('*').eq('id', currentTeam.id).single();
 const team = teamRes.data;
-if (team.money < total) return showMsg('پول کافی ندارید. نیاز: ' + total.toLocaleString() + ' - موجودی: ' + team.money.toLocaleString());
+if (team.money < total) { showMsg('پول کافی ندارید. نیاز: ' + total.toLocaleString() + ' - موجودی: ' + team.money.toLocaleString()); return; }
 const exRes = await client.from('companies').select('*').eq('team_id', currentTeam.id).eq('company_name', name).single();
 const existing = exRes.data;
 if (existing) {
-if (existing.quantity + qty > 10) return showMsg('حداکثر ۱۰ عدد از هر شرکت مجاز است');
+if (existing.quantity + qty > 10) { showMsg('حداکثر ۱۰ عدد از هر شرکت مجاز است'); return; }
 await client.from('companies').update({quantity: existing.quantity + qty}).eq('id', existing.id);
 } else {
 await client.from('companies').insert({team_id: currentTeam.id, company_name: name, quantity: qty, daily_income: income});
 }
 await client.from('teams').update({money: team.money - total, daily_income: team.daily_income + (income * qty)}).eq('id', currentTeam.id);
+await addChannelPost('🏢 خرید شرکت\n\n🏟️ تیم: ' + currentTeam.team_name + '\n📦 شرکت: ' + name + '\n🔢 تعداد: ' + qty + '\n💰 مبلغ: ' + total.toLocaleString() + '\n\n#خرید_شرکت');
 showMsg('✅ ' + qty + ' عدد ' + name + ' خریداری شد!', 'success');
 showBuyCompany();
+});
 }
 
 async function showBuySponsor() {
@@ -720,12 +761,13 @@ const list = document.getElementById('sponsors-list');
 list.innerHTML = '';
 SPONSORS.forEach(function(s) {
 const owned = existing ? existing.find(function(e){ return e.sponsor_name === s.name; }) : null;
+const safeId = s.name.replace(/\W/g, '_');
 const div = document.createElement('div');
 div.className = 'card';
 let html = '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px"><span style="font-size:16px;font-weight:bold">' + s.name + '</span>' + (owned ? '<span class="badge badge-green">✅ خریداری شده</span>' : '') + '</div>';
 html += '<div class="info-row"><span class="info-label">💰 قیمت</span><span class="info-value">' + s.price.toLocaleString() + '</span></div>';
 html += '<div class="info-row"><span class="info-label">📈 درآمد روزانه</span><span class="info-value" style="color:#16a34a">' + s.income.toLocaleString() + '</span></div>';
-if (!owned) html += '<button class="btn btn-green" style="margin-top:10px" onclick="buySponsor(\'' + s.name + '\',' + s.price + ',' + s.income + ')">🛒 خرید اسپانسر</button>';
+if (!owned) html += '<button class="btn btn-green" style="margin-top:10px" id="spon_btn_' + safeId + '" onclick="buySponsor(\'' + s.name + '\',' + s.price + ',' + s.income + ')">🛒 خرید اسپانسر</button>';
 div.innerHTML = html;
 list.appendChild(div);
 });
@@ -733,13 +775,16 @@ document.getElementById('page-buy-sponsor').classList.remove('hidden');
 }
 
 async function buySponsor(name, price, income) {
+guardClick('buySponsor_' + name, async function() {
 const res = await client.from('teams').select('*').eq('id', currentTeam.id).single();
 const team = res.data;
-if (team.money < price) return showMsg('پول کافی ندارید. نیاز: ' + price.toLocaleString());
+if (team.money < price) { showMsg('پول کافی ندارید. نیاز: ' + price.toLocaleString()); return; }
 await client.from('sponsors').insert({team_id: currentTeam.id, sponsor_name: name, daily_income: income});
 await client.from('teams').update({money: team.money - price, daily_income: team.daily_income + income}).eq('id', currentTeam.id);
+await addChannelPost('👕 خرید اسپانسر\n\n🏟️ تیم: ' + currentTeam.team_name + '\n🤝 اسپانسر: ' + name + '\n💰 مبلغ: ' + price.toLocaleString() + '\n\n#خرید_اسپانسر');
 showMsg('✅ اسپانسر خریداری شد!', 'success');
 showBuySponsor();
+});
 }
 
 async function showMyPlayers() {
@@ -792,7 +837,7 @@ list.innerHTML = '<div class="card"><p style="text-align:center;color:var(--text
 data.forEach(function(p) {
 const div = document.createElement('div');
 div.className = 'card';
-div.innerHTML = '<div style="font-weight:bold;margin-bottom:10px">⚽ ' + p.player_name + '</div><input type="number" id="sell_' + p.id + '" placeholder="قیمت فروش را وارد کنید (عدد)"><button class="btn btn-secondary" style="margin-top:8px" onclick="sellPlayer(' + p.id + ',\'' + p.player_name + '\')">💸 قرار دادن برای فروش</button>';
+div.innerHTML = '<div style="font-weight:bold;margin-bottom:10px">⚽ ' + p.player_name + '</div><input type="number" id="sell_' + p.id + '" placeholder="قیمت فروش را وارد کنید (عدد)"><button class="btn btn-secondary" style="margin-top:8px" id="sellbtn_' + p.id + '" onclick="sellPlayer(' + p.id + ',\'' + p.player_name + '\')">💸 قرار دادن برای فروش</button>';
 list.appendChild(div);
 });
 }
@@ -800,6 +845,7 @@ document.getElementById('page-sell-player').classList.remove('hidden');
 }
 
 async function sellPlayer(id, name) {
+guardClick('sellPlayer_' + id, async function() {
 const priceEl = document.getElementById('sell_' + id);
 const price = parseInt(priceEl.value);
 if (!validateNumber(price, 'قیمت فروش')) return;
@@ -807,6 +853,7 @@ await client.from('players').update({is_for_sale: true, sale_price: price}).eq('
 await addChannelPost('🔴 اعلام فروش بازیکن\n\n⚽ بازیکن: ' + name + '\n🏟️ تیم: ' + currentTeam.team_name + '\n💰 قیمت: ' + price.toLocaleString() + '\n\n#لیست_فروش');
 showMsg('✅ بازیکن برای فروش قرار گرفت', 'success');
 showSellPlayer();
+});
 }
 
 async function showBuyPlayer() {
@@ -838,7 +885,7 @@ list.innerHTML = '<p style="color:var(--text2);text-align:center;padding:15px">�
 } else {
 data.forEach(function(p) {
 const div = document.createElement('div');
-div.innerHTML = '<div class="player-item" style="flex-direction:column;align-items:flex-start;gap:8px"><span style="font-weight:bold">⚽ ' + p.player_name + '</span><input type="number" id="offer_' + p.id + '" placeholder="قیمت پیشنهادی (عدد)"><input type="number" id="games_' + p.id + '" placeholder="تعداد بازی (۱۵ تا ۵۰)" min="15" max="50"><button class="btn btn-primary" style="width:100%" onclick="sendBuyRequest(' + p.id + ',\'' + p.player_name + '\',' + team.id + ',\'' + team.team_name + '\')">📤 ارسال درخواست</button></div>';
+div.innerHTML = '<div class="player-item" style="flex-direction:column;align-items:flex-start;gap:8px"><span style="font-weight:bold">⚽ ' + p.player_name + '</span><input type="number" id="offer_' + p.id + '" placeholder="قیمت پیشنهادی (عدد)"><button class="btn btn-primary" style="width:100%" id="sendreq_' + p.id + '" onclick="sendBuyRequest(' + p.id + ',\'' + p.player_name + '\',' + team.id + ',\'' + team.team_name + '\')">📤 ارسال درخواست</button></div>';
 list.appendChild(div);
 });
 }
@@ -846,12 +893,13 @@ document.getElementById('buy-player-players').classList.remove('hidden');
 }
 
 async function sendBuyRequest(playerId, playerName, toTeamId, toTeamName) {
+guardClick('sendBuyReq_' + playerId, async function() {
 const price = parseInt(document.getElementById('offer_' + playerId).value);
-const games = parseInt(document.getElementById('games_' + playerId).value);
 if (!validateNumber(price, 'قیمت پیشنهادی')) return;
-if (!validateNumber(games, 'تعداد بازی', 15, 50)) return;
-await client.from('transfer_requests').insert({from_team_id: currentTeam.id, to_team_id: toTeamId, player_id: playerId, offered_price: price, contract_games: games, status: 'pending'});
+await client.from('transfer_requests').insert({from_team_id: currentTeam.id, to_team_id: toTeamId, player_id: playerId, offered_price: price, status: 'pending'});
+await addChannelPost('📤 درخواست خرید بازیکن\n\n🏟️ ' + currentTeam.team_name + ' درخواست خرید ' + playerName + ' را برای ' + toTeamName + ' ارسال کرد\n💰 پیشنهاد: ' + price.toLocaleString() + '\n\n#درخواست_خرید');
 showMsg('✅ درخواست ارسال شد', 'success');
+});
 }
 
 async function showRequests() {
@@ -866,7 +914,7 @@ list.innerHTML = '<div class="card"><p style="text-align:center;color:var(--text
 data.forEach(function(r) {
 const div = document.createElement('div');
 div.className = 'card';
-div.innerHTML = '<div style="font-weight:bold;font-size:16px;margin-bottom:12px">⚽ ' + r.players.player_name + '</div><div class="info-row"><span class="info-label">از تیم</span><span class="info-value">' + r.teams.team_name + '</span></div><div class="info-row"><span class="info-label">💰 قیمت</span><span class="info-value" style="color:#d97706">' + r.offered_price.toLocaleString() + '</span></div><div class="info-row"><span class="info-label">🎮 تعداد بازی</span><span class="info-value">' + r.contract_games + '</span></div><div style="display:flex;gap:8px;margin-top:12px"><button class="btn btn-green" onclick="acceptRequest(' + r.id + ',' + r.from_team_id + ',' + r.player_id + ',' + r.offered_price + ',\'' + r.players.player_name + '\',\'' + r.teams.team_name + '\')">✅ قبول</button><button class="btn btn-red" onclick="rejectRequest(' + r.id + ')">❌ رد</button></div>';
+div.innerHTML = '<div style="font-weight:bold;font-size:16px;margin-bottom:12px">⚽ ' + r.players.player_name + '</div><div class="info-row"><span class="info-label">از تیم</span><span class="info-value">' + r.teams.team_name + '</span></div><div class="info-row"><span class="info-label">💰 قیمت</span><span class="info-value" style="color:#d97706">' + r.offered_price.toLocaleString() + '</span></div><div style="display:flex;gap:8px;margin-top:12px"><button class="btn btn-green" id="acc_' + r.id + '" onclick="acceptRequest(' + r.id + ',' + r.from_team_id + ',' + r.player_id + ',' + r.offered_price + ',\'' + r.players.player_name + '\',\'' + r.teams.team_name + '\')">✅ قبول</button><button class="btn btn-red" id="rej_' + r.id + '" onclick="rejectRequest(' + r.id + ',\'' + r.players.player_name + '\',\'' + r.teams.team_name + '\')">❌ رد</button></div>';
 list.appendChild(div);
 });
 }
@@ -874,24 +922,34 @@ document.getElementById('page-requests').classList.remove('hidden');
 }
 
 async function acceptRequest(id, fromId, playerId, price, playerName, fromTeamName) {
+guardClick('acceptReq_' + id, async function() {
+const checkRes = await client.from('transfer_requests').select('status').eq('id', id).single();
+if (!checkRes.data || checkRes.data.status !== 'pending') { showMsg('این درخواست قبلاً پردازش شده'); return; }
+await client.from('transfer_requests').update({status: 'processing'}).eq('id', id);
 const buyerRes = await client.from('teams').select('money').eq('id', fromId).single();
 const sellerRes = await client.from('teams').select('money').eq('id', currentTeam.id).single();
 const buyer = buyerRes.data;
 const seller = sellerRes.data;
-if (buyer.money < price) return showMsg('تیم خریدار پول کافی ندارد');
+if (buyer.money < price) { showMsg('تیم خریدار پول کافی ندارد'); await client.from('transfer_requests').update({status: 'pending'}).eq('id', id); return; }
 await client.from('teams').update({money: buyer.money - price}).eq('id', fromId);
 await client.from('teams').update({money: seller.money + price}).eq('id', currentTeam.id);
 await client.from('players').update({team_id: fromId, is_for_sale: false, sale_price: 0}).eq('id', playerId);
 await client.from('transfer_requests').update({status: 'accepted'}).eq('id', id);
-await addChannelPost('✅ انتقال رسمی بازیکن\n\n⚽ ' + playerName + '\n🔴 از: ' + currentTeam.team_name + '\n🟢 به: ' + fromTeamName + '\n💰 مبلغ: ' + price.toLocaleString() + '\n\n#انتقال_بازیکن');
+await addChannelPost('✅ انتقال رسمی بازیکن\n\n⚽ ' + playerName + '\n🔴 از: ' + currentTeam.team_name + '\n🟢 به: ' + fromTeamName + '\n💰 مبلغ: ' + price.toLocaleString() + '\n♾️ قرارداد دائمی\n\n#انتقال_بازیکن');
 showMsg('✅ انتقال انجام شد!', 'success');
 showRequests();
+});
 }
 
-async function rejectRequest(id) {
+async function rejectRequest(id, playerName, fromTeamName) {
+guardClick('rejectReq_' + id, async function() {
+const checkRes = await client.from('transfer_requests').select('status').eq('id', id).single();
+if (!checkRes.data || checkRes.data.status !== 'pending') { showMsg('این درخواست قبلاً پردازش شده'); return; }
 await client.from('transfer_requests').update({status: 'rejected'}).eq('id', id);
+await addChannelPost('❌ رد درخواست انتقال\n\n' + currentTeam.team_name + ' درخواست خرید ' + playerName + ' را توسط ' + fromTeamName + ' رد کرد\n\n#رد_درخواست');
 showMsg('درخواست رد شد', 'success');
 showRequests();
+});
 }
 
 async function exitGame() {
@@ -899,6 +957,7 @@ if (!confirm('آیا مطمئنید؟ تیم برای دیگران قابل ان
 await client.from('teams').update({is_active: false, owner: null}).eq('id', currentTeam.id);
 await addChannelPost('🚪 تیم ' + currentTeam.team_name + ' از بازی خارج شد.\n\n#خروج_از_بازی');
 if (timerInterval) clearInterval(timerInterval);
+if (notifInterval) clearInterval(notifInterval);
 currentTeam = null;
 showLanding();
 }
@@ -925,8 +984,10 @@ document.getElementById('page-neg-send').classList.remove('hidden');
 }
 
 async function sendNegRequest(toTeamId, toTeamName) {
+guardClick('sendNeg_' + toTeamId, async function() {
 await client.from('neg_requests').insert({from_team_id: currentTeam.id, to_team_id: toTeamId, status: 'pending'});
 showMsg('✅ درخواست مذاکره به ' + toTeamName + ' ارسال شد', 'success');
+});
 }
 
 async function showNegotiationRequests() {
@@ -941,7 +1002,7 @@ list.innerHTML = '<div class="card"><p style="text-align:center;color:var(--text
 data.forEach(function(r) {
 const div = document.createElement('div');
 div.className = 'card';
-div.innerHTML = '<div style="font-weight:bold;margin-bottom:12px">💬 ' + r.teams.team_name + ' درخواست مذاکره داده</div><div style="display:flex;gap:8px"><button class="btn btn-green" onclick="acceptNegRequest(' + r.id + ',' + r.from_team_id + ',\'' + r.teams.team_name + '\')">✅ قبول</button><button class="btn btn-red" onclick="rejectNegRequest(' + r.id + ')">❌ رد</button></div>';
+div.innerHTML = '<div style="font-weight:bold;margin-bottom:12px">💬 ' + r.teams.team_name + ' درخواست مذاکره داده</div><div style="display:flex;gap:8px"><button class="btn btn-green" id="accneg_' + r.id + '" onclick="acceptNegRequest(' + r.id + ',' + r.from_team_id + ',\'' + r.teams.team_name + '\')">✅ قبول</button><button class="btn btn-red" id="rejneg_' + r.id + '" onclick="rejectNegRequest(' + r.id + ')">❌ رد</button></div>';
 list.appendChild(div);
 });
 }
@@ -949,16 +1010,20 @@ document.getElementById('page-neg-requests').classList.remove('hidden');
 }
 
 async function acceptNegRequest(reqId, fromTeamId, fromTeamName) {
+guardClick('accNeg_' + reqId, async function() {
 await client.from('neg_requests').update({status: 'accepted'}).eq('id', reqId);
 await client.from('negotiations').insert({team1_id: fromTeamId, team2_id: currentTeam.id});
 showMsg('✅ مذاکره با ' + fromTeamName + ' شروع شد', 'success');
 showNegotiationRequests();
+});
 }
 
 async function rejectNegRequest(reqId) {
+guardClick('rejNeg_' + reqId, async function() {
 await client.from('neg_requests').update({status: 'rejected'}).eq('id', reqId);
 showMsg('درخواست رد شد', 'success');
 showNegotiationRequests();
+});
 }
 
 async function showMyChats() {
@@ -985,6 +1050,7 @@ document.getElementById('page-my-chats').classList.remove('hidden');
 
 async function openChat(negId, title) {
 currentChatId = negId;
+currentChatOtherTeam = title;
 document.getElementById('chat-title').textContent = '💬 ' + title;
 pendingChatFile = null;
 document.getElementById('chat-file-preview').innerHTML = '';
@@ -1005,28 +1071,43 @@ async function loadChatMessages() {
 const res = await client.from('neg_messages').select('*').eq('negotiation_id', currentChatId).order('created_at', {ascending: true});
 const data = res.data;
 const box = document.getElementById('chat-messages');
+const pinBox = document.getElementById('pinned-bar-container');
 box.innerHTML = '';
+pinBox.innerHTML = '';
 if (!data || !data.length) { box.innerHTML = '<p style="color:var(--text2);text-align:center;margin-top:80px">شروع مذاکره کنید...</p>'; return; }
+const pinned = data.filter(function(m) { return m.is_pinned; });
+pinned.forEach(function(p) {
+const pbar = document.createElement('div');
+pbar.className = 'pinned-bar';
+const preview = p.message_text ? p.message_text.substring(0, 40) : ('[' + p.type + ']');
+pbar.innerHTML = '📌 <b>' + p.sender_name + ':</b> ' + preview;
+pbar.onclick = function() { scrollToMsg(p.id); };
+pinBox.appendChild(pbar);
+});
 data.forEach(function(m) {
 const isMine = m.team_id === currentTeam.id;
 const div = document.createElement('div');
 div.className = 'chat-msg ' + (isMine ? 'mine' : 'theirs');
+div.id = 'msg_' + m.id;
 if (m.is_pinned) div.classList.add('pinned');
 let content = '';
-if (m.is_pinned) content += '<div class="pinned-badge">📌 پین شده</div>';
+if (m.is_pinned) content += '<div class="pinned-bar" style="background:none;border:none;padding:0;margin-bottom:4px;font-size:10px;opacity:0.8">📌 پین شده</div>';
 content += '<div class="sender">' + m.sender_name + '</div>';
 if (m.message_text) content += '<div>' + m.message_text + '</div>';
-if (m.type === 'image' && m.content) content += '<img src="' + m.content + '" style="width:100%;border-radius:8px;margin-top:5px">';
+if (m.type === 'image' && m.content) content += '<img src="' + m.content + '" style="width:100%;border-radius:12px;margin-top:5px">';
 else if (m.type === 'audio' && m.content) content += '<audio controls src="' + m.content + '" style="width:100%;margin-top:5px"></audio>';
-else if (m.type === 'video' && m.content) content += '<video controls src="' + m.content + '" style="width:100%;border-radius:8px;margin-top:5px"></video>';
-const t = new Date(m.created_at);
-const iranT = new Date(t.getTime() + (3.5 * 3600000));
-content += '<div class="time">' + iranT.getUTCHours() + ':' + String(iranT.getUTCMinutes()).padStart(2,'0') + '</div>';
-if (isMine) content += '<div style="margin-top:4px"><button onclick="pinMessage(' + m.id + ')" style="background:none;border:none;color:' + (m.is_pinned ? '#d97706' : 'rgba(255,255,255,0.7)') + ';cursor:pointer;font-size:12px">' + (m.is_pinned ? '📌 برداشتن پین' : '📌 پین') + '</button></div>';
+else if (m.type === 'video' && m.content) content += '<video controls src="' + m.content + '" style="width:100%;border-radius:12px;margin-top:5px"></video>';
+content += '<div class="time">' + formatIranTimeFromUTC(m.created_at) + '</div>';
+content += '<div style="margin-top:4px" onclick="event.stopPropagation()"><button onclick="pinMessage(' + m.id + ')" style="background:none;border:none;color:' + (m.is_pinned ? '#d97706' : (isMine ? 'rgba(255,255,255,0.7)' : '#94a3b8')) + ';cursor:pointer;font-size:12px">' + (m.is_pinned ? '📌 برداشتن پین' : '📌 پین') + '</button></div>';
 div.innerHTML = content;
 box.appendChild(div);
 });
 box.scrollTop = box.scrollHeight;
+}
+
+function scrollToMsg(id) {
+const el = document.getElementById('msg_' + id);
+if (el) { el.scrollIntoView({behavior:'smooth', block:'center'}); el.style.boxShadow = '0 0 0 3px #d97706'; setTimeout(function(){ el.style.boxShadow=''; }, 1500); }
 }
 
 async function pinMessage(msgId) {
@@ -1044,9 +1125,9 @@ pendingChatFile = file;
 const reader = new FileReader();
 reader.onload = function(e) {
 const preview = document.getElementById('chat-file-preview');
-if (file.type.startsWith('image')) preview.innerHTML = '<img src="' + e.target.result + '" style="max-height:150px;border-radius:8px;width:100%"><button onclick="clearChatFile()" style="background:#dc2626;border:none;color:white;padding:4px 10px;border-radius:6px;cursor:pointer;margin-top:5px">× حذف</button>';
-else if (file.type.startsWith('audio')) preview.innerHTML = '<audio controls src="' + e.target.result + '" style="width:100%"></audio><button onclick="clearChatFile()" style="background:#dc2626;border:none;color:white;padding:4px 10px;border-radius:6px;cursor:pointer;margin-top:5px">× حذف</button>';
-else if (file.type.startsWith('video')) preview.innerHTML = '<video controls src="' + e.target.result + '" style="width:100%;border-radius:8px"></video><button onclick="clearChatFile()" style="background:#dc2626;border:none;color:white;padding:4px 10px;border-radius:6px;cursor:pointer;margin-top:5px">× حذف</button>';
+if (file.type.startsWith('image')) preview.innerHTML = '<img src="' + e.target.result + '" style="max-height:150px;border-radius:12px;width:100%"><button onclick="clearChatFile()" style="background:#dc2626;border:none;color:white;padding:6px 14px;border-radius:50px;cursor:pointer;margin-top:5px">× حذف</button>';
+else if (file.type.startsWith('audio')) preview.innerHTML = '<audio controls src="' + e.target.result + '" style="width:100%"></audio><button onclick="clearChatFile()" style="background:#dc2626;border:none;color:white;padding:6px 14px;border-radius:50px;cursor:pointer;margin-top:5px">× حذف</button>';
+else if (file.type.startsWith('video')) preview.innerHTML = '<video controls src="' + e.target.result + '" style="width:100%;border-radius:12px"></video><button onclick="clearChatFile()" style="background:#dc2626;border:none;color:white;padding:6px 14px;border-radius:50px;cursor:pointer;margin-top:5px">× حذف</button>';
 };
 reader.readAsDataURL(file);
 }
@@ -1058,9 +1139,11 @@ document.getElementById('chat-file-input').value = '';
 }
 
 async function sendChatMsg() {
+guardClick('sendChat', async function() {
 const text = document.getElementById('chat-input').value.trim();
 if (!text && !pendingChatFile) return;
 if (pendingChatFile) {
+await new Promise(function(resolve) {
 const reader = new FileReader();
 reader.onload = async function(e) {
 let type = 'text';
@@ -1071,13 +1154,16 @@ await client.from('neg_messages').insert({negotiation_id: currentChatId, team_id
 document.getElementById('chat-input').value = '';
 clearChatFile();
 await loadChatMessages();
+resolve();
 };
 reader.readAsDataURL(pendingChatFile);
+});
 } else {
 await client.from('neg_messages').insert({negotiation_id: currentChatId, team_id: currentTeam.id, sender_name: currentTeam.team_name, type: 'text', content: null, message_text: text, is_pinned: false, created_at: new Date().toISOString()});
 document.getElementById('chat-input').value = '';
 await loadChatMessages();
 }
+});
 }
 
 async function toggleVoice() {
@@ -1141,8 +1227,10 @@ list.appendChild(btn);
 }
 
 async function sendFriendlyRequest(toTeamId, toTeamName) {
+guardClick('sendFriendly_' + toTeamId, async function() {
 await client.from('friendly_requests').insert({from_team_id: currentTeam.id, to_team_id: toTeamId, status: 'pending'});
 showMsg('✅ درخواست بازی دوستانه به ' + toTeamName + ' ارسال شد', 'success');
+});
 }
 
 async function showFriendlyRequests() {
@@ -1157,7 +1245,7 @@ list.innerHTML = '<div class="card"><p style="text-align:center;color:var(--text
 data.forEach(function(r) {
 const div = document.createElement('div');
 div.className = 'card';
-div.innerHTML = '<div style="font-weight:bold;margin-bottom:12px">🏃 ' + r.teams.team_name + ' درخواست بازی دوستانه داده</div><div style="display:flex;gap:8px"><button class="btn btn-green" onclick="acceptFriendlyRequest(' + r.id + ',\'' + r.teams.team_name + '\')">✅ قبول</button><button class="btn btn-red" onclick="rejectFriendlyRequest(' + r.id + ',\'' + r.teams.team_name + '\')">❌ رد</button></div>';
+div.innerHTML = '<div style="font-weight:bold;margin-bottom:12px">🏃 ' + r.teams.team_name + ' درخواست بازی دوستانه داده</div><div style="display:flex;gap:8px"><button class="btn btn-green" id="accfr_' + r.id + '" onclick="acceptFriendlyRequest(' + r.id + ',\'' + r.teams.team_name + '\')">✅ قبول</button><button class="btn btn-red" id="rejfr_' + r.id + '" onclick="rejectFriendlyRequest(' + r.id + ',\'' + r.teams.team_name + '\')">❌ رد</button></div>';
 list.appendChild(div);
 });
 }
@@ -1165,17 +1253,25 @@ document.getElementById('page-friendly-requests').classList.remove('hidden');
 }
 
 async function acceptFriendlyRequest(reqId, fromTeamName) {
+guardClick('accFriendly_' + reqId, async function() {
+const checkRes = await client.from('friendly_requests').select('status').eq('id', reqId).single();
+if (!checkRes.data || checkRes.data.status !== 'pending') { showMsg('این درخواست قبلاً پردازش شده'); return; }
 await client.from('friendly_requests').update({status: 'accepted'}).eq('id', reqId);
 await addChannelPost('🏃 بازی دوستانه\n\n✅ ' + currentTeam.team_name + ' درخواست بازی دوستانه ' + fromTeamName + ' را قبول کرد\n\n#بازی_دوستانه');
 showMsg('✅ درخواست قبول شد', 'success');
 showFriendlyRequests();
+});
 }
 
 async function rejectFriendlyRequest(reqId, fromTeamName) {
+guardClick('rejFriendly_' + reqId, async function() {
+const checkRes = await client.from('friendly_requests').select('status').eq('id', reqId).single();
+if (!checkRes.data || checkRes.data.status !== 'pending') { showMsg('این درخواست قبلاً پردازش شده'); return; }
 await client.from('friendly_requests').update({status: 'rejected'}).eq('id', reqId);
 await addChannelPost('🏃 بازی دوستانه\n\n❌ ' + currentTeam.team_name + ' درخواست بازی دوستانه ' + fromTeamName + ' را رد کرد\n\n#بازی_دوستانه');
 showMsg('درخواست رد شد', 'success');
 showFriendlyRequests();
+});
 }
 
 async function showTactics() {
@@ -1186,15 +1282,17 @@ document.getElementById('page-tactics').classList.remove('hidden');
 }
 
 async function saveTactics() {
+guardClick('saveTactics', async function() {
 const text = document.getElementById('tactics-input').value;
 await client.from('teams').update({tactics: text}).eq('id', currentTeam.id);
 showMsg('✅ ترکیب و تاکتیک ذخیره شد', 'success', 'msg-tactics');
+});
 }
 
 async function addChannelPost(text, mediaUrl, mediaType) {
 mediaUrl = mediaUrl || null;
 mediaType = mediaType || null;
-await client.from('channel_posts').insert({content: text, type: 'system', media_url: mediaUrl, media_type: mediaType, created_at: new Date().toISOString()});
+await client.from('channel_posts').insert({content: text, type: 'system', media_url: mediaUrl, media_type: mediaType, is_pinned: false, created_at: new Date().toISOString()});
 }
 
 async function showChannel() {
@@ -1210,12 +1308,22 @@ const data = res.data;
 const list = document.getElementById('channel-posts');
 list.innerHTML = '';
 if (!data || !data.length) { list.innerHTML = '<div class="card"><p style="text-align:center;color:var(--text2);padding:20px">هنوز پیامی نیست</p></div>'; return; }
+const pinned = data.filter(function(p) { return p.is_pinned; });
+pinned.forEach(function(p) {
+const pbar = document.createElement('div');
+pbar.className = 'pinned-bar';
+pbar.style.margin = '8px 0';
+const preview = p.content ? p.content.substring(0, 50) : '[رسانه]';
+pbar.innerHTML = '📌 ' + preview;
+pbar.onclick = function() { document.getElementById('post_' + p.id).scrollIntoView({behavior:'smooth', block:'center'}); };
+list.appendChild(pbar);
+});
 data.forEach(function(p) {
 const div = document.createElement('div');
 div.className = 'channel-post';
-const t = new Date(p.created_at);
-const iranT = new Date(t.getTime() + (3.5 * 3600000));
-const timeStr = iranT.getUTCHours() + ':' + String(iranT.getUTCMinutes()).padStart(2,'0') + ' - ' + iranT.toLocaleDateString('fa-IR');
+div.id = 'post_' + p.id;
+if (p.is_pinned) div.style.border = '2px solid #d97706';
+const timeStr = formatIranTimeFromUTC(p.created_at) + ' - ' + getIranDateStr(p.created_at);
 let content = '';
 if (p.content) content += '<p style="line-height:1.8;white-space:pre-wrap;color:var(--text)">' + p.content + '</p>';
 if (p.media_url) {
@@ -1223,12 +1331,46 @@ if (p.media_type === 'image') content += '<img src="' + p.media_url + '">';
 else if (p.media_type === 'audio') content += '<audio controls src="' + p.media_url + '"></audio>';
 else if (p.media_type === 'video') content += '<video controls src="' + p.media_url + '"></video>';
 }
-div.innerHTML = '<div class="channel-post-header"><span style="font-weight:bold;color:var(--primary)">📢 کانال خبری</span><span>' + timeStr + '</span></div>' + content;
+div.innerHTML = '<div class="channel-post-header"><span style="font-weight:bold;color:var(--primary)">📢 کانال خبری' + (p.is_pinned ? ' 📌' : '') + '</span><span>' + timeStr + '</span></div>' + content;
 list.appendChild(div);
 });
 }
 
+function getIranDateStr(dateStr) {
+const d = new Date(dateStr + 'Z');
+const iran = new Date(d.getTime() + (3.5 * 3600000));
+return iran.toLocaleDateString('fa-IR', {timeZone:'UTC'});
+}
+
 function goBack() { if (channelFrom === 'main') showMain(); else showLanding(); }
+
+async function showSupport() {
+hideAll();
+document.getElementById('page-support').classList.remove('hidden');
+const res = await client.from('support_messages').select('*').eq('team_id', currentTeam.id).order('created_at', {ascending: true});
+const data = res.data;
+const box = document.getElementById('support-team-messages');
+box.innerHTML = '';
+if (!data || !data.length) { box.innerHTML = '<p style="color:var(--text2);text-align:center;margin-top:60px">پیامی وجود ندارد. سوال خود را بپرسید</p>'; return; }
+data.forEach(function(m) {
+const div = document.createElement('div');
+div.className = 'support-bubble ' + (m.sender === 'team' ? 'team' : 'admin');
+div.innerHTML = '<div style="font-size:11px;opacity:0.7;margin-bottom:4px">' + (m.sender === 'team' ? '👤 شما' : '🛠️ ادمین') + ' - ' + formatIranTimeFromUTC(m.created_at) + '</div>' + m.message;
+box.appendChild(div);
+});
+box.scrollTop = box.scrollHeight;
+}
+
+async function sendSupportMsg() {
+guardClick('sendSupport', async function() {
+const input = document.getElementById('support-team-input');
+const text = input.value.trim();
+if (!text) return;
+await client.from('support_messages').insert({team_id: currentTeam.id, team_name: currentTeam.team_name, sender: 'team', message: text, created_at: new Date().toISOString()});
+input.value = '';
+await showSupport();
+});
+}
 
 function showAdminLogin() {
 hideAll();
@@ -1237,9 +1379,11 @@ document.getElementById('page-admin-login').classList.remove('hidden');
 }
 
 async function loginAdmin() {
+guardClick('loginAdmin', async function() {
 const pass = document.getElementById('admin-pass-input').value;
 if (pass === ADMIN_PASSWORD) { showAdmin(); }
 else { showMsg('پسورد اشتباه است', 'error', 'msg-admin-login'); }
+});
 }
 
 function showAdmin() { hideAll(); document.getElementById('page-admin').classList.remove('hidden'); }
@@ -1271,45 +1415,70 @@ let html = '<div style="display:flex;justify-content:space-between;align-items:c
 html += '<div class="info-row"><span class="info-label">لیگ</span><span class="info-value">' + t.league + '</span></div>';
 html += '<div class="info-row"><span class="info-label">💰 پول</span><span class="info-value">' + t.money.toLocaleString() + '</span></div>';
 html += '<div class="sec-title" style="font-size:14px;margin-top:12px">➕ افزودن بازیکنان</div>';
-html += '<div id="players-inputs-' + t.id + '"><div style="display:flex;gap:8px;margin-bottom:6px"><input type="text" class="player-input-' + t.id + '" placeholder="نام بازیکن"><button onclick="addPlayerInput(' + t.id + ')" style="background:var(--primary);border:none;color:white;padding:8px 14px;border-radius:8px;cursor:pointer;flex-shrink:0;font-size:18px">+</button></div></div>';
+html += '<div id="players-inputs-' + t.id + '"><div style="display:flex;gap:8px;margin-bottom:6px"><input type="text" class="player-input-' + t.id + '" placeholder="نام بازیکن" style="flex:1"><button onclick="addPlayerInput(' + t.id + ')" style="background:var(--primary);border:none;color:white;padding:8px 18px;border-radius:50px;cursor:pointer;flex-shrink:0;font-size:18px">+</button></div></div>';
 html += '<button class="btn btn-green" style="margin-top:5px" onclick="adminSavePlayers(' + t.id + ')">💾 ذخیره بازیکنان</button>';
+html += '<div class="sec-title" style="font-size:14px;margin-top:14px">📋 بازیکنان فعلی</div><div id="player-list-' + t.id + '">در حال بارگذاری...</div>';
 html += '<div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:10px"><button class="btn btn-gray" style="flex:1" onclick="adminEditMoney(' + t.id + ',' + t.money + ')">✏️ پول</button><button class="btn btn-gray" style="flex:1" onclick="adminSetPassword(' + t.id + ',\'' + t.team_name + '\')">🔑 پسورد</button><button class="btn btn-gray" style="flex:1" onclick="adminViewTactics(' + t.id + ',\'' + t.team_name + '\')">📋 تاکتیک</button></div>';
 div.innerHTML = html;
 list.appendChild(div);
+loadTeamPlayersAdmin(t.id);
 });
 }
 document.getElementById('page-admin-teams').classList.remove('hidden');
+}
+
+async function loadTeamPlayersAdmin(teamId) {
+const res = await client.from('players').select('*').eq('team_id', teamId);
+const data = res.data;
+const el = document.getElementById('player-list-' + teamId);
+if (!el) return;
+if (!data || !data.length) { el.innerHTML = '<p style="color:var(--text2);font-size:13px;padding:8px 0">بازیکنی ندارد</p>'; return; }
+el.innerHTML = data.map(function(p) {
+return '<div class="player-item"><span>⚽ ' + p.player_name + '</span><button onclick="adminDeletePlayer(' + p.id + ',' + teamId + ')" style="background:#fef2f2;border:1px solid #fca5a5;color:#dc2626;padding:5px 12px;border-radius:50px;cursor:pointer;font-size:13px">× حذف</button></div>';
+}).join('');
+}
+
+async function adminDeletePlayer(playerId, teamId) {
+if (!confirm('این بازیکن حذف شود؟')) return;
+await client.from('players').delete().eq('id', playerId);
+await loadTeamPlayersAdmin(teamId);
+showMsg('✅ بازیکن حذف شد', 'success');
 }
 
 function addPlayerInput(teamId) {
 const container = document.getElementById('players-inputs-' + teamId);
 const div = document.createElement('div');
 div.style.cssText = 'display:flex;gap:8px;margin-bottom:6px';
-div.innerHTML = '<input type="text" class="player-input-' + teamId + '" placeholder="نام بازیکن"><button onclick="this.parentElement.remove()" style="background:#dc2626;border:none;color:white;padding:8px 14px;border-radius:8px;cursor:pointer;flex-shrink:0">×</button>';
+div.innerHTML = '<input type="text" class="player-input-' + teamId + '" placeholder="نام بازیکن" style="flex:1"><button onclick="this.parentElement.remove()" style="background:#dc2626;border:none;color:white;padding:8px 18px;border-radius:50px;cursor:pointer;flex-shrink:0">×</button>';
 container.appendChild(div);
 }
 
 async function adminSavePlayers(teamId) {
+guardClick('savePlayers_' + teamId, async function() {
 const inputs = document.querySelectorAll('.player-input-' + teamId);
 const names = [];
 inputs.forEach(function(i) { if (i.value.trim()) names.push(i.value.trim()); });
-if (!names.length) return showMsg('نام بازیکنی وارد نشده');
+if (!names.length) { showMsg('نام بازیکنی وارد نشده'); return; }
 for (let i = 0; i < names.length; i++) {
 await client.from('players').insert({team_id: teamId, player_name: names[i], is_for_sale: false, sale_price: 0});
 }
 showMsg('✅ ' + names.length + ' بازیکن اضافه شد', 'success');
+await loadTeamPlayersAdmin(teamId);
+});
 }
 
 async function adminActivateTeam() {
+guardClick('adminActivate', async function() {
 const league = document.getElementById('admin-league-sel').value;
 const team = document.getElementById('admin-team-sel').value;
 const pass = document.getElementById('admin-team-pass').value;
-if (!pass) return showMsg('پسورد را وارد کنید');
+if (!pass) { showMsg('پسورد را وارد کنید'); return; }
 const exRes = await client.from('teams').select('id').eq('team_name', team).single();
 if (exRes.data) { await client.from('teams').update({password: pass, is_active: false, league: league}).eq('id', exRes.data.id); }
 else { await client.from('teams').insert({league: league, team_name: team, password: pass, is_active: false, money: 500000, daily_income: 0}); }
 showMsg('✅ تیم ' + team + ' فعال شد', 'success');
 adminShowTeams();
+});
 }
 
 async function adminSetPassword(id, name) {
@@ -1321,7 +1490,7 @@ showMsg('✅ پسورد تنظیم شد', 'success');
 
 async function adminEditMoney(id, current) {
 const amount = prompt('پول جدید (فعلی: ' + current.toLocaleString() + '):');
-if (!amount || isNaN(parseInt(amount))) return showMsg('لطفاً یک عدد وارد کنید');
+if (!amount || isNaN(parseInt(amount))) { showMsg('لطفاً یک عدد وارد کنید'); return; }
 await client.from('teams').update({money: parseInt(amount)}).eq('id', id);
 showMsg('✅ پول ویرایش شد', 'success');
 adminShowTeams();
@@ -1330,25 +1499,6 @@ adminShowTeams();
 async function adminViewTactics(id, name) {
 const res = await client.from('teams').select('tactics').eq('id', id).single();
 alert('تاکتیک ' + name + ':\n\n' + (res.data.tactics || 'ثبت نشده'));
-}
-
-async function adminShowSettings() {
-hideAll();
-const res = await client.from('game_settings').select('*').eq('key', 'friendly_enabled').single();
-const enabled = res.data ? res.data.value === 'true' : true;
-document.getElementById('friendly-toggle').checked = enabled;
-document.getElementById('page-admin-settings').classList.remove('hidden');
-}
-
-async function toggleFriendlySetting() {
-const enabled = document.getElementById('friendly-toggle').checked;
-const exRes = await client.from('game_settings').select('id').eq('key', 'friendly_enabled').single();
-if (exRes.data) {
-await client.from('game_settings').update({value: enabled ? 'true' : 'false'}).eq('key', 'friendly_enabled');
-} else {
-await client.from('game_settings').insert({key: 'friendly_enabled', value: enabled ? 'true' : 'false'});
-}
-showMsg(enabled ? '✅ بازی دوستانه فعال شد' : '✅ بازی دوستانه غیرفعال شد', 'success');
 }
 
 async function adminShowChannel() {
@@ -1365,24 +1515,28 @@ const res = await client.from('channel_posts').select('*').order('created_at', {
 const data = res.data;
 const box = document.getElementById('admin-channel-posts');
 box.innerHTML = '';
-if (!data || !data.length) { box.innerHTML = '<p style="color:var(--text2);text-align:center;margin-top:80px">هنوز پیامی نیست</p>'; return; }
+if (!data || !data.length) { box.innerHTML = '<p style="color:var(--text2);text-align:center;margin-top:60px">هنوز پیامی نیست</p>'; return; }
 data.forEach(function(p) {
 const div = document.createElement('div');
-div.style.cssText = 'background:white;border:1px solid var(--border);border-radius:12px;padding:12px;position:relative;';
-const t = new Date(p.created_at);
-const iranT = new Date(t.getTime() + (3.5 * 3600000));
-const timeStr = iranT.getUTCHours() + ':' + String(iranT.getUTCMinutes()).padStart(2,'0');
-let content = '<div style="font-size:11px;color:var(--text2);margin-bottom:6px;display:flex;justify-content:space-between;align-items:center"><span>📢 ' + timeStr + '</span><button onclick="adminDeletePost(' + p.id + ')" style="background:none;border:none;color:#dc2626;cursor:pointer;font-size:16px">🗑️</button></div>';
+div.style.cssText = 'background:white;border:1px solid var(--border);border-radius:20px;padding:12px;position:relative;';
+if (p.is_pinned) div.style.border = '2px solid #d97706';
+const timeStr = formatIranTimeFromUTC(p.created_at);
+let content = '<div style="font-size:11px;color:var(--text2);margin-bottom:6px;display:flex;justify-content:space-between;align-items:center"><span>📢 ' + timeStr + (p.is_pinned ? ' 📌' : '') + '</span><div style="display:flex;gap:5px"><button onclick="adminPinPost(' + p.id + ',' + p.is_pinned + ')" style="background:none;border:none;color:#d97706;cursor:pointer;font-size:14px" title="پین">📌</button><button onclick="adminDeletePost(' + p.id + ')" style="background:none;border:none;color:#dc2626;cursor:pointer;font-size:16px">🗑️</button></div></div>';
 if (p.content) content += '<p style="line-height:1.8;white-space:pre-wrap;font-size:14px">' + p.content + '</p>';
 if (p.media_url) {
-if (p.media_type === 'image') content += '<img src="' + p.media_url + '" style="width:100%;border-radius:8px;margin-top:6px;max-height:200px;object-fit:cover">';
+if (p.media_type === 'image') content += '<img src="' + p.media_url + '" style="width:100%;border-radius:12px;margin-top:6px;max-height:200px;object-fit:cover">';
 else if (p.media_type === 'audio') content += '<audio controls src="' + p.media_url + '" style="width:100%;margin-top:6px"></audio>';
-else if (p.media_type === 'video') content += '<video controls src="' + p.media_url + '" style="width:100%;border-radius:8px;margin-top:6px"></video>';
+else if (p.media_type === 'video') content += '<video controls src="' + p.media_url + '" style="width:100%;border-radius:12px;margin-top:6px"></video>';
 }
 div.innerHTML = content;
 box.appendChild(div);
 });
 box.scrollTop = box.scrollHeight;
+}
+
+async function adminPinPost(id, currentPinned) {
+await client.from('channel_posts').update({is_pinned: !currentPinned}).eq('id', id);
+await loadAdminChannelPosts();
 }
 
 async function adminDeletePost(id) {
@@ -1399,50 +1553,125 @@ pendingAdminFile = file;
 const reader = new FileReader();
 reader.onload = function(e) {
 const preview = document.getElementById('admin-file-preview');
-if (file.type.startsWith('image')) preview.innerHTML = '<img src="' + e.target.result + '" style="max-height:150px;border-radius:8px;width:100%"><button onclick="clearAdminFile()" style="background:#dc2626;border:none;color:white;padding:4px 10px;border-radius:6px;cursor:pointer;margin-top:5px">× حذف</button>';
-else if (file.type.startsWith('audio')) preview.innerHTML = '<audio controls src="' + e.target.result + '" style="width:100%"></audio><button onclick="clearAdminFile()" style="background:#dc2626;border:none;color:white;padding:4px 10px;border-radius:6px;cursor:pointer;margin-top:5px">× حذف</button>';
-else if (file.type.startsWith('video')) preview.innerHTML = '<video controls src="' + e.target.result + '" style="width:100%;border-radius:8px"></video><button onclick="clearAdminFile()" style="background:#dc2626;border:none;color:white;padding:4px 10px;border-radius:6px;cursor:pointer;margin-top:5px">× حذف</button>';
+if (file.type.startsWith('image')) preview.innerHTML = '<img src="' + e.target.result + '" style="max-height:150px;border-radius:12px;width:100%"><button onclick="clearAdminFile()" style="background:#dc2626;border:none;color:white;padding:6px 14px;border-radius:50px;cursor:pointer;margin-top:5px">× حذف</button>';
+else if (file.type.startsWith('audio')) preview.innerHTML = '<audio controls src="' + e.target.result + '" style="width:100%"></audio><button onclick="clearAdminFile()" style="background:#dc2626;border:none;color:white;padding:6px 14px;border-radius:50px;cursor:pointer;margin-top:5px">× حذف</button>';
+else if (file.type.startsWith('video')) preview.innerHTML = '<video controls src="' + e.target.result + '" style="width:100%;border-radius:12px"></video><button onclick="clearAdminFile()" style="background:#dc2626;border:none;color:white;padding:6px 14px;border-radius:50px;cursor:pointer;margin-top:5px">× حذف</button>';
 };
 reader.readAsDataURL(file);
 }
 
-function clearAdminFile() {
-pendingAdminFile = null;
-document.getElementById('admin-file-preview').innerHTML = '';
-document.getElementById('admin-channel-file').value = '';
-}
+function clearAdminFile() { pendingAdminFile = null; document.getElementById('admin-file-preview').innerHTML = ''; document.getElementById('admin-channel-file').value = ''; }
 
 async function adminSendChannelMsg() {
+guardClick('adminSendChannel', async function() {
 const text = document.getElementById('admin-channel-text').value.trim();
-if (!text && !pendingAdminFile) return showMsg('پیام یا فایل را وارد کنید', 'error', 'msg-admin-channel');
+if (!text && !pendingAdminFile) { showMsg('پیام یا فایل را وارد کنید', 'error', 'msg-admin-channel'); return; }
 if (pendingAdminFile) {
+await new Promise(function(resolve) {
 const reader = new FileReader();
 reader.onload = async function(e) {
 let mediaType = 'file';
 if (pendingAdminFile.type.startsWith('image')) mediaType = 'image';
 else if (pendingAdminFile.type.startsWith('audio')) mediaType = 'audio';
 else if (pendingAdminFile.type.startsWith('video')) mediaType = 'video';
-await client.from('channel_posts').insert({content: text || null, type: 'admin', media_url: e.target.result, media_type: mediaType, created_at: new Date().toISOString()});
+await client.from('channel_posts').insert({content: text || null, type: 'admin', media_url: e.target.result, media_type: mediaType, is_pinned: false, created_at: new Date().toISOString()});
 document.getElementById('admin-channel-text').value = '';
 clearAdminFile();
 showMsg('✅ ارسال شد', 'success', 'msg-admin-channel');
 await loadAdminChannelPosts();
+resolve();
 };
 reader.readAsDataURL(pendingAdminFile);
+});
 } else {
-await client.from('channel_posts').insert({content: text, type: 'admin', media_url: null, media_type: null, created_at: new Date().toISOString()});
+await client.from('channel_posts').insert({content: text, type: 'admin', media_url: null, media_type: null, is_pinned: false, created_at: new Date().toISOString()});
 document.getElementById('admin-channel-text').value = '';
 showMsg('✅ پیام ارسال شد', 'success', 'msg-admin-channel');
 await loadAdminChannelPosts();
 }
+});
+}
+
+async function adminShowSettings() {
+hideAll();
+const res = await client.from('game_settings').select('*').eq('key', 'friendly_enabled').single();
+const enabled = res.data ? res.data.value === 'true' : true;
+document.getElementById('friendly-toggle').checked = enabled;
+document.getElementById('page-admin-settings').classList.remove('hidden');
+}
+
+async function toggleFriendlySetting() {
+const enabled = document.getElementById('friendly-toggle').checked;
+const exRes = await client.from('game_settings').select('id').eq('key', 'friendly_enabled').single();
+if (exRes.data) { await client.from('game_settings').update({value: enabled ? 'true' : 'false'}).eq('key', 'friendly_enabled'); }
+else { await client.from('game_settings').insert({key: 'friendly_enabled', value: enabled ? 'true' : 'false'}); }
+await addChannelPost('⚙️ تنظیمات بازی\n\n🏃 بازی دوستانه: ' + (enabled ? '✅ فعال شد' : '❌ غیرفعال شد') + '\n\n#تنظیمات');
+showMsg(enabled ? '✅ بازی دوستانه فعال شد' : '✅ بازی دوستانه غیرفعال شد', 'success');
+}
+
+async function adminShowSupport() {
+hideAll();
+const res = await client.from('support_messages').select('*').order('team_id').order('created_at', {ascending: false});
+const data = res.data;
+const list = document.getElementById('admin-support-list');
+list.innerHTML = '';
+const dotSupport = document.getElementById('dot-support');
+if (!data || !data.length) {
+list.innerHTML = '<div class="card"><p style="text-align:center;color:var(--text2);padding:20px">پیام پشتیبانی وجود ندارد</p></div>';
+if (dotSupport) dotSupport.classList.add('hidden');
+} else {
+const teams = {};
+data.forEach(function(m) { if (!teams[m.team_id]) teams[m.team_id] = {name: m.team_name, latest: m.created_at, hasNew: m.sender === 'team'}; });
+if (dotSupport) dotSupport.classList.toggle('hidden', !Object.values(teams).some(function(t){return t.hasNew;}));
+Object.keys(teams).forEach(function(tid) {
+const t = teams[tid];
+const div = document.createElement('div');
+div.className = 'card';
+div.style.cursor = 'pointer';
+div.innerHTML = '<div style="display:flex;justify-content:space-between;align-items:center"><span style="font-weight:bold">🆘 ' + t.name + '</span>' + (t.hasNew ? '<span class="badge badge-red">پیام جدید</span>' : '<span class="badge badge-green">پاسخ داده شده</span>') + '</div>';
+div.onclick = function() { openAdminSupportChat(parseInt(tid), t.name); };
+list.appendChild(div);
+});
+}
+document.getElementById('page-admin-support').classList.remove('hidden');
+}
+
+async function openAdminSupportChat(teamId, teamName) {
+currentSupportTeam = {id: teamId, name: teamName};
+document.getElementById('support-chat-title').textContent = '🆘 ' + teamName;
+hideAll();
+document.getElementById('page-admin-support-chat').classList.remove('hidden');
+const res = await client.from('support_messages').select('*').eq('team_id', teamId).order('created_at', {ascending: true});
+const data = res.data;
+const box = document.getElementById('support-chat-messages');
+box.innerHTML = '';
+if (!data || !data.length) { box.innerHTML = '<p style="color:var(--text2);text-align:center;margin-top:60px">پیامی وجود ندارد</p>'; return; }
+data.forEach(function(m) {
+const div = document.createElement('div');
+div.className = 'support-bubble ' + (m.sender === 'team' ? 'team' : 'admin');
+div.innerHTML = '<div style="font-size:11px;opacity:0.7;margin-bottom:4px">' + (m.sender === 'team' ? '👤 ' + teamName : '🛠️ ادمین') + ' - ' + formatIranTimeFromUTC(m.created_at) + '</div>' + m.message;
+box.appendChild(div);
+});
+box.scrollTop = box.scrollHeight;
+}
+
+async function adminSendSupport() {
+guardClick('adminSendSupport', async function() {
+const input = document.getElementById('support-admin-input');
+const text = input.value.trim();
+if (!text || !currentSupportTeam) return;
+await client.from('support_messages').insert({team_id: currentSupportTeam.id, team_name: currentSupportTeam.name, sender: 'admin', message: text, created_at: new Date().toISOString()});
+input.value = '';
+await openAdminSupportChat(currentSupportTeam.id, currentSupportTeam.name);
+});
 }
 
 function adminChangePass() {
 const newPass = prompt('پسورد جدید ادمین:');
 if (!newPass) return;
-if (newPass.length < 4) return showMsg('پسورد باید حداقل ۴ کاراکتر باشد');
+if (newPass.length < 4) { showMsg('پسورد باید حداقل ۴ کاراکتر باشد'); return; }
 const confirm2 = prompt('تکرار پسورد:');
-if (newPass !== confirm2) return showMsg('پسوردها یکسان نیستند');
+if (newPass !== confirm2) { showMsg('پسوردها یکسان نیستند'); return; }
 ADMIN_PASSWORD = newPass;
 showMsg('✅ پسورد تغییر کرد', 'success');
 }
@@ -1461,8 +1690,10 @@ function resetStep2() { document.getElementById('reset-step-2').classList.add('h
 function resetStep3() { document.getElementById('reset-step-3').classList.add('hidden'); document.getElementById('reset-step-4').classList.remove('hidden'); }
 
 async function doReset() {
+guardClick('doReset', async function() {
 showMsg('در حال ریست...', 'success', 'msg-reset');
 try {
+await client.from('support_messages').delete().neq('id', 0);
 await client.from('neg_messages').delete().neq('id', 0);
 await client.from('negotiations').delete().neq('id', 0);
 await client.from('neg_requests').delete().neq('id', 0);
@@ -1476,11 +1707,12 @@ await client.from('teams').delete().neq('id', 0);
 showMsg('✅ بازی ریست شد!', 'success', 'msg-reset');
 setTimeout(function() { showLanding(); }, 2000);
 } catch (e) { showMsg('خطا: ' + e.message, 'error', 'msg-reset'); }
+});
 }
 
 function cancelReset() { adminShowReset(); }
 
-window.onload = showLanding;
+window.onload = function() { showLanding(); };
 </script>
 </div>
 </body>
